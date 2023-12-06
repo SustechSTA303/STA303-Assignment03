@@ -2,6 +2,9 @@ from typing import List
 from plot_underground_path import plot_path
 from build_data import Station, build_data
 import argparse
+from algs import astar
+from algs import greedy_bfs
+from algs import dijkstra
 
 
 # Implement the following function
@@ -23,7 +26,12 @@ def get_path(start_station_name: str, end_station_name: str, map: dict[str, Stat
     # Given a Station object, you can obtain the name and latitude and longitude of that Station by the following code
     print(f'The longitude and latitude of the {start_station.name} is {start_station.position}')
     print(f'The longitude and latitude of the {end_station.name} is {end_station.position}')
-    pass
+    ################### The following is the code student implemented ###################
+    # path = astar(start_station, end_station, map)
+    # path = greedy_bfs(start_station, end_station, map)
+    path = dijkstra(start_station, end_station, map)
+    return path
+    
 
 
 if __name__ == '__main__':
