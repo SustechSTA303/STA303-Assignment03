@@ -1,11 +1,40 @@
+from math import sqrt
 from typing import List
 from plot_underground_path import plot_path
 from build_data import Station, build_data
+from queue import PriorityQueue, Queue
+from bezier_util import generate_bezier, bezier_curve_length
 import argparse
 
 
+def get_distance(pos1, pos2, metric = "Euclidean", cp_dict = {}, line_number = None):
+    if metric == "Bezier":
+        if (line_number, pos1, pos2) in cp_dict:
+            return bezier_curve_length(pos1, cp_dict[(line_number, pos1, pos2)], pos2)
+    if metric == "Manhattan":
+        return abs(pos2[0] - pos1[0]) + abs(pos2[1] - pos1[1])
+    return sqrt((pos2[0] - pos1[0]) ** 2 + (pos2[1] - pos1[1]) ** 2)
+
+def is_transfer(sta1: Station, sta2: Station, sta3: Station):
+    """
+    Return True if sta1 -> sta2 -> sta3 is within the same line.
+    """
+    set1 = {l[1] for l in sta1.links}
+    set2 = {l[1] for l in sta2.links}
+    set3 = {l[1] for l in sta3.links}
+    return len(set1.intersection(set2.intersection(set3))) != 0
+
 # Implement the following function
-def get_path(start_station_name: str, end_station_name: str, map: dict[str, Station]) -> List[str]:
+def get_path(
+    start_station_name: str,
+    end_station_name: str,
+    map: dict[str, Station],
+    underground_lines,
+    algorithm: str = "Astar",
+    metric: str = "Euclidean",
+    penalty = 0,
+    cp_dict = {}
+) -> List[str]:
     """
     runs astar on the map, find the shortest path between a and b
     Args:
@@ -14,6 +43,9 @@ def get_path(start_station_name: str, end_station_name: str, map: dict[str, Stat
         map(dict[str, Station]): Mapping between station names and station objects of the name,
                                  Please refer to the relevant comments in the build_data.py
                                  for the description of the Station class
+        algorithm(str): ["Astar" | "Dijkstra" | "SPFA"]
+        metric(str): ["Euclidean" | "Manhattan" | "Bezier"]
+        penalty(float): Time estimation for line transfer
     Returns:
         List[Station]: A path composed of a series of station_name
     """
@@ -21,9 +53,52 @@ def get_path(start_station_name: str, end_station_name: str, map: dict[str, Stat
     start_station = map[start_station_name]
     end_station = map[end_station_name]
     # Given a Station object, you can obtain the name and latitude and longitude of that Station by the following code
-    print(f'The longitude and latitude of the {start_station.name} is {start_station.position}')
-    print(f'The longitude and latitude of the {end_station.name} is {end_station.position}')
-    pass
+#     print(f'The longitude and latitude of the {start_station.name} is {start_station.position}')
+#     print(f'The longitude and latitude of the {end_station.name} is {end_station.position}')
+    
+    q = PriorityQueue() if algorithm not in ["SPFA"] else Queue()
+    q.put((0, 0, [start_station_name]))
+    vis = {}
+    
+    while not q.empty():
+        
+        astar_dis, dis, cur_pth = q.get()
+        
+        if cur_pth[-1] in vis and dis >= vis[cur_pth[-1]][0]:
+            continue
+            
+        cur_station = map[cur_pth[-1]]
+        vis[cur_pth[-1]] = (dis, cur_pth)
+        
+        for sta, tar_line_id in cur_station.links:
+            tar_line_id = int(tar_line_id)
+            tar_line = underground_lines[tar_line_id]["name"]
+            tmp_dis = get_distance(cur_station.position, sta.position, metric, cp_dict, tar_line_id)
+            dest_dis = get_distance(end_station.position, sta.position, metric, cp_dict, tar_line_id)
+            
+            if algorithm != "Astar":
+                dest_dis = 0
+                
+            tmp_dis += penalty / 4 \
+                if len(cur_pth) == 1 or is_transfer(map[cur_pth[-2]], map[cur_pth[-1]], sta) \
+                else penalty
+            
+            if sta.name in vis and dis + tmp_dis + dest_dis > vis[sta.name][0]:
+                continue
+                
+            if sta.name == end_station_name:
+                if algorithm in ["Astar", "Dijkstra"]:
+                    print(algorithm, metric, penalty)
+                    print(cur_pth + [sta.name])
+                    print()
+                    return cur_pth + [sta.name]
+            
+            q.put((dis + tmp_dis + dest_dis, dis + tmp_dis, cur_pth + [sta.name]))
+    
+    print(algorithm, metric, penalty)
+    print(vis[end_station_name][1])
+    print()
+    return vis[end_station_name][1]
 
 
 if __name__ == '__main__':
@@ -36,10 +111,24 @@ if __name__ == '__main__':
     args = parser.parse_args()
     start_station_name = args.start_station_name
     end_station_name = args.end_station_name
-
+    
     # The relevant descriptions of stations and underground_lines can be found in the build_data.py
     stations, underground_lines = build_data()
-    path = get_path(start_station_name, end_station_name, stations)
+    cp_dict = generate_bezier(underground_lines)
+#     path = get_path(start_station_name, end_station_name, stations)
+    
+    algorithms = ["Astar", "Dijkstra", "SPFA"]
+    metrics = ["Euclidean", "Manhattan", "Bezier"]
+    penalties = [0, 0.3]
+    
+    for algorithm in algorithms:
+        for metric in metrics:
+            for penalty in penalties:
+                if penalty != 0 and algorithm != "Astar":
+                    continue
+                path = get_path(start_station_name, end_station_name, stations, underground_lines, algorithm, metric, penalty, cp_dict)
+                plot_path(path, f"visualization_underground/{start_station_name}_{end_station_name}_{algorithm}_{metric}_{'n' if penalty == 0 else 'p'}.html", stations, underground_lines, cp_dict, metric)
+    
     # visualization the path
     # Open the visualization_underground/my_path_in_London_railway.html to view the path, and your path is marked in red
-    plot_path(path, 'visualization_underground/my_shortest_path_in_London_railway.html', stations, underground_lines)
+#     plot_path(path, 'visualization_underground/my_shortest_path_in_London_railway.html', stations, underground_lines)

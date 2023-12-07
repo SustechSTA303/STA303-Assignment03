@@ -40,8 +40,8 @@ def build_data():
     for id1, id2, lineNumber in r:
         id1 = int(id1)
         id2 = int(id2)
-        stations[id1].links.add(stations[id2])
-        stations[id2].links.add(stations[id1])
+        stations[id1].links.add((stations[id2], lineNumber))
+        stations[id2].links.add((stations[id1], lineNumber))
         lineNumber = int(lineNumber)
         if lineNumber not in underground_lines:
             underground_lines[lineNumber] = {'lat': [stations[id1].position[0], stations[id2].position[0], None],
@@ -60,6 +60,6 @@ def build_data():
         underground_lines[lineNumber]['colour'] = colour.upper()
         underground_lines[lineNumber]['stripe'] = stripe
     stations = {v.name: v for k, v in stations.items()}
-    underground_lines = {v['name']: v for k, v in underground_lines.items()}
+#     underground_lines = {v['name']: v for k, v in underground_lines.items()}
     return stations, underground_lines
 
