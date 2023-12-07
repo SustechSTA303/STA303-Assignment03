@@ -1,9 +1,11 @@
 import heapq
 from build_data import Station
+from geopy.distance import geodesic
 
 
-def astar(start_station: Station, end_station: Station, map: dict[str, Station]) -> list:
-    distance = euclidean
+
+def astar(start_station: Station, end_station: Station) -> (list, float):
+    distance = geodesic_distance
     heuristic = manhattan
 
     closed_set = set()
@@ -15,7 +17,7 @@ def astar(start_station: Station, end_station: Station, map: dict[str, Station])
     while open_set:
         current = heapq.heappop(open_set)[1]
         if current.id == end_station.id:
-            return reconstruct_path(current)
+            return reconstruct_path(current), current.g_score
         for neighbor in current.links:
             if neighbor not in closed_set:
                 neighbor.g_score = current.g_score + distance(current, neighbor)
@@ -23,23 +25,32 @@ def astar(start_station: Station, end_station: Station, map: dict[str, Station])
                 neighbor.come_from = current
                 heapq.heappush(open_set, (neighbor.f_score, neighbor))
                 closed_set.add(neighbor)
+            else:
+                if neighbor.g_score > current.g_score + distance(current, neighbor):
+                    neighbor.g_score = current.g_score + distance(current, neighbor)
+                    neighbor.f_score = neighbor.g_score + heuristic(neighbor, end_station)
+                    neighbor.come_from = current
+                    heapq.heappush(open_set, (neighbor.f_score, neighbor))
     raise Exception("No valid path found by A* Search")
 
 
-def greedy_bfs(start_station: Station, end_station: Station, map: dict[str, Station]) -> list:
+def greedy_bfs(start_station: Station, end_station: Station) -> (list, float):
+    distance = geodesic_distance
     heuristic = manhattan
 
     closed_set = set()
     closed_set.add(start_station)
+    start_station.g_score = 0
     start_station.score = heuristic(start_station, end_station)
     start_station.come_from = None
     open_set = [(start_station.score, start_station)]
     while open_set:
         current = heapq.heappop(open_set)[1]
         if current.id == end_station.id:
-            return reconstruct_path(current)
+            return reconstruct_path(current), current.g_score
         for neighbor in current.links:
             if neighbor not in closed_set:
+                neighbor.g_score = current.g_score + distance(current, neighbor)
                 neighbor.score = heuristic(neighbor, end_station)
                 neighbor.come_from = current
                 heapq.heappush(open_set, (neighbor.score, neighbor))
@@ -47,8 +58,8 @@ def greedy_bfs(start_station: Station, end_station: Station, map: dict[str, Stat
     raise Exception("No valid path found by Greedy Best First Search")
 
 
-def dijkstra(start_station: Station, end_station: Station, map: dict[str, Station]) -> list:
-    distance = euclidean
+def dijkstra(start_station: Station, end_station: Station) -> (list, float):
+    distance = geodesic_distance
 
     closed_set = set()
     closed_set.add(start_station)
@@ -58,13 +69,18 @@ def dijkstra(start_station: Station, end_station: Station, map: dict[str, Statio
     while open_set:
         current = heapq.heappop(open_set)[1]
         if current.id == end_station.id:
-            return reconstruct_path(current)
+            return reconstruct_path(current), current.g_score
         for neighbor in current.links:
             if neighbor not in closed_set:
                 neighbor.g_score = current.g_score + distance(current, neighbor)
                 neighbor.come_from = current
                 heapq.heappush(open_set, (neighbor.g_score, neighbor))
                 closed_set.add(neighbor)
+            else:
+                if neighbor.g_score > current.g_score + distance(current, neighbor):
+                    neighbor.g_score = current.g_score + distance(current, neighbor)
+                    neighbor.come_from = current
+                    heapq.heappush(open_set, (neighbor.g_score, neighbor))
     raise Exception("No valid path found by Dijkstra's Algorithm")
 
 
@@ -97,3 +113,14 @@ def euclidean(a: Station, b: Station) -> float:
         float: The distance between two stations
     """
     return ((a.position[0] - b.position[0]) ** 2 + (a.position[1] - b.position[1]) ** 2) ** 0.5
+
+def geodesic_distance(a: Station, b: Station) -> float:
+    """
+    Calculate the geodesic distance between two stations
+    Args:
+        a(Station): The first station
+        b(Station): The second station
+    Returns:
+        float: The distance between two stations
+    """
+    return geodesic(a.position, b.position).km

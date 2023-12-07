@@ -8,7 +8,7 @@ from algs import dijkstra
 
 
 # Implement the following function
-def get_path(start_station_name: str, end_station_name: str, map: dict[str, Station]) -> List[str]:
+def get_path(start_station_name: str, end_station_name: str, map: dict[str, Station]) -> (List[str], float):
     """
     runs astar on the map, find the shortest path between a and b
     Args:
@@ -29,8 +29,8 @@ def get_path(start_station_name: str, end_station_name: str, map: dict[str, Stat
     ################### The following is the code student implemented ###################
     # path = astar(start_station, end_station, map)
     # path = greedy_bfs(start_station, end_station, map)
-    path = dijkstra(start_station, end_station, map)
-    return path
+    path, path_distance = greedy_bfs(start_station, end_station)
+    return path, path_distance
     
 
 
@@ -47,7 +47,9 @@ if __name__ == '__main__':
 
     # The relevant descriptions of stations and underground_lines can be found in the build_data.py
     stations, underground_lines = build_data()
-    path = get_path(start_station_name, end_station_name, stations)
+    path, path_distance = get_path(start_station_name, end_station_name, stations)
+    print(f'The shortest path between {start_station_name} and {end_station_name} is \n {path}')
+    print(f'The distance of the shortest path between {start_station_name} and {end_station_name} is {path_distance} km')
     # visualization the path
     # Open the visualization_underground/my_path_in_London_railway.html to view the path, and your path is marked in red
     plot_path(path, 'visualization_underground/my_shortest_path_in_London_railway.html', stations, underground_lines)
