@@ -58,17 +58,25 @@ def get_path(
     
     q = PriorityQueue() if algorithm not in ["SPFA"] else Queue()
     q.put((0, 0, [start_station_name]))
-    vis = {}
+    cur_res = {start_station_name: (0, [start_station_name])}
+    vis = set()
     
     while not q.empty():
         
         astar_dis, dis, cur_pth = q.get()
         
-        if cur_pth[-1] in vis and dis >= vis[cur_pth[-1]][0]:
+        if cur_pth[-1] == end_station_name:
+            if algorithm in ["Astar", "Dijkstra"]:
+                print(algorithm, metric, penalty)
+                print(cur_pth)
+                print()
+                return cur_pth
+        
+        if cur_pth[-1] in vis or cur_res[cur_pth[-1]][0] < dis:
             continue
             
         cur_station = map[cur_pth[-1]]
-        vis[cur_pth[-1]] = (dis, cur_pth)
+        vis.add(cur_pth[-1])
         
         for sta, tar_line_id in cur_station.links:
             tar_line_id = int(tar_line_id)
@@ -83,22 +91,20 @@ def get_path(
                 if len(cur_pth) == 1 or is_transfer(map[cur_pth[-2]], map[cur_pth[-1]], sta) \
                 else penalty
             
-            if sta.name in vis and dis + tmp_dis + dest_dis > vis[sta.name][0]:
+            if sta.name in cur_res and dis + tmp_dis > cur_res[sta.name][0]:
                 continue
                 
-            if sta.name == end_station_name:
-                if algorithm in ["Astar", "Dijkstra"]:
-                    print(algorithm, metric, penalty)
-                    print(cur_pth + [sta.name])
-                    print()
-                    return cur_pth + [sta.name]
+            if sta.name in vis and dis + tmp_dis < cur_res[sta.name][0]:
+                vis.remove(sta.name)
+                
+            cur_res[sta.name] = (dis + tmp_dis, cur_pth + [sta.name])
             
             q.put((dis + tmp_dis + dest_dis, dis + tmp_dis, cur_pth + [sta.name]))
     
     print(algorithm, metric, penalty)
-    print(vis[end_station_name][1])
+    print(cur_res[end_station_name][1])
     print()
-    return vis[end_station_name][1]
+    return cur_res[end_station_name][1]
 
 
 if __name__ == '__main__':
@@ -129,6 +135,3 @@ if __name__ == '__main__':
                 path = get_path(start_station_name, end_station_name, stations, underground_lines, algorithm, metric, penalty, cp_dict)
                 plot_path(path, f"visualization_underground/{start_station_name}_{end_station_name}_{algorithm}_{metric}_{'n' if penalty == 0 else 'p'}.html", stations, underground_lines, cp_dict, metric)
     
-    # visualization the path
-    # Open the visualization_underground/my_path_in_London_railway.html to view the path, and your path is marked in red
-#     plot_path(path, 'visualization_underground/my_shortest_path_in_London_railway.html', stations, underground_lines)
