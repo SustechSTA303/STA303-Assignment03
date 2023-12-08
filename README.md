@@ -13,26 +13,16 @@
 - [plot_underground_lines.py](plot_underground_lines.py) (Draw a map of the London Underground route)
 - [plot_underground_path.py](plot_underground_path.py) (Draw a path on the London Underground route map)
 - [README.md](README.md)
-### How to visualize the map and path
-- To draw a map of the London Underground route:
-```
-python plot_underground_lines.py
-```
-and open [London_railway.html](visualization_underground%2FLondon_railway.html) to view it.
-- To draw path on the map, such as ['Acton Town', 'Chiswick Park', 'Turnham Green', 'Stamford Brook']:
-```
-python plot_underground_path.py
-```
-Then, you can open [my_path_in_London_railway.html](visualization_underground%2Fmy_path_in_London_railway.html) to view it.
-
-### Assignment3 Requirements
-- Implement the function get_path() in [find_shortest_path.py](find_shortest_path.py).
-- After implementation, you can visualize the shortest path at a given starting and ending station, by running the following command: 
+### How to find the way
+You can assign two stations. For example, the following specifies the path from Acton Town to Turnham Green:
 ```
 python find_shortest_path.py  "Acton Town"  "Turnham Green"
 ```
-The above example specifies the path from Acton Town to Turnham Green. 
 
+If no assignments for stations, it will randomly pick two.
+```
+python find_shortest_path.py 
+```
 ***(Note: If there are blank space in the station name, station name need to be wrapped in double quotation marks("") in the command line.)***
 
-Then, open `visualization_underground/my_shortest_path_in_London_railway.html` to view the path.
+Then, open `visualization_underground/path_{algorithm}_{Heuristic}.html` to view the path.
