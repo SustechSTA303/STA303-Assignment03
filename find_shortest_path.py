@@ -24,28 +24,31 @@ def is_transfer(sta1: Station, sta2: Station, sta3: Station):
     set3 = {l[1] for l in sta3.links}
     return len(set1.intersection(set2.intersection(set3))) != 0
 
-# Implement the following function
 def get_path(
     start_station_name: str,
     end_station_name: str,
     map: dict[str, Station],
-    underground_lines,
+    underground_lines: dict,
     algorithm: str = "Astar",
     metric: str = "Euclidean",
-    penalty = 0,
-    cp_dict = {}
+    penalty: float = 0,
+    cp_dict: dict = {}
 ) -> List[str]:
     """
-    runs astar on the map, find the shortest path between a and b
+    Runs specified algorithm on the map, find the shortest path between a and b
     Args:
         start_station_name(str): The name of the starting station
         end_station_name(str): str The name of the ending station
         map(dict[str, Station]): Mapping between station names and station objects of the name,
                                  Please refer to the relevant comments in the build_data.py
                                  for the description of the Station class
+        underground_lines(dict[int, dict]): Line Number -> Underground Line Dict 
         algorithm(str): ["Astar" | "Dijkstra" | "SPFA"]
         metric(str): ["Euclidean" | "Manhattan" | "Bezier"]
         penalty(float): Time estimation for line transfer
+        cp_dict(dict[(int, str, str), (float, float)]): 
+            (Line Number, Station 1 Name, Station 2 Name) -> Control point position
+            Station 1 and Station 2 should be adjacent.
     Returns:
         List[Station]: A path composed of a series of station_name
     """
@@ -68,7 +71,7 @@ def get_path(
         if cur_pth[-1] == end_station_name:
             if algorithm in ["Astar", "Dijkstra"]:
                 print(algorithm, metric, penalty)
-                print(cur_pth)
+                print(dis, cur_pth)
                 print()
                 return cur_pth
         
@@ -102,7 +105,7 @@ def get_path(
             q.put((dis + tmp_dis + dest_dis, dis + tmp_dis, cur_pth + [sta.name]))
     
     print(algorithm, metric, penalty)
-    print(cur_res[end_station_name][1])
+    print(cur_res[end_station_name])
     print()
     return cur_res[end_station_name][1]
 

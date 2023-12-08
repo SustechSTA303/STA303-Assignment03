@@ -20,7 +20,7 @@ def build_data():
     builds the 'map' by reading the data files
     Returns:
         station(dict[str, Station]): A mapping between station names and station objects of the name
-        underground_lines(dict[str, dict]): A mapping between underground lines name and a dictionary containing relevant
+        underground_lines(dict[int, dict]): A mapping between underground lines number and a dictionary containing relevant
                                             information about underground lines
     """
     stations = {}

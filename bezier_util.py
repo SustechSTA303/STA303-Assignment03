@@ -4,12 +4,12 @@ from scipy.special import comb
 from scipy.integrate import quad
 
 def bernstein_poly(i, n, t):
-    return comb(n, i) * (t**(n-i)) * ((1-t)**i)
+    return comb(n, i) * (t ** (n - i)) * ((1 - t) ** i)
 
 def bezier_curve(control_points, t):
     n = len(control_points) - 1
-    x = sum(bernstein_poly(i, n, t) * control_points[i][0] for i in range(n+1))
-    y = sum(bernstein_poly(i, n, t) * control_points[i][1] for i in range(n+1))
+    x = sum(bernstein_poly(i, n, t) * control_points[i][0] for i in range(n + 1))
+    y = sum(bernstein_poly(i, n, t) * control_points[i][1] for i in range(n + 1))
     return x, y
 
 def bezier_interpolation(points, num_points = 11):
@@ -21,12 +21,27 @@ def bezier_interpolation(points, num_points = 11):
     return curve_points
 
 
-def generate_control_point(pos1, pos2, pos3, pos4):
+def miracle(pos1, pos2, pos3, pos4):
+    """
+        「现在我的魔法已然散尽」
+        「求审判解脱我灵魂上的枷锁！」
+        「请不要再把我禁闭在这孤岛独舞…」
+        「我已将我最微弱的希望献上。」
+        
+        「今、我が魔法はすべて散り果てた。」
+        「お願いだ。審判によって、魂の鎖を開放してくれ！」
+        「孤島に囚われたこの身を、独りぼっちで踊らせないでくれ…」
+        「——ほんの小さな希望を捧げる。」
+        
+        「Now that my magic is spent.」
+        「Please, O judge, lift the chains from my soul!」
+        「Never again consign me to dance alone upon this lonely isle.」
+        「My last glimmer of hope I offer up to you.」
+    """
     x1, y1 = pos1
     x2, y2 = pos2
     x3, y3 = pos3
     x4, y4 = pos4
-    l = ((x3 - x2) ** 2 + (y3 - y2) ** 2) ** 0.5
     a = x2 - x1
     b = x3 - x4
     c = x3 - x2
@@ -43,18 +58,24 @@ def generate_control_point(pos1, pos2, pos3, pos4):
         tx, ty = (x2 + x3) * 5 / 8 - (x1 + x4) * 1 / 8, (y2 + y3) * 5 / 8 - (y1 + y4) * 1 / 8
     return (tx, ty)
 
-# def bezier_curve_quad(t, P1, P3, P2):
-#     return tuple((1 - t) ** 2 * P1[i] + 2 * (1 - t) * t * P3[i] + t ** 2 * P2[i] for i in range(len(P1)))
-
 def bezier_derivative(t, P1, P3, P2):
     return tuple(2 * (1 - t) * (P3[i] - P1[i]) + 2 * t * (P2[i] - P3[i]) for i in range(len(P1)))
 
 def bezier_curve_length(P1, P3, P2, num_points=100):
+    """
+        Calculate the approximate value of quadratic Bezier curve with the control point [P1, P3, P2]
+    """
     integrand = lambda t: np.linalg.norm(bezier_derivative(t, P1, P3, P2))
     length, error = quad(integrand, 0, 1)
     return length
 
 def generate_bezier(underground_lines):
+    """
+        :param underground_lines(dict): Line Number -> Underground Line Dict
+        :return cp_dict(dict[(int, str, str), (float, float)]): 
+            (Line Number, Station 1 Name, Station 2 Name) -> Control point position
+            Station 1 and Station 2 should be adjacent.
+    """
     cp_dict = {}
     for line_number, underground_line in underground_lines.items():
         tmp_lat=underground_line["lat"],  
@@ -131,8 +152,8 @@ def generate_bezier(underground_lines):
             for i in range(1, len(ordered_points) - 2):
                 if ordered_points[i] == ordered_points[i + 1]:
                     continue
-                gcp = generate_control_point(ordered_points[i - 1], ordered_points[i], ordered_points[i + 1], ordered_points[i + 2])
-                cp_dict[(line_number, ordered_points[i], ordered_points[i + 1])] = gcp
-                cp_dict[(line_number, ordered_points[i + 1], ordered_points[i])] = gcp
+                magic = miracle(ordered_points[i - 1], ordered_points[i], ordered_points[i + 1], ordered_points[i + 2])
+                cp_dict[(line_number, ordered_points[i], ordered_points[i + 1])] = magic
+                cp_dict[(line_number, ordered_points[i + 1], ordered_points[i])] = magic
                 
     return cp_dict

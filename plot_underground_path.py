@@ -12,6 +12,7 @@ def plot_path(path, output, stations, underground_lines, cp_dict, metric):
     :param stations: A mapping between station names and station objects of the name
     :param underground_lines: A mapping between underground lines name and a dictionary containing relevant
                              information about underground lines
+    :param metric: ["Euclidean" | "Manhattan" | "Bezier"]
     :return: None
     """
 
