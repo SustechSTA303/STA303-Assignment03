@@ -13,7 +13,7 @@ python find_shortest_path.py
 
 Then, open `visualization_underground/path_{algorithm}_{Heuristic}.html` to view the path.
 
-And in `images/`, you can compare the distance and time of different algorithms and Heuristic
+And in `images/`, you can compare the distance and time of different algorithms and Heuristic.
 
 ### File Description
 - [london](london) 
