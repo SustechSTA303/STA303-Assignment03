@@ -1,4 +1,19 @@
 ## Assignment3: Find the shortest path in underground lines 
+### How to find the way
+You can assign two stations. For example, the following specifies the path from Acton Town to Turnham Green:
+```
+python find_shortest_path.py  "Acton Town"  "Turnham Green"
+```
+
+If no assignments for stations, it will randomly pick two.
+```
+python find_shortest_path.py 
+```
+***(Note: If there are blank space in the station name, station name need to be wrapped in double quotation marks("") in the command line.)***
+
+Then, open `visualization_underground/path_{algorithm}_{Heuristic}.html` to view the path.
+And in `images/`, you can compare the distance and time of different algorithms and Heuristic
+
 ### File Description
 - [london](london) 
   - [underground_lines.csv](london%2Funderground_lines.csv)(London Underground lines Data)
@@ -13,16 +28,3 @@
 - [plot_underground_lines.py](plot_underground_lines.py) (Draw a map of the London Underground route)
 - [plot_underground_path.py](plot_underground_path.py) (Draw a path on the London Underground route map)
 - [README.md](README.md)
-### How to find the way
-You can assign two stations. For example, the following specifies the path from Acton Town to Turnham Green:
-```
-python find_shortest_path.py  "Acton Town"  "Turnham Green"
-```
-
-If no assignments for stations, it will randomly pick two.
-```
-python find_shortest_path.py 
-```
-***(Note: If there are blank space in the station name, station name need to be wrapped in double quotation marks("") in the command line.)***
-
-Then, open `visualization_underground/path_{algorithm}_{Heuristic}.html` to view the path.
