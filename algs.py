@@ -4,9 +4,17 @@ from geopy.distance import geodesic
 
 
 
-def astar(start_station: Station, end_station: Station) -> (list, float):
+def astar(start_station: Station, end_station: Station, heuristic: str) -> (list, float):
     distance = geodesic_distance
-    heuristic = manhattan
+
+    if heuristic == 'manhattan':
+        heuristic = manhattan
+    elif heuristic == 'euclidean':
+        heuristic = euclidean
+    elif heuristic == 'geodesic':
+        heuristic = geodesic_distance
+    else:
+        raise Exception("Invalid heuristic")
 
     closed_set = set()
     closed_set.add(start_station)
@@ -34,9 +42,17 @@ def astar(start_station: Station, end_station: Station) -> (list, float):
     raise Exception("No valid path found by A* Search")
 
 
-def greedy_bfs(start_station: Station, end_station: Station) -> (list, float):
+def greedy_bfs(start_station: Station, end_station: Station, heuristic) -> (list, float):
     distance = geodesic_distance
-    heuristic = manhattan
+
+    if heuristic == 'manhattan':
+        heuristic = manhattan
+    elif heuristic == 'euclidean':
+        heuristic = euclidean
+    elif heuristic == 'geodesic':
+        heuristic = geodesic_distance
+    else:
+        raise Exception("Invalid heuristic")
 
     closed_set = set()
     closed_set.add(start_station)

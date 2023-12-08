@@ -8,7 +8,7 @@ from algs import dijkstra
 
 
 # Implement the following function
-def get_path(start_station_name: str, end_station_name: str, map: dict[str, Station]) -> (List[str], float):
+def get_path(start_station_name: str, end_station_name: str, map: dict[str, Station], algorithm: str, heuristic: str) -> (List[str], float):
     """
     runs astar on the map, find the shortest path between a and b
     Args:
@@ -29,7 +29,12 @@ def get_path(start_station_name: str, end_station_name: str, map: dict[str, Stat
     ################### The following is the code student implemented ###################
     # path = astar(start_station, end_station, map)
     # path = greedy_bfs(start_station, end_station, map)
-    path, path_distance = greedy_bfs(start_station, end_station)
+    if algorithm == 'astar':
+        path, path_distance = astar(start_station, end_station, heuristic)
+    elif algorithm == 'greedy_bfs':
+        path, path_distance = greedy_bfs(start_station, end_station, heuristic)
+    elif algorithm == 'dijkstra':
+        path, path_distance = dijkstra(start_station, end_station)
     return path, path_distance
     
 
@@ -41,13 +46,17 @@ if __name__ == '__main__':
     # 添加命令行参数
     parser.add_argument('start_station_name', type=str, help='start_station_name')
     parser.add_argument('end_station_name', type=str, help='end_station_name')
+    parser.add_argument('algorithm', type=str, default='astar', help='algorithm')
+    parser.add_argument('heuristic', type=str, default='euclidean', help='heuristic')
     args = parser.parse_args()
     start_station_name = args.start_station_name
     end_station_name = args.end_station_name
+    algorithm = args.algorithm
+    heuristic = args.heuristic
 
     # The relevant descriptions of stations and underground_lines can be found in the build_data.py
     stations, underground_lines = build_data()
-    path, path_distance = get_path(start_station_name, end_station_name, stations)
+    path, path_distance = get_path(start_station_name, end_station_name, stations, algorithm, heuristic)
     print(f'The shortest path between {start_station_name} and {end_station_name} is \n {path}')
     print(f'The distance of the shortest path between {start_station_name} and {end_station_name} is {path_distance} km')
     # visualization the path
