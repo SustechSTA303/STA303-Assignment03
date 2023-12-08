@@ -61,5 +61,9 @@ def build_data():
         underground_lines[lineNumber]['stripe'] = stripe
     stations = {v.name: v for k, v in stations.items()}
     underground_lines = {v['name']: v for k, v in underground_lines.items()}
+    # print("station",stations['Acton Town'].name, stations['Acton Town'].position, stations['Acton Town'].links)
+ #   print("underground",underground_lines)
     return stations, underground_lines
 
+if __name__ == '__main__':
+    build_data()
