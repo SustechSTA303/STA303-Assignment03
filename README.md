@@ -11,7 +11,7 @@ python find_shortest_path.py
 ```
 ***(Note: If there are blank space in the station name, station name need to be wrapped in double quotation marks("") in the command line.)***
 
-Then, open `visualization_underground/path_{algorithm}_{Heuristic}.html` to view the path.
+Then, open `visualization_underground/path_{algorithm}_{Heuristic}.html` to view the path.\\
 And in `images/`, you can compare the distance and time of different algorithms and Heuristic
 
 ### File Description
