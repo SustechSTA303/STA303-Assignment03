@@ -33,8 +33,10 @@ def get_path(start_station_name: str, end_station_name: str, map: dict[str, Stat
         path, path_distance = astar(start_station, end_station, heuristic)
     elif algorithm == 'greedy_bfs':
         path, path_distance = greedy_bfs(start_station, end_station, heuristic)
-    elif algorithm == 'dijkstra':
+    elif algorithm == 'dijikstra':
         path, path_distance = dijkstra(start_station, end_station)
+    else:
+        raise Exception("Invalid algorithm")
     return path, path_distance
     
 

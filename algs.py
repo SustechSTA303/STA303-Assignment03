@@ -1,7 +1,7 @@
 import heapq
 from build_data import Station
 from geopy.distance import geodesic
-
+from math import cos
 
 
 def astar(start_station: Station, end_station: Station, heuristic: str) -> (list, float):
@@ -117,7 +117,9 @@ def manhattan(a: Station, b: Station) -> float:
     Returns:
         float: The distance between two stations
     """
-    return abs(a.position[0] - b.position[0]) + abs(a.position[1] - b.position[1])
+    dx = abs(a.position[0] - b.position[0])
+    dy = abs(a.position[1] - b.position[1])
+    return abs(dx * 111) + abs(dy * 111)
 
 def euclidean(a: Station, b: Station) -> float:
     """
@@ -128,7 +130,9 @@ def euclidean(a: Station, b: Station) -> float:
     Returns:
         float: The distance between two stations
     """
-    return ((a.position[0] - b.position[0]) ** 2 + (a.position[1] - b.position[1]) ** 2) ** 0.5
+    dx = abs(a.position[0] - b.position[0])
+    dy = abs(a.position[1] - b.position[1])
+    return ((dx * 111) ** 2 + (dy * 111) ** 2) ** 0.5
 
 def geodesic_distance(a: Station, b: Station) -> float:
     """
