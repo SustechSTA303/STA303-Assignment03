@@ -4,7 +4,7 @@ from geopy.distance import geodesic
 from math import cos
 
 
-def astar(start_station: Station, end_station: Station, heuristic: str) -> (list, float, int):
+def astar(start_station: Station, end_station: Station, heuristic: str, alpha=1) -> (list, float, int):
     distance = geodesic_distance
 
     heuristic = choose_heuristic(heuristic)
@@ -12,7 +12,7 @@ def astar(start_station: Station, end_station: Station, heuristic: str) -> (list
     closed_set = set()
     closed_set.add(start_station)
     start_station.g_score = 0
-    start_station.f_score = heuristic(start_station, end_station)
+    start_station.f_score = alpha * heuristic(start_station, end_station)
     start_station.come_from = None
     open_set = [(start_station.f_score, start_station)]
     while open_set:
@@ -22,14 +22,14 @@ def astar(start_station: Station, end_station: Station, heuristic: str) -> (list
         for neighbor in current.links:
             if neighbor not in closed_set:
                 neighbor.g_score = current.g_score + distance(current, neighbor)
-                neighbor.f_score = neighbor.g_score + heuristic(neighbor, end_station)
+                neighbor.f_score = neighbor.g_score + alpha * heuristic(neighbor, end_station)
                 neighbor.come_from = current
                 heapq.heappush(open_set, (neighbor.f_score, neighbor))
                 closed_set.add(neighbor)
             else:
                 if neighbor.g_score > current.g_score + distance(current, neighbor):
                     neighbor.g_score = current.g_score + distance(current, neighbor)
-                    neighbor.f_score = neighbor.g_score + heuristic(neighbor, end_station)
+                    neighbor.f_score = neighbor.g_score + alpha * heuristic(neighbor, end_station)
                     neighbor.come_from = current
                     heapq.heappush(open_set, (neighbor.f_score, neighbor))
     raise Exception("No valid path found by A* Search")

@@ -8,7 +8,7 @@ from algs import dijkstra
 
 
 # Implement the following function
-def get_path(start_station_name: str, end_station_name: str, map: dict[str, Station], algorithm: str, heuristic: str) -> (List[str], float):
+def get_path(start_station_name: str, end_station_name: str, map: dict[str, Station], algorithm: str, heuristic: str, alpha=1) -> (List[str], float):
     """
     runs astar on the map, find the shortest path between a and b
     Args:
@@ -32,7 +32,7 @@ def get_path(start_station_name: str, end_station_name: str, map: dict[str, Stat
     # path = astar(start_station, end_station, map)
     # path = greedy_bfs(start_station, end_station, map)
     if algorithm == 'astar':
-        path, path_distance, clo_size = astar(start_station, end_station, heuristic)
+        path, path_distance, clo_size = astar(start_station, end_station, heuristic, alpha)
     elif algorithm == 'greedy_bfs':
         path, path_distance, clo_size = greedy_bfs(start_station, end_station, heuristic)
     elif algorithm == 'dijikstra':
