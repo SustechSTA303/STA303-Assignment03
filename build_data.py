@@ -1,5 +1,6 @@
 import csv
 import os
+import math
 
 
 class Station:
@@ -13,6 +14,12 @@ class Station:
         self.name = name
         self.position = position
         self.links = set()
+        
+    def distance_to(self, other_station):
+        # Calculate Euclidean distance between two stations
+        x1, y1 = self.position
+        x2, y2 = other_station.position
+        return math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
 
 
 def build_data():
