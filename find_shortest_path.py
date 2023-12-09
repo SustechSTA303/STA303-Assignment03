@@ -19,6 +19,8 @@ def get_path(start_station_name: str, end_station_name: str, map: dict[str, Stat
                                  for the description of the Station class
     Returns:
         List[Station]: A path composed of a series of station_name
+        float: The distance of the shortest path between the starting station and the ending station
+        int: The size of the closed set
     """
     # You can obtain the Station objects of the starting and ending station through the following code
     start_station = map[start_station_name]
