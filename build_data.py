@@ -40,8 +40,8 @@ def build_data():
     for id1, id2, lineNumber in r:
         id1 = int(id1)
         id2 = int(id2)
-        stations[id1].links.add(stations[id2])
-        stations[id2].links.add(stations[id1])
+        stations[id1].links.add(stations[id2].name)
+        stations[id2].links.add(stations[id1].name)
         lineNumber = int(lineNumber)
         if lineNumber not in underground_lines:
             underground_lines[lineNumber] = {'lat': [stations[id1].position[0], stations[id2].position[0], None],
