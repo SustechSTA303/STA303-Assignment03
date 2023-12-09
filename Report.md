@@ -337,7 +337,7 @@ In summary, the choice of algorithm depends on the characteristics of the graph,
 * [visualization_underground](visualization_underground)
   
   * [my_shortest_path_in_London_railway_BFS.html](visualization_underground%2Fmy_shortest_path_in_London_railway_BFS.html)
-  * [my_shortest_path_in_London_railway_BF.html](visualization_underground%2Fmy_shortest_path_in_London_railway_BF.html)
+  * [my_shortest_path_in_London_railway_BF.html](visualization_underground%2Fmy_shortest_path_in_London_railway_Bellman_Ford.html)
   * [my_shortest_path_in_London_railway_Astar_Euclidean.html](visualization_underground%2Fmy_shortest_path_in_London_railway_Astar_Euclidean.html)
   * [my_shortest_path_in_London_railway_Astar_chebyshev.html](visualization_underground%2Fmy_shortest_path_in_London_railway_Astar_chebyshev.html)
   * [my_shortest_path_in_London_railway_Astar_manhattan.html](visualization_underground%2Fmy_shortest_path_in_London_railway_Astar_manhattan.html)
