@@ -1,4 +1,5 @@
-## Assignment3: Find the shortest path in underground lines 
+## Assignment3: Find the shortest path in underground lines
+
 ### File Description
 - [london](london) 
   - [underground_lines.csv](london%2Funderground_lines.csv)(London Underground lines Data)
@@ -26,6 +27,7 @@ python plot_underground_path.py
 Then, you can open [my_path_in_London_railway.html](visualization_underground%2Fmy_path_in_London_railway.html) to view it.
 
 ### Assignment3 Requirements
+
 - Implement the function get_path() in [find_shortest_path.py](find_shortest_path.py).
 - After implementation, you can visualize the shortest path at a given starting and ending station, by running the following command: 
 ```
@@ -36,3 +38,29 @@ The above example specifies the path from Acton Town to Turnham Green.
 ***(Note: If there are blank space in the station name, station name need to be wrapped in double quotation marks("") in the command line.)***
 
 Then, open `visualization_underground/my_shortest_path_in_London_railway.html` to view the path.
+
+### Respository Structure
+```
+├── README.md
+├── build_data.py
+├── find_shortest_path.py
+├── london
+│   ├── underground_lines.csv
+│   ├── underground_routes.csv
+│   └── underground_stations.csv
+├── plot_underground_lines.py
+├── plot_underground_path.py
+|── requirements.txt
+|── algs.py
+|── exp1.ipynb
+|── exp2.ipynb
+└── visualization_underground
+    ├── London_Underground_Overground_DLR_Crossrail_map.svg
+    ├── London_railway.html
+    ├── my_path_in_London_railway.html
+    └── my_shortest_path_in_London_railway.html
+```
+
+
+
+
