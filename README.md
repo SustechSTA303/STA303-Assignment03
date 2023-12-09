@@ -39,22 +39,28 @@ The above example specifies the path from Acton Town to Turnham Green.
 
 Then, open `visualization_underground/my_shortest_path_in_London_railway.html` to view the path.
 
-### Student Memorandum
-
-`Harversine equation` to compute the distance between two (lantitude, lontitude) points.
-$$
-\mathrm{d}=2\text{r}\arcsin(\sqrt{\sin^2(\frac{\text{lat}2-\text{lat}1}2)+\cos(\text{lat}2)\cos(\text{lat}1)\sin^2(\frac{\text{lon}2-\text{lon}1}2)})
-$$
-`python implementation`:
-
-```python
-import numpy as np
-def haversine(lon1, lat1, lon2, lat2):
-    lon1, lat1, lon2, lat2 = map(np.radians, [lon1, lat1, lon2, lat2])
-    dlon = lon2 - lon1
-    dlat = lat2 - lat1
-    a = np.sin(dlat/2.0)**2 + np.cos(lat1) * np.cos(lat2) * np.sin(dlon/2.0)**2
-    c = 2 * np.arcsin(np.sqrt(a))
-    return c * 6367 * 1000
+### Respository Structure
 ```
+├── README.md
+├── build_data.py
+├── find_shortest_path.py
+├── london
+│   ├── underground_lines.csv
+│   ├── underground_routes.csv
+│   └── underground_stations.csv
+├── plot_underground_lines.py
+├── plot_underground_path.py
+|── requirements.txt
+|── algs.py
+|── exp1.ipynb
+|── exp2.ipynb
+└── visualization_underground
+    ├── London_Underground_Overground_DLR_Crossrail_map.svg
+    ├── London_railway.html
+    ├── my_path_in_London_railway.html
+    └── my_shortest_path_in_London_railway.html
+```
+
+
+
 
