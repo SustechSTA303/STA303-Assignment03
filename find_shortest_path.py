@@ -24,20 +24,20 @@ def get_path(start_station_name: str, end_station_name: str, map: dict[str, Stat
     start_station = map[start_station_name]
     end_station = map[end_station_name]
     # Given a Station object, you can obtain the name and latitude and longitude of that Station by the following code
-    print(f'The longitude and latitude of the {start_station.name} is {start_station.position}')
-    print(f'The longitude and latitude of the {end_station.name} is {end_station.position}')
+    # print(f'The longitude and latitude of the {start_station.name} is {start_station.position}')
+    # print(f'The longitude and latitude of the {end_station.name} is {end_station.position}')
     ################### The following is the code student implemented ###################
     # path = astar(start_station, end_station, map)
     # path = greedy_bfs(start_station, end_station, map)
     if algorithm == 'astar':
-        path, path_distance = astar(start_station, end_station, heuristic)
+        path, path_distance, clo_size = astar(start_station, end_station, heuristic)
     elif algorithm == 'greedy_bfs':
-        path, path_distance = greedy_bfs(start_station, end_station, heuristic)
+        path, path_distance, clo_size = greedy_bfs(start_station, end_station, heuristic)
     elif algorithm == 'dijikstra':
-        path, path_distance = dijkstra(start_station, end_station)
+        path, path_distance, clo_size = dijkstra(start_station, end_station)
     else:
         raise Exception("Invalid algorithm")
-    return path, path_distance
+    return path, path_distance, clo_size
     
 
 
@@ -58,8 +58,8 @@ if __name__ == '__main__':
 
     # The relevant descriptions of stations and underground_lines can be found in the build_data.py
     stations, underground_lines = build_data()
-    path, path_distance = get_path(start_station_name, end_station_name, stations, algorithm, heuristic)
-    print(f'The shortest path between {start_station_name} and {end_station_name} is \n {path}')
+    path, path_distance, clo_size = get_path(start_station_name, end_station_name, stations, algorithm, heuristic)
+    print(f'The closet size is {clo_size}')
     print(f'The distance of the shortest path between {start_station_name} and {end_station_name} is {path_distance} km')
     # visualization the path
     # Open the visualization_underground/my_path_in_London_railway.html to view the path, and your path is marked in red

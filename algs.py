@@ -4,17 +4,10 @@ from geopy.distance import geodesic
 from math import cos
 
 
-def astar(start_station: Station, end_station: Station, heuristic: str) -> (list, float):
+def astar(start_station: Station, end_station: Station, heuristic: str) -> (list, float, int):
     distance = geodesic_distance
 
-    if heuristic == 'manhattan':
-        heuristic = manhattan
-    elif heuristic == 'euclidean':
-        heuristic = euclidean
-    elif heuristic == 'geodesic':
-        heuristic = geodesic_distance
-    else:
-        raise Exception("Invalid heuristic")
+    heuristic = choose_heuristic(heuristic)
 
     closed_set = set()
     closed_set.add(start_station)
@@ -25,7 +18,7 @@ def astar(start_station: Station, end_station: Station, heuristic: str) -> (list
     while open_set:
         current = heapq.heappop(open_set)[1]
         if current.id == end_station.id:
-            return reconstruct_path(current), current.g_score
+            return reconstruct_path(current), current.g_score, len(closed_set)
         for neighbor in current.links:
             if neighbor not in closed_set:
                 neighbor.g_score = current.g_score + distance(current, neighbor)
@@ -42,17 +35,10 @@ def astar(start_station: Station, end_station: Station, heuristic: str) -> (list
     raise Exception("No valid path found by A* Search")
 
 
-def greedy_bfs(start_station: Station, end_station: Station, heuristic) -> (list, float):
+def greedy_bfs(start_station: Station, end_station: Station, heuristic) -> (list, float, int):
     distance = geodesic_distance
 
-    if heuristic == 'manhattan':
-        heuristic = manhattan
-    elif heuristic == 'euclidean':
-        heuristic = euclidean
-    elif heuristic == 'geodesic':
-        heuristic = geodesic_distance
-    else:
-        raise Exception("Invalid heuristic")
+    heuristic = choose_heuristic(heuristic)
 
     closed_set = set()
     closed_set.add(start_station)
@@ -63,7 +49,7 @@ def greedy_bfs(start_station: Station, end_station: Station, heuristic) -> (list
     while open_set:
         current = heapq.heappop(open_set)[1]
         if current.id == end_station.id:
-            return reconstruct_path(current), current.g_score
+            return reconstruct_path(current), current.g_score, len(closed_set)
         for neighbor in current.links:
             if neighbor not in closed_set:
                 neighbor.g_score = current.g_score + distance(current, neighbor)
@@ -74,7 +60,7 @@ def greedy_bfs(start_station: Station, end_station: Station, heuristic) -> (list
     raise Exception("No valid path found by Greedy Best First Search")
 
 
-def dijkstra(start_station: Station, end_station: Station) -> (list, float):
+def dijkstra(start_station: Station, end_station: Station) -> (list, float, int):
     distance = geodesic_distance
 
     closed_set = set()
@@ -85,7 +71,7 @@ def dijkstra(start_station: Station, end_station: Station) -> (list, float):
     while open_set:
         current = heapq.heappop(open_set)[1]
         if current.id == end_station.id:
-            return reconstruct_path(current), current.g_score
+            return reconstruct_path(current), current.g_score, len(closed_set)
         for neighbor in current.links:
             if neighbor not in closed_set:
                 neighbor.g_score = current.g_score + distance(current, neighbor)
@@ -99,6 +85,16 @@ def dijkstra(start_station: Station, end_station: Station) -> (list, float):
                     heapq.heappush(open_set, (neighbor.g_score, neighbor))
     raise Exception("No valid path found by Dijkstra's Algorithm")
 
+
+def choose_heuristic(heuristic: str) -> callable:
+    if heuristic == 'manhattan':
+        return manhattan
+    elif heuristic == 'euclidean':
+        return euclidean
+    elif heuristic == 'diagonal':
+        return diagonal_distance
+    else:
+        raise Exception("Invalid heuristic")
 
 def reconstruct_path(current: Station) -> list:
     total_path = [current.name]
@@ -144,3 +140,18 @@ def geodesic_distance(a: Station, b: Station) -> float:
         float: The distance between two stations
     """
     return geodesic(a.position, b.position).km
+
+def diagonal_distance(a: Station, b: Station) -> float:
+    """
+    Calculate the diagonal distance between two stations
+    Args:
+        a(Station): The first station
+        b(Station): The second station
+    Returns:
+        float: The distance between two stations
+    """
+    dx = abs(a.position[0] - b.position[0])
+    dy = abs(a.position[1] - b.position[1])
+    return (dx * 111) + (dy * 111) + min(dx, dy) * 111 * (2 ** 0.5 - 2)
+
+
