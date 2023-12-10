@@ -1,4 +1,5 @@
-from typing import List
+import time
+from typing import List, Tuple
 from heapq import heappop, heappush
 
 from plot_underground_path import plot_path
@@ -33,6 +34,7 @@ def A_star(start_station_name: str, end_station_name: str, map: dict[str, Statio
     g_score[start_station] = 0
     came_from = {}
 
+    start_time = time.time()
     while open_set:
         current_cost, current_station = heappop(open_set)
 
@@ -41,7 +43,8 @@ def A_star(start_station_name: str, end_station_name: str, map: dict[str, Statio
             while current_station:
                 path.insert(0, current_station.name)
                 current_station = came_from.get(current_station)
-            return path
+            end_time = time.time()
+            return path, end_time-start_time
 
         closed_set.add(current_station)
 
@@ -55,12 +58,10 @@ def A_star(start_station_name: str, end_station_name: str, map: dict[str, Statio
                 came_from[neighbor] = current_station
                 g_score[neighbor] = tentative_g_score
                 heappush(open_set, (tentative_g_score + Euclidean(neighbor, end_station), neighbor))
-    return []
+    return [],0.0
 
 #* Dijkstra algorithm
 def dijkstra(start_station_name: str, end_station_name: str, map: dict[str, Station]) -> Tuple[List[str], float]:
-    start_time = time.time()
-
     start_station = map[start_station_name]
     end_station = map[end_station_name]
 
@@ -69,6 +70,7 @@ def dijkstra(start_station_name: str, end_station_name: str, map: dict[str, Stat
     g_score = {station: float('inf') for station in map.values()}
     g_score[start_station] = 0
     came_from = {}
+    start_time = time.time()
 
     while open_set:
         current_cost, current_station = heappop(open_set)
@@ -98,8 +100,6 @@ def dijkstra(start_station_name: str, end_station_name: str, map: dict[str, Stat
 
 #* Uniform Cost Search algorithm
 def ucs(start_station_name: str, end_station_name: str, map: dict[str, Station]) -> Tuple[List[str], float]:
-    start_time = time.time()
-
     start_station = map[start_station_name]
     end_station = map[end_station_name]
 
@@ -109,6 +109,7 @@ def ucs(start_station_name: str, end_station_name: str, map: dict[str, Station])
     g_score[start_station] = 0
     came_from = {}
 
+    start_time = time.time()
     while open_set:
         current_cost, current_station = heappop(open_set)
 
@@ -150,8 +151,16 @@ if __name__ == '__main__':
 
     # The relevant descriptions of stations and underground_lines can be found in the build_data.py
     stations, underground_lines = build_data()
-    path = A_star(start_station_name, end_station_name, stations)
-    # visualization the path
-    # Open the visualization_underground/my_path_in_London_railway.html to view the path, and your path is marked in red
-    # plot_path(path, 'visualization_underground/my_path_in_London_railway.html', stations, underground_lines)
+
+
+    #* Dijkstra's Algorithm
+    path_dijkstra, time_dijkstra = dijkstra(start_station_name, end_station_name, stations)
+    print("Dijkstra's Algorithm:")
+    print("Shortest path:", path_dijkstra)
+    print("Time taken:", time_dijkstra, "seconds\n")
+    
+    path,time = A_star(start_station_name, end_station_name, stations)
+    print("Time taken:", time, "seconds\n")
+
+    #* visualization the path
     plot_path(path, r'C:\Users\34071\PythonProjects\Artificial intelligience\STA303-Assignment03\visualization_underground\my_path_in_London_railway.html', stations, underground_lines)
