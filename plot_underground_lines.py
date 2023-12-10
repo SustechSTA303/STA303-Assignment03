@@ -70,4 +70,4 @@ def plot_underground_lines(output, stations, underground_lines):
 
 if __name__ == '__main__':
     stations, underground_lines = build_data()
-    plot_underground_lines('visualization_underground/London_railway.html', stations, underground_lines)
+    plot_underground_lines('/data/lab/STA303-Assignment03/visualization_underground/London_railway.html', stations, underground_lines)
