@@ -1,165 +1,175 @@
+from queue import PriorityQueue, Queue
 import time
 from typing import List, Tuple
-from heapq import heappop, heappush
 
 from plot_underground_path import plot_path
 from build_data import Station, build_data
-from heuristics_function import Euclidean
+from cost_heuristics_function import heuristics,cost
 import argparse
 
+"""
+runs a star on the map, find the shortest path between a and b
+Args:
+    start_station_name(str): The name of the starting station
+    end_station_name(str): str The name of the ending station
+    map(dict[str, Station]): Mapping between station names and station objects of the name,
+Please refer to the relevant comments in the build_data.py for the description of the Station class
+Returns:
+    List[Station]: A path composed of a series of station_name
+"""
+# You can obtain the Station objects of the starting and ending station through the following code
 
-#* A star algorithm
-def A_star(start_station_name: str, end_station_name: str, map: dict[str, Station]) -> List[str]:
-    """
-    runs a star on the map, find the shortest path between a and b
-    Args:
-        start_station_name(str): The name of the starting station
-        end_station_name(str): str The name of the ending station
-        map(dict[str, Station]): Mapping between station names and station objects of the name,
-    Please refer to the relevant comments in the build_data.py for the description of the Station class
-    Returns:
-        List[Station]: A path composed of a series of station_name
-    """
-    # You can obtain the Station objects of the starting and ending station through the following code
+# Given a Station object, you can obtain the name and latitude and longitude of that Station by the following code
+# print(f'The longitude and latitude of the {start_station.name} is {start_station.position}')
+# print(f'The longitude and latitude of the {end_station.name} is {end_station.position}')
+
+#* BFS algorithm
+def BFS(start_station_name: str, end_station_name: str, map: dict[str, Station]) -> Tuple[List[str], float]:
     start_station = map[start_station_name]
     end_station = map[end_station_name]
-    # Given a Station object, you can obtain the name and latitude and longitude of that Station by the following code
-    # print(f'The longitude and latitude of the {start_station.name} is {start_station.position}')
-    # print(f'The longitude and latitude of the {end_station.name} is {end_station.position}')
 
-    #todo implement your code here
-    open_set = [(0, start_station)]
-    closed_set = set()
-    g_score = {station: float('inf') for station in map.values()}
-    g_score[start_station] = 0
-    came_from = {}
+    frontier = Queue()
+    frontier.put(start_station)
+    came_from = dict()
+    came_from[start_station] = None
 
     start_time = time.time()
-    while open_set:
-        current_cost, current_station = heappop(open_set)
+    while not frontier.empty():
+        current = frontier.get()
 
-        if current_station == end_station:
-            path = []
-            while current_station:
-                path.insert(0, current_station.name)
-                current_station = came_from.get(current_station)
+        if current == end_station:
             end_time = time.time()
+            path = []
+            while current:
+                path.insert(0, current.name)
+                current = came_from.get(current)
             return path, end_time-start_time
 
-        closed_set.add(current_station)
-
-        for neighbor in current_station.links:
-            if neighbor in closed_set:
-                continue
-
-            tentative_g_score = g_score[current_station] + Euclidean(current_station, neighbor)
-
-            if tentative_g_score < g_score[neighbor]:
-                came_from[neighbor] = current_station
-                g_score[neighbor] = tentative_g_score
-                heappush(open_set, (tentative_g_score + Euclidean(neighbor, end_station), neighbor))
+        for next in current.links:
+            if next not in came_from:
+                frontier.put(next)
+                came_from[next] = current
     return [],0.0
 
-#* Dijkstra algorithm
-def dijkstra(start_station_name: str, end_station_name: str, map: dict[str, Station]) -> Tuple[List[str], float]:
+#* UCS algorithm
+def UCS(start_station_name: str, end_station_name: str, map: dict[str, Station], cost_type:str) -> Tuple[List[str], float]:
     start_station = map[start_station_name]
     end_station = map[end_station_name]
 
-    open_set = [(0, start_station)]
-    closed_set = set()
-    g_score = {station: float('inf') for station in map.values()}
-    g_score[start_station] = 0
-    came_from = {}
+    frontier = PriorityQueue()
+    frontier.put((0,start_station))
+    came_from = dict()
+    cost_so_far = dict()
+    came_from[start_station] = None
+    cost_so_far[start_station] = 0
+
     start_time = time.time()
+    while not frontier.empty():
+        tmp,current = frontier.get()
 
-    while open_set:
-        current_cost, current_station = heappop(open_set)
-
-        if current_station == end_station:
-            path = []
-            while current_station:
-                path.insert(0, current_station.name)
-                current_station = came_from.get(current_station)
+        if current == end_station:
             end_time = time.time()
-            return path, end_time - start_time
+            path = []
+            while current:
+                path.insert(0, current.name)
+                current = came_from.get(current)
+            return path, end_time-start_time
 
-        closed_set.add(current_station)
+        for next in current.links:
+            new_cost = cost_so_far[current] + cost(current, next, cost_type)
+            if next not in cost_so_far or new_cost < cost_so_far[next]:
+                cost_so_far[next] = new_cost
+                priority = new_cost
+                frontier.put((priority,next))
+                came_from[next] = current
+    return [],0.0
 
-        for neighbor in current_station.links:
-            if neighbor in closed_set:
-                continue
-
-            tentative_g_score = g_score[current_station] + Euclidean(current_station, neighbor)
-
-            if tentative_g_score < g_score[neighbor]:
-                came_from[neighbor] = current_station
-                g_score[neighbor] = tentative_g_score
-                heappush(open_set, (tentative_g_score, neighbor))
-
-    return [], 0.0
-
-#* Uniform Cost Search algorithm
-def ucs(start_station_name: str, end_station_name: str, map: dict[str, Station]) -> Tuple[List[str], float]:
+#* Greedy BFS algorithm
+def G_BFS(start_station_name: str, end_station_name: str, map: dict[str, Station], heuristic_type:str, heuristic_weight: float=1.0) -> Tuple[List[str], float]:
     start_station = map[start_station_name]
     end_station = map[end_station_name]
 
-    open_set = [(0, start_station)]
-    closed_set = set()
-    g_score = {station: float('inf') for station in map.values()}
-    g_score[start_station] = 0
-    came_from = {}
+    frontier = PriorityQueue()
+    frontier.put((0,start_station))
+    came_from = dict()
+    cost_so_far = dict()
+    came_from[start_station] = None
+    cost_so_far[start_station] = 0
 
     start_time = time.time()
-    while open_set:
-        current_cost, current_station = heappop(open_set)
+    while not frontier.empty():
+        tmp,current = frontier.get()
 
-        if current_station == end_station:
-            path = []
-            while current_station:
-                path.insert(0, current_station.name)
-                current_station = came_from.get(current_station)
+        if current == end_station:
             end_time = time.time()
-            return path, end_time - start_time
+            path = []
+            while current:
+                path.insert(0, current.name)
+                current = came_from.get(current)
+            return path, end_time-start_time
 
-        closed_set.add(current_station)
+        for next in current.links:
+            if next not in came_from:
+                priority = heuristics(end_station, next, heuristic_type,heuristic_weight)
+                frontier.put((priority,next))
+                came_from[next] = current
+    return [],0.0
 
-        for neighbor in current_station.links:
-            if neighbor in closed_set:
-                continue
+#* A star algorithm
+def A_star(start_station_name: str, end_station_name: str, map: dict[str, Station], cost_type:str, heuristic_type:str, heuristic_weight: float=1.0) -> Tuple[List[str], float]:
+    start_station = map[start_station_name]
+    end_station = map[end_station_name]
 
-            tentative_g_score = g_score[current_station] + 1  # Assuming all edges have a uniform cost of 1
+    frontier = PriorityQueue()
+    frontier.put((0,start_station))
+    came_from = dict()
+    cost_so_far = dict()
+    came_from[start_station] = None
+    cost_so_far[start_station] = 0
 
-            if tentative_g_score < g_score[neighbor]:
-                came_from[neighbor] = current_station
-                g_score[neighbor] = tentative_g_score
-                heappush(open_set, (tentative_g_score, neighbor))
+    start_time = time.time()
+    while not frontier.empty():
+        tmp,current = frontier.get()
 
-    return [], 0.0
+        if current == end_station:
+            end_time = time.time()
+            path = []
+            while current:
+                path.insert(0, current.name)
+                current = came_from.get(current)
+            return path, end_time-start_time
 
+        for next in current.links:
+            new_cost = cost_so_far[current] + cost(current, next, cost_type)
+            if next not in cost_so_far or new_cost < cost_so_far[next]:
+                cost_so_far[next] = new_cost
+                priority = new_cost + heuristics(end_station, next, heuristic_type,heuristic_weight)
+                frontier.put((priority,next))
+                came_from[next] = current
+    return [],0.0
 
 #* main function
 if __name__ == '__main__':
 
-    # 创建ArgumentParser对象
-    parser = argparse.ArgumentParser()
-    # 添加命令行参数
-    parser.add_argument('start_station_name', type=str, help='start_station_name')
-    parser.add_argument('end_station_name', type=str, help='end_station_name')
-    args = parser.parse_args()
-    start_station_name = args.start_station_name
-    end_station_name = args.end_station_name
+    # # 创建ArgumentParser对象
+    # parser = argparse.ArgumentParser()
+    # # 添加命令行参数
+    # parser.add_argument('start_station_name', type=str, help='start_station_name')
+    # parser.add_argument('end_station_name', type=str, help='end_station_name')
+    # args = parser.parse_args()
+    # start_station_name = args.start_station_name
+    # end_station_name = args.end_station_name
 
     # The relevant descriptions of stations and underground_lines can be found in the build_data.py
     stations, underground_lines = build_data()
 
+    start_station_name = "Chesham"
+    end_station_name = "Hainault"
 
-    #* Dijkstra's Algorithm
-    path_dijkstra, time_dijkstra = dijkstra(start_station_name, end_station_name, stations)
-    print("Dijkstra's Algorithm:")
-    print("Shortest path:", path_dijkstra)
-    print("Time taken:", time_dijkstra, "seconds\n")
-    
-    path,time = A_star(start_station_name, end_station_name, stations)
+    path,time = BFS(start_station_name, end_station_name, stations)
+    # path,time = A_star(start_station_name, end_station_name, stations, cost_type='Euclidean', heuristic_type='Euclidean', heuristic_weight=1.0)
+    # path,time = UCS(start_station_name, end_station_name, stations, cost_type='Euclidean')
+    # path,time = G_BFS(start_station_name, end_station_name, stations, heuristic_type='Euclidean', heuristic_weight=1.0)
     print("Time taken:", time, "seconds\n")
 
     #* visualization the path
