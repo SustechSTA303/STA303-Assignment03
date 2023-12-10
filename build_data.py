@@ -14,6 +14,9 @@ class Station:
         self.position = position
         self.links = set()
 
+    def __lt__(self, other):
+        return self.name < other.name  # Compare stations based on their names
+
 
 def build_data():
     """
