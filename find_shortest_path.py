@@ -1,11 +1,11 @@
+import argparse
 from queue import PriorityQueue, Queue
 import time
 from typing import List, Tuple
 
 from plot_underground_path import plot_path
 from build_data import Station, build_data
-from cost_heuristics_function import heuristics,cost
-import argparse
+from cost_heuristics_function import heuristics,cost,pathLength
 
 """
 runs a star on the map, find the shortest path between a and b
@@ -16,15 +16,19 @@ Args:
 Please refer to the relevant comments in the build_data.py for the description of the Station class
 Returns:
     List[Station]: A path composed of a series of station_name
-"""
+
 # You can obtain the Station objects of the starting and ending station through the following code
 
 # Given a Station object, you can obtain the name and latitude and longitude of that Station by the following code
 # print(f'The longitude and latitude of the {start_station.name} is {start_station.position}')
 # print(f'The longitude and latitude of the {end_station.name} is {end_station.position}')
 
+"""
+
+
+
 #* BFS algorithm
-def BFS(start_station_name: str, end_station_name: str, map: dict[str, Station]) -> Tuple[List[str], float]:
+def BFS(start_station_name: str, end_station_name: str, map: dict[str, Station]) -> Tuple[List[str], float,float]:
     start_station = map[start_station_name]
     end_station = map[end_station_name]
 
@@ -43,16 +47,17 @@ def BFS(start_station_name: str, end_station_name: str, map: dict[str, Station])
             while current:
                 path.insert(0, current.name)
                 current = came_from.get(current)
-            return path, end_time-start_time
+            path_length = pathLength(path,map)
+            return path, path_length, end_time-start_time
 
         for next in current.links:
             if next not in came_from:
                 frontier.put(next)
                 came_from[next] = current
-    return [],0.0
+    return [],0,0.0
 
-#* UCS algorithm
-def UCS(start_station_name: str, end_station_name: str, map: dict[str, Station], cost_type:str) -> Tuple[List[str], float]:
+#* Dijkstra algorithm
+def Dijkstra(start_station_name: str, end_station_name: str, map: dict[str, Station], cost_type:str) -> Tuple[List[str], float,float]:
     start_station = map[start_station_name]
     end_station = map[end_station_name]
 
@@ -73,7 +78,8 @@ def UCS(start_station_name: str, end_station_name: str, map: dict[str, Station],
             while current:
                 path.insert(0, current.name)
                 current = came_from.get(current)
-            return path, end_time-start_time
+            path_length = pathLength(path,map)
+            return path, path_length,end_time-start_time
 
         for next in current.links:
             new_cost = cost_so_far[current] + cost(current, next, cost_type)
@@ -82,10 +88,53 @@ def UCS(start_station_name: str, end_station_name: str, map: dict[str, Station],
                 priority = new_cost
                 frontier.put((priority,next))
                 came_from[next] = current
-    return [],0.0
+    return [],0,0.0
+
+#* Bellman-Ford algorithm
+def BellmanFord(start_station_name: str, end_station_name: str, map: dict[str, Station], cost_type: str) -> Tuple[List[str], float, float]:
+    start_station = map[start_station_name]
+    end_station = map[end_station_name]
+
+    came_from = dict()
+    cost_so_far = dict()
+
+    for station in map.values():
+        cost_so_far[station] = float('inf')
+
+    cost_so_far[start_station] = 0
+
+    start_time = time.time()
+
+    for _ in range(len(map) - 1):
+        for current in map.values():
+            for next_station in current.links:
+                new_cost = cost_so_far[current] + cost(current, next_station, cost_type)
+                if new_cost < cost_so_far[next_station]:
+                    cost_so_far[next_station] = new_cost
+                    came_from[next_station] = current
+
+    end_time = time.time()
+
+    # Check for negative cycles
+    for current in map.values():
+        for next_station in current.links:
+            if cost_so_far[current] + cost(current, next_station, cost_type) < cost_so_far[next_station]:
+                # Negative cycle detected
+                return [], float('-inf'), end_time - start_time
+
+    # Reconstruct path
+    path = []
+    current = end_station
+    while current:
+        path.insert(0, current.name)
+        current = came_from.get(current)
+
+    path_length = cost_so_far[end_station]
+
+    return path, path_length, end_time - start_time
 
 #* Greedy BFS algorithm
-def G_BFS(start_station_name: str, end_station_name: str, map: dict[str, Station], heuristic_type:str, heuristic_weight: float=1.0) -> Tuple[List[str], float]:
+def G_BFS(start_station_name: str, end_station_name: str, map: dict[str, Station], heuristic_type:str, heuristic_weight: float=1.0) -> Tuple[List[str], float, float]:
     start_station = map[start_station_name]
     end_station = map[end_station_name]
 
@@ -106,17 +155,18 @@ def G_BFS(start_station_name: str, end_station_name: str, map: dict[str, Station
             while current:
                 path.insert(0, current.name)
                 current = came_from.get(current)
-            return path, end_time-start_time
+            path_length = pathLength(path,map)
+            return path, path_length, end_time-start_time
 
         for next in current.links:
             if next not in came_from:
                 priority = heuristics(end_station, next, heuristic_type,heuristic_weight)
                 frontier.put((priority,next))
                 came_from[next] = current
-    return [],0.0
+    return [],0,0.0
 
 #* A star algorithm
-def A_star(start_station_name: str, end_station_name: str, map: dict[str, Station], cost_type:str, heuristic_type:str, heuristic_weight: float=1.0) -> Tuple[List[str], float]:
+def A_star(start_station_name: str, end_station_name: str, map: dict[str, Station], cost_type:str, heuristic_type:str, heuristic_weight: float=1.0) -> Tuple[List[str], float,float]:
     start_station = map[start_station_name]
     end_station = map[end_station_name]
 
@@ -137,7 +187,8 @@ def A_star(start_station_name: str, end_station_name: str, map: dict[str, Statio
             while current:
                 path.insert(0, current.name)
                 current = came_from.get(current)
-            return path, end_time-start_time
+            path_length = pathLength(path,map)
+            return path, path_length, end_time-start_time
 
         for next in current.links:
             new_cost = cost_so_far[current] + cost(current, next, cost_type)
@@ -146,12 +197,78 @@ def A_star(start_station_name: str, end_station_name: str, map: dict[str, Statio
                 priority = new_cost + heuristics(end_station, next, heuristic_type,heuristic_weight)
                 frontier.put((priority,next))
                 came_from[next] = current
-    return [],0.0
+    return [],0,0.0
+
+#* Bi-directional A star algorithm
+def bi_directional_A_star(start_station_name: str, end_station_name: str, map: dict[str, Station], cost_type: str, heuristic_type: str, heuristic_weight: float = 1.0) -> Tuple[List[str], float, float]:
+    start_station = map[start_station_name]
+    end_station = map[end_station_name]
+
+    forward_frontier = PriorityQueue()
+    backward_frontier = PriorityQueue()
+
+    forward_frontier.put((0, start_station))
+    backward_frontier.put((0, end_station))
+
+    forward_came_from = {start_station: None}
+    backward_came_from = {end_station: None}
+
+    forward_cost_so_far = {start_station: 0}
+    backward_cost_so_far = {end_station: 0}
+
+    intersection_station = None
+    min_cost = float('inf')
+
+    end_time = 0.0
+    start_time = time.time()
+    while not forward_frontier.empty() and not backward_frontier.empty():
+        forward_tmp, forward_current = forward_frontier.get()
+        backward_tmp, backward_current = backward_frontier.get()
+
+        # Check if paths meet
+        if forward_current in backward_cost_so_far and backward_cost_so_far[forward_current] + forward_cost_so_far[forward_current] < min_cost:
+            min_cost = backward_cost_so_far[forward_current] + forward_cost_so_far[forward_current]
+            intersection_station = forward_current
+            end_time = time.time()
+
+        # Expand forward
+        for forward_next in forward_current.links:
+            new_forward_cost = forward_cost_so_far[forward_current] + cost(forward_current, forward_next, cost_type)
+            if forward_next not in forward_cost_so_far or new_forward_cost < forward_cost_so_far[forward_next]:
+                forward_cost_so_far[forward_next] = new_forward_cost
+                forward_priority = new_forward_cost + heuristics(end_station, forward_next, heuristic_type, heuristic_weight)
+                forward_frontier.put((forward_priority, forward_next))
+                forward_came_from[forward_next] = forward_current
+
+        # Expand backward
+        for backward_next in backward_current.links:
+            new_backward_cost = backward_cost_so_far[backward_current] + cost(backward_current, backward_next, cost_type)
+            if backward_next not in backward_cost_so_far or new_backward_cost < backward_cost_so_far[backward_next]:
+                backward_cost_so_far[backward_next] = new_backward_cost
+                backward_priority = new_backward_cost + heuristics(start_station, backward_next, heuristic_type, heuristic_weight)
+                backward_frontier.put((backward_priority, backward_next))
+                backward_came_from[backward_next] = backward_current
+
+    # Reconstruct path
+    path = []
+    current = intersection_station
+    while current:
+        path.insert(0, current.name)
+        current = forward_came_from.get(current)
+
+    current = backward_came_from.get(intersection_station)
+    while current:
+        path.append(current.name)
+        current = backward_came_from.get(current)
+
+    path_length = pathLength(path,map)
+    return path, path_length, end_time - start_time
+
 
 #* main function
 if __name__ == '__main__':
 
-    # # 创建ArgumentParser对象
+    # 创建ArgumentParser对象
     # parser = argparse.ArgumentParser()
     # # 添加命令行参数
     # parser.add_argument('start_station_name', type=str, help='start_station_name')
@@ -163,14 +280,17 @@ if __name__ == '__main__':
     # The relevant descriptions of stations and underground_lines can be found in the build_data.py
     stations, underground_lines = build_data()
 
-    start_station_name = "Chesham"
-    end_station_name = "Hainault"
+    start_station_name = "Morden"
+    end_station_name = "Upminster"
 
-    path,time = BFS(start_station_name, end_station_name, stations)
-    # path,time = A_star(start_station_name, end_station_name, stations, cost_type='Euclidean', heuristic_type='Euclidean', heuristic_weight=1.0)
-    # path,time = UCS(start_station_name, end_station_name, stations, cost_type='Euclidean')
-    # path,time = G_BFS(start_station_name, end_station_name, stations, heuristic_type='Euclidean', heuristic_weight=1.0)
-    print("Time taken:", time, "seconds\n")
+    # path,path_length,time = BFS(start_station_name, end_station_name, stations)
+    # path,path_length,time = A_star(start_station_name, end_station_name, stations, cost_type='Euclidean', heuristic_type='Euclidean', heuristic_weight=1.0)
+    # path,path_length,time = Dijkstra(start_station_name, end_station_name, stations, cost_type='Euclidean')
+    path,path_length,time = BellmanFord(start_station_name, end_station_name, stations, cost_type='Euclidean')
+    # path,path_length,time = G_BFS(start_station_name, end_station_name, stations, heuristic_type='Euclidean', heuristic_weight=1.0)
+    # path,path_length,time = bi_directional_A_star(start_station_name, end_station_name, stations, cost_type='Euclidean', heuristic_type='Euclidean', heuristic_weight=1.0)
+    print("Time taken:", time * 1000, "ms\n")
+    print("Path length:", path_length, "kilometers\n")
 
     #* visualization the path
     plot_path(path, r'C:\Users\34071\PythonProjects\Artificial intelligience\STA303-Assignment03\visualization_underground\my_path_in_London_railway.html', stations, underground_lines)

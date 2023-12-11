@@ -17,6 +17,7 @@ def heuristics(station1: Station, station2: Station, type: str, weight: float = 
             + (station1.position[1] - station2.position[1]) ** 2
         )
 
+# * cost function
 def cost(station1: Station, station2: Station, type: str) -> float:
     if type == "Haversine":
         return geodesic(station1.position, station2.position).kilometers
@@ -29,3 +30,10 @@ def cost(station1: Station, station2: Station, type: str) -> float:
             (station1.position[0] - station2.position[0]) ** 2
             + (station1.position[1] - station2.position[1]) ** 2
         )
+
+#* path length function
+def pathLength(path: list,map: dict[str, Station]) -> float:
+    total_length = 0
+    for i in range(len(path) - 1):
+        total_length += cost(map[path[i]], map[path[i + 1]], "Haversine")
+    return total_length
