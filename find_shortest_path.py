@@ -7,7 +7,6 @@ import heapq
 import time
 import math
 def euclidean_distance(start, goal):
-    # 启发式函数，估计从起点到目标的最短距离（可以使用欧几里得距离等）
     return math.sqrt(((goal.position[0] - start.position[0])*110.574) ** 2 + ((goal.position[1] - start.position[1])*111.32) ** 2)
 def manhattan_distance(start, goal):
     return abs(goal.position[0] - start.position[0]) + abs(goal.position[1] - start.position[1])
