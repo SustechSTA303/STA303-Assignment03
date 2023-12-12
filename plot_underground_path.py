@@ -91,5 +91,5 @@ def plot_path(path, output, stations, underground_lines):
 
 if __name__ == '__main__':
     stations, underground_lines = build_data()
-    plot_path(['Acton Town', 'Chiswick Park', 'Turnham Green', 'Stamford Brook'],
+    plot_path(['Acton Town', 'Chiswick Park', 'Turnham Green', 'Stamford Brook','Ravenscourt Park'],
               'visualization_underground/my_path_in_London_railway.html', stations, underground_lines)

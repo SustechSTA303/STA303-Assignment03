@@ -1,7 +1,7 @@
 import plotly.graph_objects as go
 import plotly.offline as py
 from build_data import build_data
-
+import plotly.offline as pyo
 
 def plot_underground_lines(output, stations, underground_lines):
     """
@@ -65,8 +65,8 @@ def plot_underground_lines(output, stations, underground_lines):
         )
 
     fig = dict(data=data, layout=layout)
-    py.plot(fig, filename=output)  # 生成html文件并打开
-
+    # py.plot(fig, filename=output)  # 生成html文件并打开
+    pyo.plot(fig, filename=output, auto_open=True)
 
 if __name__ == '__main__':
     stations, underground_lines = build_data()
