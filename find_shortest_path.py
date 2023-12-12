@@ -341,30 +341,103 @@ def test_time(Station_pair: list, map: dict[str, Station]):
     df = pd.DataFrame()
     for start, end in tqdm(Station_pair):
         result_dict = {
-            "BFS": BFS(start, end, map)[2]*1000,
-            "Dijkstra(1)": Dijkstra(start, end, map, cost_type="1")[2]*1000,
-            "Dijkstra(Haversine)": Dijkstra(start, end, map, cost_type="Haversine")[2]*1000,
-            "Dijkstra(Manhattan)": Dijkstra(start, end, map, cost_type="Manhattan")[2]*1000,
-            "Dijkstra(Euclidean)": Dijkstra(start, end, map, cost_type="Euclidean")[2]*1000,
-            "BellmanFord(1)": BellmanFord(start, end, map, cost_type="1")[2]*1000,
+            "BFS": BFS(start, end, map)[2] * 1000,
+            "Dijkstra(1)": Dijkstra(start, end, map, cost_type="1")[2] * 1000,
+            "Dijkstra(Haversine)": Dijkstra(start, end, map, cost_type="Haversine")[2]
+            * 1000,
+            "Dijkstra(Euclidean)": Dijkstra(start, end, map, cost_type="Euclidean")[2]
+            * 1000,
+            "BellmanFord(1)": BellmanFord(start, end, map, cost_type="1")[2] * 1000,
             # "BellmanFord(Haversine)": BellmanFord(
             #     start, end, map, cost_type="Haversine"
-            # )[2]*1000,
-            # "BellmanFord(Manhattan)": BellmanFord(
-            #     start, end, map, cost_type="Manhattan"
-            # )[2]*1000,
+            # )[2]
+            # * 1000,
             "BellmanFord(Euclidean)": BellmanFord(
                 start, end, map, cost_type="Euclidean"
-            )[2],
-            "G_BFS(Haversine)": G_BFS(start, end, map, heuristic_type="Haversine")[2]*1000,
-            "G_BFS(Manhattan)": G_BFS(start, end, map, heuristic_type="Manhattan")[2]*1000,
-            "G_BFS(Euclidean)": G_BFS(start, end, map, heuristic_type="Euclidean")[2]*1000,
+            )[2]
+            * 1000,
+            "G_BFS(Haversine)": G_BFS(start, end, map, heuristic_type="Haversine")[2]
+            * 1000,
+            "G_BFS(Euclidean)": G_BFS(start, end, map, heuristic_type="Euclidean")[2]
+            * 1000,
+            "A_star(1, Euclidean)": A_star(
+                start, end, map, cost_type="1", heuristic_type="Euclidean"
+            )[2]
+            * 1000,
+            "A_star(1, Haversine)": A_star(
+                start,
+                end,
+                map,
+                cost_type="1",
+                heuristic_type="Haversine",
+                heuristic_weight=0.001,
+            )[2]
+            * 1000,
             "A_star(Euclidean, Euclidean)": A_star(
                 start, end, map, cost_type="Euclidean", heuristic_type="Euclidean"
-            )[2]*1000,
-            "bi_directional_A_star(Euclidean,Euclidean)": bi_directional_A_star(
+            )[2]
+            * 1000,
+            "A_star(Euclidean, Haversine)": A_star(
+                start,
+                end,
+                map,
+                cost_type="Euclidean",
+                heuristic_type="Haversine",
+                heuristic_weight=0.001,
+            )[2]
+            * 1000,
+            "A_star(Haversine, Euclidean)": A_star(
+                start,
+                end,
+                map,
+                cost_type="Haversine",
+                heuristic_type="Euclidean",
+                heuristic_weight=1000,
+            )[2]
+            * 1000,
+            "A_star(Haversine, Haversine)": A_star(
+                start, end, map, cost_type="Haversine", heuristic_type="Haversine"
+            )[2]
+            * 1000,
+            "bi_A_star(1, Euclidean)": bi_directional_A_star(
+                start, end, map, cost_type="1", heuristic_type="Euclidean"
+            )[2]
+            * 1000,
+            "bi_A_star(1, Haversine)": bi_directional_A_star(
+                start,
+                end,
+                map,
+                cost_type="1",
+                heuristic_type="Haversine",
+                heuristic_weight=0.001,
+            )[2]
+            * 1000,
+            "bi_A_star(Euclidean, Euclidean)": bi_directional_A_star(
                 start, end, map, cost_type="Euclidean", heuristic_type="Euclidean"
-            )[2]*1000,
+            )[2]
+            * 1000,
+            "bi_A_star(Euclidean, Haversine)": bi_directional_A_star(
+                start,
+                end,
+                map,
+                cost_type="Euclidean",
+                heuristic_type="Haversine",
+                heuristic_weight=0.001,
+            )[2]
+            * 1000,
+            "bi_A_star(Haversine, Euclidean)": bi_directional_A_star(
+                start,
+                end,
+                map,
+                cost_type="Haversine",
+                heuristic_type="Euclidean",
+                heuristic_weight=1000,
+            )[2]
+            * 1000,
+            "bi_A_star(Haversine, Haversine)": bi_directional_A_star(
+                start, end, map, cost_type="Haversine", heuristic_type="Haversine"
+            )[2]
+            * 1000,
         }
 
         # Append the dictionary to the DataFrame
@@ -372,18 +445,102 @@ def test_time(Station_pair: list, map: dict[str, Station]):
     df.to_csv("output/time.csv")
 
 
-# *test_pathlength
-def test_pathlength(map: dict[str, Station]):
+# *test_pathLength
+def test_pathLength(map: dict[str, Station]):
     station_pairs = (
         ("Cockfosters", "Cockfosters"),
         ("West Ruislip", "Epping"),
         ("Morden", "High Barnet"),
         ("Upminster", "Richmond"),
-        ("Brixton", "Walthamstow"),
+        ("Brixton", "Walthamstow Central"),
     )
     df = pd.DataFrame()
-    for start, end in station_pairs:
-        
+    for start, end in tqdm(station_pairs):
+        result_dict = {
+            "BFS": BFS(start, end, map)[1],
+            "Dijkstra(1)": Dijkstra(start, end, map, cost_type="1")[1],
+            "Dijkstra(Haversine)": Dijkstra(start, end, map, cost_type="Haversine")[1],
+            "Dijkstra(Euclidean)": Dijkstra(start, end, map, cost_type="Euclidean")[1],
+            "BellmanFord(1)": BellmanFord(start, end, map, cost_type="1")[1],
+            "BellmanFord(Haversine)": BellmanFord(
+                start, end, map, cost_type="Haversine"
+            )[1],
+            "BellmanFord(Euclidean)": BellmanFord(
+                start, end, map, cost_type="Euclidean"
+            )[1],
+            "G_BFS(Haversine)": G_BFS(start, end, map, heuristic_type="Haversine")[1],
+            "G_BFS(Euclidean)": G_BFS(start, end, map, heuristic_type="Euclidean")[1],
+            "A_star(1, Euclidean)": A_star(
+                start, end, map, cost_type="1", heuristic_type="Euclidean"
+            )[1],
+            "A_star(1, Haversine)": A_star(
+                start,
+                end,
+                map,
+                cost_type="1",
+                heuristic_type="Haversine",
+                heuristic_weight=0.001,
+            )[1],
+            "A_star(Euclidean, Euclidean)": A_star(
+                start, end, map, cost_type="Euclidean", heuristic_type="Euclidean"
+            )[1],
+            "A_star(Euclidean, Haversine)": A_star(
+                start,
+                end,
+                map,
+                cost_type="Euclidean",
+                heuristic_type="Haversine",
+                heuristic_weight=0.001,
+            )[1],
+            "A_star(Haversine, Euclidean)": A_star(
+                start,
+                end,
+                map,
+                cost_type="Haversine",
+                heuristic_type="Euclidean",
+                heuristic_weight=1000,
+            )[1],
+            "A_star(Haversine, Haversine)": A_star(
+                start, end, map, cost_type="Haversine", heuristic_type="Haversine"
+            )[1],
+            "bi_A_star(1, Euclidean)": bi_directional_A_star(
+                start, end, map, cost_type="1", heuristic_type="Euclidean"
+            )[1],
+            "bi_A_star(1, Haversine)": bi_directional_A_star(
+                start,
+                end,
+                map,
+                cost_type="1",
+                heuristic_type="Haversine",
+                heuristic_weight=0.001,
+            )[1],
+            "bi_A_star(Euclidean, Euclidean)": bi_directional_A_star(
+                start, end, map, cost_type="Euclidean", heuristic_type="Euclidean"
+            )[1],
+            "bi_A_star(Euclidean, Haversine)": bi_directional_A_star(
+                start,
+                end,
+                map,
+                cost_type="Euclidean",
+                heuristic_type="Haversine",
+                heuristic_weight=0.001,
+            )[1],
+            "bi_A_star(Haversine, Euclidean)": bi_directional_A_star(
+                start,
+                end,
+                map,
+                cost_type="Haversine",
+                heuristic_type="Euclidean",
+                heuristic_weight=1000,
+            )[1],
+            "bi_A_star(Haversine, Haversine)": bi_directional_A_star(
+                start, end, map, cost_type="Haversine", heuristic_type="Haversine"
+            )[1],
+        }
+
+        # Append the dictionary to the DataFrame
+        df = df.append(result_dict, ignore_index=True)
+    df.to_csv("output/path_length.csv")
 
 
 # * main function
@@ -400,27 +557,13 @@ if __name__ == "__main__":
     # The relevant descriptions of stations and underground_lines can be found in the build_data.py
     stations, underground_lines = build_data()
 
-    start_station_name = "Archway"
-    end_station_name = "Bermondsey"
-
-    # path,path_length,time_ = BFS(start_station_name, end_station_name, stations)
-    # # path,path_length,time_ = A_star(start_station_name, end_station_name, stations, cost_type='Euclidean', heuristic_type='Euclidean', heuristic_weight=1.0)
-    # path,path_length,time_ = Dijkstra(start_station_name, end_station_name, stations, cost_type='Euclidean')
-    # path,path_length,time_ = Dijkstra(start_station_name, end_station_name, stations, cost_type='Euclidean')
-    # path, path_length, time_ = BellmanFord(start_station_name, end_station_name, stations, cost_type="Euclidean")
-    # path,path_length,time_ = G_BFS(start_station_name, end_station_name, stations, heuristic_type='Euclidean', heuristic_weight=1.0)
-    # path,path_length,time_ = bi_directional_A_star(start_station_name, end_station_name, stations, cost_type='Euclidean', heuristic_type='Euclidean', heuristic_weight=1.0)
-    # print("Time taken:", time_ * 1000, "ms\n")
-    # print("Path length:", path_length, "kilometers\n")
-
-
-
     ##* test time of algorithm
     ## randomly choose 150 pairs of station
-    Station_pair = random_choice(stations.keys(), 250)
-    test_time(Station_pair, stations)
+    # Station_pair = random_choice(stations.keys(), 250)
+    # test_time(Station_pair, stations)
 
     ##* test path_length of algorithm
+    test_pathLength(stations)
 
     # #* visualization the path
     # plot_path(path, r'C:\Users\34071\PythonProjects\Artificial intelligience\STA303-Assignment03\visualization_underground\my_path_in_London_railway.html', stations, underground_lines)
