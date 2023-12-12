@@ -1,4 +1,5 @@
 from math import sqrt
+import random
 from geopy.distance import geodesic
 from build_data import Station
 
@@ -19,6 +20,8 @@ def heuristics(station1: Station, station2: Station, type: str, weight: float = 
 
 # * cost function
 def cost(station1: Station, station2: Station, type: str) -> float:
+    if type == "1":
+        return 1.0
     if type == "Haversine":
         return geodesic(station1.position, station2.position).kilometers
     elif type == "Manhattan":
@@ -37,3 +40,10 @@ def pathLength(path: list,map: dict[str, Station]) -> float:
     for i in range(len(path) - 1):
         total_length += cost(map[path[i]], map[path[i + 1]], "Haversine")
     return total_length
+
+
+# * given a number `n`, randomly choose n pairs of station
+def random_choice(staion_name: list, number :int) -> list:
+    start = random.sample(staion_name,number)
+    end = random.sample(staion_name,number)
+    return list(zip(start,end))

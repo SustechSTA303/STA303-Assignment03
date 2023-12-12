@@ -14,6 +14,8 @@ class Station:
         self.name = name
         self.position = position
         self.links = set()
+    def __lt__(self, other):
+        return self.name < other.name
 
 
 def build_data():
