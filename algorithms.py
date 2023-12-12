@@ -17,16 +17,12 @@ def Haversine_Distance(start_station,end_station):
     return d
 
 def manhattan_Distance(start_station,end_station):
-    lat1 = start_station.position[0]
-    lon1 = start_station.position[1]
-    lat2 = end_station.position[0]
-    lon2 = end_station.position[1]
-    R = 6371
-    dlat = math.radians(lat2-lat1)
-    dlon = math.radians(lon2-lon1)
-    a = math.sin(dlat/2)**2 + math.cos(math.radians(lat1))*math.cos(math.radians(lat2))*math.sin(dlon/2)**2
-    c = 2*math.atan2(math.sqrt(a),math.sqrt(1-a))
-    d = R*c
+    d = abs(start_station.position[0]-end_station.position[0])+abs(start_station.position[1]-end_station.position[1])
+    return d
+
+def digonal_Distance(start_station,end_station):
+    d = abs(start_station.position[0]-end_station.position[0])+abs(start_station.position[1]-end_station.position[1])+\
+        0.414*min(abs(start_station.position[0]-end_station.position[0]),abs(start_station.position[1]-end_station.position[1]))
     return d
 
 def Astar(start_station_name,end_station_name,map,distance_func):
@@ -34,6 +30,8 @@ def Astar(start_station_name,end_station_name,map,distance_func):
         distance_func = manhattan_Distance
     elif distance_func == 'haversine':
         distance_func = Haversine_Distance
+    elif distance_func == 'digonal':
+        distance_func = digonal_Distance
 
     start_station = map[start_station_name]
     end_station = map[end_station_name]
@@ -74,6 +72,8 @@ def UCS(start_station_name,end_station_name,map,distance_func):
         distance_func = manhattan_Distance
     elif distance_func == 'haversine':
         distance_func = Haversine_Distance
+    elif distance_func == 'digonal':
+        distance_func = digonal_Distance
 
     start_station = map[start_station_name]
     end_station = map[end_station_name]
@@ -144,6 +144,8 @@ def cal_total_cost(path,map,dis_func):
         dis_func = manhattan_Distance
     elif dis_func == 'haversine':
         dis_func = Haversine_Distance
+    elif dis_func == 'digonal':
+        dis_func = digonal_Distance
     total_cost = 0
     for i in range(len(path)-1):
         total_cost += dis_func(map[path[i]],map[path[i+1]])
