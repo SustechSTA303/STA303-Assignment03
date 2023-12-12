@@ -8,11 +8,15 @@ class Station:
     Position is a binary combination of longitude and latitude
     and links are a list of stations adjacent to the Station object
     """
+
     def __init__(self, id, name, position):
         self.id = id
         self.name = name
         self.position = position
         self.links = set()
+
+    def __lt__(self, other):
+        return self.id < other.id
 
 
 def build_data():
@@ -52,8 +56,9 @@ def build_data():
             underground_lines[lineNumber]['lon'].extend([stations[id1].position[1], stations[id2].position[1], None])
             underground_lines[lineNumber]['stations'].add(stations[id1].name)
             underground_lines[lineNumber]['stations'].add(stations[id2].name)
+
     r = csv.reader(open(os.path.join(rootdir, 'london/underground_lines.csv')))
-    next(r) # jump the first line
+    next(r)  # jump the first line
     for lineNumber, name, colour, stripe in r:
         lineNumber = int(lineNumber)
         underground_lines[lineNumber]['name'] = name
@@ -62,4 +67,3 @@ def build_data():
     stations = {v.name: v for k, v in stations.items()}
     underground_lines = {v['name']: v for k, v in underground_lines.items()}
     return stations, underground_lines
-
