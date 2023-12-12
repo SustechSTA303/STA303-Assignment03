@@ -1,0 +1,21 @@
+,Number of Time 0
+BFS,115
+Dijkstra(1),92
+Dijkstra(Haversine),0
+Dijkstra(Euclidean),75
+BellmanFord(1),0
+BellmanFord(Euclidean),0
+G_BFS(Haversine),3
+G_BFS(Euclidean),214
+"A_star(1, Euclidean)",98
+"A_star(1, Haversine)",3
+"A_star(Euclidean, Euclidean)",165
+"A_star(Euclidean, Haversine)",1
+"A_star(Haversine, Euclidean)",2
+"A_star(Haversine, Haversine)",1
+"bi_A_star(1, Euclidean)",166
+"bi_A_star(1, Haversine)",0
+"bi_A_star(Euclidean, Euclidean)",164
+"bi_A_star(Euclidean, Haversine)",2
+"bi_A_star(Haversine, Euclidean)",2
+"bi_A_star(Haversine, Haversine)",0

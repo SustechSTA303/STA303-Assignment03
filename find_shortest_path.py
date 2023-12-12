@@ -1,4 +1,5 @@
 import argparse
+from math import inf
 from tqdm import tqdm
 import pandas as pd
 from queue import PriorityQueue, Queue
@@ -61,7 +62,7 @@ def BFS(
             if next not in came_from:
                 frontier.put(next)
                 came_from[next] = current
-    return [], 0, 0.0
+    return [], 0, inf
 
 
 # * Dijkstra algorithm
@@ -101,7 +102,7 @@ def Dijkstra(
                 priority = new_cost
                 frontier.put((priority, next))
                 came_from[next] = current
-    return [], 0, 0.0
+    return [], 0, inf
 
 
 # * Bellman-Ford algorithm
@@ -194,7 +195,7 @@ def G_BFS(
                 )
                 frontier.put((priority, next))
                 came_from[next] = current
-    return [], 0, 0.0
+    return [], 0, inf
 
 
 # * A star algorithm
@@ -238,7 +239,7 @@ def A_star(
                 )
                 frontier.put((priority, next))
                 came_from[next] = current
-    return [], 0, 0.0
+    return [], 0, inf
 
 
 # * Bi-directional A star algorithm
@@ -442,13 +443,13 @@ def test_time(Station_pair: list, map: dict[str, Station]):
 
         # Append the dictionary to the DataFrame
         df = df.append(result_dict, ignore_index=True)
-    df.to_csv("output/time.csv")
+    df.to_csv("myWork/data/time.csv")
 
 
 # *test_pathLength
 def test_pathLength(map: dict[str, Station]):
     station_pairs = (
-        ("Cockfosters", "Cockfosters"),
+        ("Cockfosters", "Uxbridge"),
         ("West Ruislip", "Epping"),
         ("Morden", "High Barnet"),
         ("Upminster", "Richmond"),
@@ -540,7 +541,7 @@ def test_pathLength(map: dict[str, Station]):
 
         # Append the dictionary to the DataFrame
         df = df.append(result_dict, ignore_index=True)
-    df.to_csv("output/path_length.csv")
+    df.to_csv("myWork/data/path_length.csv")
 
 
 # * main function
@@ -559,9 +560,8 @@ if __name__ == "__main__":
 
     ##* test time of algorithm
     ## randomly choose 150 pairs of station
-    # Station_pair = random_choice(stations.keys(), 250)
-    # test_time(Station_pair, stations)
-
+    Station_pair = random_choice(stations.keys(), 250)
+    test_time(Station_pair, stations)
     ##* test path_length of algorithm
     test_pathLength(stations)
 

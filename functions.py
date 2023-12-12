@@ -41,7 +41,7 @@ def pathLength(path: list,map: dict[str, Station]) -> float:
     return total_length
 
 # * given a number `n`, randomly choose n pairs of station
-def random_choice(staion_name: list, number :int) -> list:
-    start = random.sample(staion_name,number)
-    end = random.sample(staion_name,number)
-    return list(zip(start,end))
+def random_choice(station_name: list, number :int) -> list:
+    all_pairs = [(a, b) for a in station_name for b in station_name if a != b]
+    chosen_pairs = random.sample(all_pairs, number)
+    return chosen_pairs
