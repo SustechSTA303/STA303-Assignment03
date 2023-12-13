@@ -13,6 +13,11 @@ class Station:
         self.name = name
         self.position = position
         self.links = set()
+        
+    def __lt__(self, other):
+        # Define how two Station objects should be compared for priority
+        # In this example, we use the lexicographic order of station names
+        return self.name < other.name
 
 
 def build_data():

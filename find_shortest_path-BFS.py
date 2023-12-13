@@ -1,13 +1,17 @@
+
+from queue import Queue
+import timeit
 from typing import List
 from plot_underground_path import plot_path
 from build_data import Station, build_data
 import argparse
 
 
-# Implement the following function
+
+#Implement the following function
 def get_path(start_station_name: str, end_station_name: str, map: dict[str, Station]) -> List[str]:
     """
-    runs astar on the map, find the shortest path between a and b
+    Runs A* on the map, find the shortest path between a and b
     Args:
         start_station_name(str): The name of the starting station
         end_station_name(str): str The name of the ending station
@@ -17,14 +21,35 @@ def get_path(start_station_name: str, end_station_name: str, map: dict[str, Stat
     Returns:
         List[Station]: A path composed of a series of station_name
     """
-    # You can obtain the Station objects of the starting and ending station through the following code
     start_station = map[start_station_name]
     end_station = map[end_station_name]
-    # Given a Station object, you can obtain the name and latitude and longitude of that Station by the following code
-    print(f'The longitude and latitude of the {start_station.name} is {start_station.position}')
-    print(f'The longitude and latitude of the {end_station.name} is {end_station.position}')
-    pass
+    
+    
+    frontier = Queue()
+    frontier.put(start_station)
+    
+    came_from = {}
+    came_from[start_station] = None
+    
+    while not frontier.empty():
+        current = frontier.get()
+        
+        if current == end_station:
+            break
+        
+        for next_station in map[current.name].links:
+            if next_station not in came_from:
+                frontier.put(next_station)
+                came_from[next_station] = current
 
+    my_path = []
+    current = end_station
+    while current is not None:
+        my_path.append(current.name)
+        current = came_from[current]
+    my_path.reverse()
+    
+    return my_path
 
 if __name__ == '__main__':
 
@@ -39,7 +64,15 @@ if __name__ == '__main__':
 
     # The relevant descriptions of stations and underground_lines can be found in the build_data.py
     stations, underground_lines = build_data()
+    path = []
+    # 计时
+    start_time = timeit.default_timer()
     path = get_path(start_station_name, end_station_name, stations)
+    end_time = timeit.default_timer()
+    print(end_time - start_time)
+    print(path)
     # visualization the path
     # Open the visualization_underground/my_path_in_London_railway.html to view the path, and your path is marked in red
     plot_path(path, 'visualization_underground/my_shortest_path_in_London_railway.html', stations, underground_lines)
+
+
