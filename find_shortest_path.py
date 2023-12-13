@@ -46,7 +46,9 @@ def BFS(
     came_from[start_station] = None
 
     start_time = time.time()
+    count = 0
     while not frontier.empty():
+        count += 1
         current = frontier.get()
 
         if current == end_station:
@@ -56,13 +58,13 @@ def BFS(
                 path.insert(0, current.name)
                 current = came_from.get(current)
             path_length = pathLength(path, map)
-            return path, path_length, end_time - start_time
+            return path, path_length, count, end_time - start_time
 
         for next in current.links:
             if next not in came_from:
                 frontier.put(next)
                 came_from[next] = current
-    return [], 0, inf
+    return [], 0, inf, inf
 
 
 # * Dijkstra algorithm
@@ -83,7 +85,9 @@ def Dijkstra(
     cost_so_far[start_station] = 0
 
     start_time = time.time()
+    count = 0
     while not frontier.empty():
+        count += 1
         tmp, current = frontier.get()
 
         if current == end_station:
@@ -93,7 +97,7 @@ def Dijkstra(
                 path.insert(0, current.name)
                 current = came_from.get(current)
             path_length = pathLength(path, map)
-            return path, path_length, end_time - start_time
+            return path, path_length, count, end_time - start_time
 
         for next in current.links:
             new_cost = cost_so_far[current] + cost(current, next, cost_type)
@@ -102,7 +106,7 @@ def Dijkstra(
                 priority = new_cost
                 frontier.put((priority, next))
                 came_from[next] = current
-    return [], 0, inf
+    return [], 0, inf, inf
 
 
 # * Bellman-Ford algorithm
@@ -124,9 +128,10 @@ def BellmanFord(
     cost_so_far[start_station] = 0
 
     start_time = time.time()
-
+    count = 0
     for _ in range(len(map) - 1):
         for current in map.values():
+            count += 1
             for next_station in current.links:
                 new_cost = cost_so_far[current] + cost(current, next_station, cost_type)
                 if new_cost < cost_so_far[next_station]:
@@ -143,7 +148,7 @@ def BellmanFord(
                 < cost_so_far[next_station]
             ):
                 # Negative cycle detected
-                return [], float("-inf"), end_time - start_time
+                return [], float("-inf"), inf, inf
 
     # Reconstruct path
     path = []
@@ -154,7 +159,7 @@ def BellmanFord(
 
     path_length = cost_so_far[end_station]
 
-    return path, path_length, end_time - start_time
+    return path, path_length, count, end_time - start_time
 
 
 # * Greedy BFS algorithm
@@ -176,7 +181,9 @@ def G_BFS(
     cost_so_far[start_station] = 0
 
     start_time = time.time()
+    count = 0
     while not frontier.empty():
+        count += 1
         tmp, current = frontier.get()
 
         if current == end_station:
@@ -186,7 +193,7 @@ def G_BFS(
                 path.insert(0, current.name)
                 current = came_from.get(current)
             path_length = pathLength(path, map)
-            return path, path_length, end_time - start_time
+            return path, path_length, count, end_time - start_time
 
         for next in current.links:
             if next not in came_from:
@@ -195,7 +202,7 @@ def G_BFS(
                 )
                 frontier.put((priority, next))
                 came_from[next] = current
-    return [], 0, inf
+    return [], 0, inf, inf
 
 
 # * A star algorithm
@@ -218,7 +225,9 @@ def A_star(
     cost_so_far[start_station] = 0
 
     start_time = time.time()
+    count = 0
     while not frontier.empty():
+        count += 1
         tmp, current = frontier.get()
 
         if current == end_station:
@@ -228,7 +237,7 @@ def A_star(
                 path.insert(0, current.name)
                 current = came_from.get(current)
             path_length = pathLength(path, map)
-            return path, path_length, end_time - start_time
+            return path, path_length, count, end_time - start_time
 
         for next in current.links:
             new_cost = cost_so_far[current] + cost(current, next, cost_type)
@@ -239,7 +248,7 @@ def A_star(
                 )
                 frontier.put((priority, next))
                 came_from[next] = current
-    return [], 0, inf
+    return [], 0, inf, inf
 
 
 # * Bi-directional A star algorithm
@@ -271,7 +280,9 @@ def bi_directional_A_star(
 
     end_time = 0.0
     start_time = time.time()
+    count = 0
     while not forward_frontier.empty() and not backward_frontier.empty():
+        count += 1
         forward_tmp, forward_current = forward_frontier.get()
         backward_tmp, backward_current = backward_frontier.get()
 
@@ -334,7 +345,7 @@ def bi_directional_A_star(
         current = backward_came_from.get(current)
 
     path_length = pathLength(path, map)
-    return path, path_length, end_time - start_time
+    return path, path_length, count, end_time - start_time
 
 
 # *test_time
@@ -342,29 +353,19 @@ def test_time(Station_pair: list, map: dict[str, Station]):
     df = pd.DataFrame()
     for start, end in tqdm(Station_pair):
         result_dict = {
-            "BFS": BFS(start, end, map)[2] * 1000,
-            "Dijkstra(1)": Dijkstra(start, end, map, cost_type="1")[2] * 1000,
-            "Dijkstra(Haversine)": Dijkstra(start, end, map, cost_type="Haversine")[2]
-            * 1000,
-            "Dijkstra(Euclidean)": Dijkstra(start, end, map, cost_type="Euclidean")[2]
-            * 1000,
-            "BellmanFord(1)": BellmanFord(start, end, map, cost_type="1")[2] * 1000,
-            # "BellmanFord(Haversine)": BellmanFord(
-            #     start, end, map, cost_type="Haversine"
-            # )[2]
-            # * 1000,
+            "BFS": BFS(start, end, map)[2],
+            "Dijkstra(1)": Dijkstra(start, end, map, cost_type="1")[2],
+            "Dijkstra(Haversine)": Dijkstra(start, end, map, cost_type="Haversine")[2],
+            "Dijkstra(Euclidean)": Dijkstra(start, end, map, cost_type="Euclidean")[2],
+            "BellmanFord(1)": BellmanFord(start, end, map, cost_type="1")[2],
             "BellmanFord(Euclidean)": BellmanFord(
                 start, end, map, cost_type="Euclidean"
-            )[2]
-            * 1000,
-            "G_BFS(Haversine)": G_BFS(start, end, map, heuristic_type="Haversine")[2]
-            * 1000,
-            "G_BFS(Euclidean)": G_BFS(start, end, map, heuristic_type="Euclidean")[2]
-            * 1000,
+            )[2],
+            "G_BFS(Haversine)": G_BFS(start, end, map, heuristic_type="Haversine")[2],
+            "G_BFS(Euclidean)": G_BFS(start, end, map, heuristic_type="Euclidean")[2],
             "A_star(1, Euclidean)": A_star(
                 start, end, map, cost_type="1", heuristic_type="Euclidean"
-            )[2]
-            * 1000,
+            )[2],
             "A_star(1, Haversine)": A_star(
                 start,
                 end,
@@ -372,12 +373,10 @@ def test_time(Station_pair: list, map: dict[str, Station]):
                 cost_type="1",
                 heuristic_type="Haversine",
                 heuristic_weight=0.001,
-            )[2]
-            * 1000,
+            )[2],
             "A_star(Euclidean, Euclidean)": A_star(
                 start, end, map, cost_type="Euclidean", heuristic_type="Euclidean"
-            )[2]
-            * 1000,
+            )[2],
             "A_star(Euclidean, Haversine)": A_star(
                 start,
                 end,
@@ -385,8 +384,7 @@ def test_time(Station_pair: list, map: dict[str, Station]):
                 cost_type="Euclidean",
                 heuristic_type="Haversine",
                 heuristic_weight=0.001,
-            )[2]
-            * 1000,
+            )[2],
             "A_star(Haversine, Euclidean)": A_star(
                 start,
                 end,
@@ -394,16 +392,13 @@ def test_time(Station_pair: list, map: dict[str, Station]):
                 cost_type="Haversine",
                 heuristic_type="Euclidean",
                 heuristic_weight=1000,
-            )[2]
-            * 1000,
+            )[2],
             "A_star(Haversine, Haversine)": A_star(
                 start, end, map, cost_type="Haversine", heuristic_type="Haversine"
-            )[2]
-            * 1000,
+            )[2],
             "bi_A_star(1, Euclidean)": bi_directional_A_star(
                 start, end, map, cost_type="1", heuristic_type="Euclidean"
-            )[2]
-            * 1000,
+            )[2],
             "bi_A_star(1, Haversine)": bi_directional_A_star(
                 start,
                 end,
@@ -411,12 +406,10 @@ def test_time(Station_pair: list, map: dict[str, Station]):
                 cost_type="1",
                 heuristic_type="Haversine",
                 heuristic_weight=0.001,
-            )[2]
-            * 1000,
+            )[2],
             "bi_A_star(Euclidean, Euclidean)": bi_directional_A_star(
                 start, end, map, cost_type="Euclidean", heuristic_type="Euclidean"
-            )[2]
-            * 1000,
+            )[2],
             "bi_A_star(Euclidean, Haversine)": bi_directional_A_star(
                 start,
                 end,
@@ -424,8 +417,7 @@ def test_time(Station_pair: list, map: dict[str, Station]):
                 cost_type="Euclidean",
                 heuristic_type="Haversine",
                 heuristic_weight=0.001,
-            )[2]
-            * 1000,
+            )[2],
             "bi_A_star(Haversine, Euclidean)": bi_directional_A_star(
                 start,
                 end,
@@ -433,17 +425,15 @@ def test_time(Station_pair: list, map: dict[str, Station]):
                 cost_type="Haversine",
                 heuristic_type="Euclidean",
                 heuristic_weight=1000,
-            )[2]
-            * 1000,
+            )[2],
             "bi_A_star(Haversine, Haversine)": bi_directional_A_star(
                 start, end, map, cost_type="Haversine", heuristic_type="Haversine"
-            )[2]
-            * 1000,
+            )[2],
         }
 
         # Append the dictionary to the DataFrame
         df = df.append(result_dict, ignore_index=True)
-    df.to_csv("myWork/data/time.csv")
+    df.to_csv("myWork/data/iterate_time.csv")
 
 
 # *test_pathLength
@@ -560,7 +550,7 @@ if __name__ == "__main__":
 
     ##* test time of algorithm
     ## randomly choose 150 pairs of station
-    Station_pair = random_choice(stations.keys(), 250)
+    Station_pair = random_choice(stations.keys(), 10)
     test_time(Station_pair, stations)
     ##* test path_length of algorithm
     test_pathLength(stations)
