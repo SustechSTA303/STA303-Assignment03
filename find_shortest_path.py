@@ -157,7 +157,7 @@ def BellmanFord(
         path.insert(0, current.name)
         current = came_from.get(current)
 
-    path_length = cost_so_far[end_station]
+    path_length = pathLength(path,map)
 
     return path, path_length, count, end_time - start_time
 
@@ -364,7 +364,12 @@ def test_time(Station_pair: list, map: dict[str, Station]):
             "G_BFS(Haversine)": G_BFS(start, end, map, heuristic_type="Haversine")[2],
             "G_BFS(Euclidean)": G_BFS(start, end, map, heuristic_type="Euclidean")[2],
             "A_star(1, Euclidean)": A_star(
-                start, end, map, cost_type="1", heuristic_type="Euclidean"
+                start,
+                end,
+                map,
+                cost_type="1",
+                heuristic_type="Euclidean",
+                heuristic_weight=0.001,
             )[2],
             "A_star(1, Haversine)": A_star(
                 start,
@@ -383,7 +388,6 @@ def test_time(Station_pair: list, map: dict[str, Station]):
                 map,
                 cost_type="Euclidean",
                 heuristic_type="Haversine",
-                heuristic_weight=0.001,
             )[2],
             "A_star(Haversine, Euclidean)": A_star(
                 start,
@@ -391,13 +395,17 @@ def test_time(Station_pair: list, map: dict[str, Station]):
                 map,
                 cost_type="Haversine",
                 heuristic_type="Euclidean",
-                heuristic_weight=1000,
             )[2],
             "A_star(Haversine, Haversine)": A_star(
                 start, end, map, cost_type="Haversine", heuristic_type="Haversine"
             )[2],
             "bi_A_star(1, Euclidean)": bi_directional_A_star(
-                start, end, map, cost_type="1", heuristic_type="Euclidean"
+                start,
+                end,
+                map,
+                cost_type="1",
+                heuristic_type="Euclidean",
+                heuristic_weight=0.001,
             )[2],
             "bi_A_star(1, Haversine)": bi_directional_A_star(
                 start,
@@ -416,15 +424,12 @@ def test_time(Station_pair: list, map: dict[str, Station]):
                 map,
                 cost_type="Euclidean",
                 heuristic_type="Haversine",
-                heuristic_weight=0.001,
             )[2],
             "bi_A_star(Haversine, Euclidean)": bi_directional_A_star(
                 start,
                 end,
                 map,
                 cost_type="Haversine",
-                heuristic_type="Euclidean",
-                heuristic_weight=1000,
             )[2],
             "bi_A_star(Haversine, Haversine)": bi_directional_A_star(
                 start, end, map, cost_type="Haversine", heuristic_type="Haversine"
@@ -462,7 +467,12 @@ def test_pathLength(map: dict[str, Station]):
             "G_BFS(Haversine)": G_BFS(start, end, map, heuristic_type="Haversine")[1],
             "G_BFS(Euclidean)": G_BFS(start, end, map, heuristic_type="Euclidean")[1],
             "A_star(1, Euclidean)": A_star(
-                start, end, map, cost_type="1", heuristic_type="Euclidean"
+                start,
+                end,
+                map,
+                cost_type="1",
+                heuristic_type="Euclidean",
+                heuristic_weight=0.001,
             )[1],
             "A_star(1, Haversine)": A_star(
                 start,
@@ -481,7 +491,6 @@ def test_pathLength(map: dict[str, Station]):
                 map,
                 cost_type="Euclidean",
                 heuristic_type="Haversine",
-                heuristic_weight=0.001,
             )[1],
             "A_star(Haversine, Euclidean)": A_star(
                 start,
@@ -489,13 +498,18 @@ def test_pathLength(map: dict[str, Station]):
                 map,
                 cost_type="Haversine",
                 heuristic_type="Euclidean",
-                heuristic_weight=1000,
             )[1],
             "A_star(Haversine, Haversine)": A_star(
                 start, end, map, cost_type="Haversine", heuristic_type="Haversine"
             )[1],
+
             "bi_A_star(1, Euclidean)": bi_directional_A_star(
-                start, end, map, cost_type="1", heuristic_type="Euclidean"
+                start,
+                end,
+                map,
+                cost_type="1",
+                heuristic_type="Euclidean",
+                heuristic_weight=0.001,
             )[1],
             "bi_A_star(1, Haversine)": bi_directional_A_star(
                 start,
@@ -514,7 +528,6 @@ def test_pathLength(map: dict[str, Station]):
                 map,
                 cost_type="Euclidean",
                 heuristic_type="Haversine",
-                heuristic_weight=0.001,
             )[1],
             "bi_A_star(Haversine, Euclidean)": bi_directional_A_star(
                 start,
@@ -522,7 +535,6 @@ def test_pathLength(map: dict[str, Station]):
                 map,
                 cost_type="Haversine",
                 heuristic_type="Euclidean",
-                heuristic_weight=1000,
             )[1],
             "bi_A_star(Haversine, Haversine)": bi_directional_A_star(
                 start, end, map, cost_type="Haversine", heuristic_type="Haversine"
@@ -550,7 +562,7 @@ if __name__ == "__main__":
 
     ##* test time of algorithm
     ## randomly choose 150 pairs of station
-    Station_pair = random_choice(stations.keys(), 10)
+    Station_pair = random_choice(stations.keys(), 250)
     test_time(Station_pair, stations)
     ##* test path_length of algorithm
     test_pathLength(stations)
