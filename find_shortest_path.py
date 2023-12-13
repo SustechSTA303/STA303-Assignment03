@@ -2,7 +2,12 @@ from typing import List
 from plot_underground_path import plot_path
 from build_data import Station, build_data
 import argparse
-
+from Astar import Astar
+from Dijkstra import Dijkstra
+from Bidirectional import Bidirectional
+import time
+import math
+from geopy.distance import geodesic
 
 # Implement the following function
 def get_path(start_station_name: str, end_station_name: str, map: dict[str, Station]) -> List[str]:
@@ -18,12 +23,53 @@ def get_path(start_station_name: str, end_station_name: str, map: dict[str, Stat
         List[Station]: A path composed of a series of station_name
     """
     # You can obtain the Station objects of the starting and ending station through the following code
-    start_station = map[start_station_name]
-    end_station = map[end_station_name]
+    #start_station = map[start_station_name]
+    #end_station = map[end_station_name]
+    # start_time = time.time()
+    # path_length = 0
+    # for key_1 in map:
+    #     for key_2 in map:
+    #         if key_1 == key_2:
+    #             continue    
+    #         path_list = Astar(key_1, key_2, map)
+    #         path_length += calLength('euclid', path_list, map)
+    # end_time = time.time()
+    # run_time = end_time - start_time
+
+    start_time = time.time()
+    path_list = Astar(start_station_name, end_station_name, map)
+    end_time = time.time()
+    run_time = end_time - start_time
+
     # Given a Station object, you can obtain the name and latitude and longitude of that Station by the following code
-    print(f'The longitude and latitude of the {start_station.name} is {start_station.position}')
-    print(f'The longitude and latitude of the {end_station.name} is {end_station.position}')
-    pass
+    #print(f'The longitude and latitude of the {start_station.name} is {start_station.position}')
+    #print(f'The longitude and latitude of the {end_station.name} is {end_station.position}')
+    print(f"The path length is {calLength('euclid', path_list, map)}")
+    print(f"Algorithm took {run_time} seconds to run.")
+    return path_list
+
+def calLength(type, path_list, map):
+    count = 0
+    length = 0
+    while len(path_list) > count + 1:
+        node_1 = map[path_list[count]]
+        node_2 = map[path_list[count+1]]
+        node_dis = distance(node_1, node_2, type)
+        length += node_dis
+        count += 1
+    return length
+
+def distance(node_1, node_2, type):
+    node_1_location = (node_1.position[0], node_1.position[1])
+    node_2_location = (node_2.position[0], node_2.position[1])
+    if type == 'manhattan':
+        return abs(node_1_location[0] - node_2_location[0]) + abs(node_1_location[1] + node_2_location[1])
+    elif type == 'euclid':
+        return math.sqrt((node_1_location[0] - node_2_location[0])**2 + (node_1_location[1] + node_2_location[1])**2)
+    elif type == 'geo':
+        return geodesic(node_1_location, node_2_location).kilometers
+
+
 
 
 if __name__ == '__main__':

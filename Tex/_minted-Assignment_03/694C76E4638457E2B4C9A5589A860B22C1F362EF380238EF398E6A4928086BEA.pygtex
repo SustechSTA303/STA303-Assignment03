@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{geodistance}\PYG{p}{(}\PYG{n}{lng1}\PYG{p}{,}\PYG{n}{lat1}\PYG{p}{,}\PYG{n}{lng2}\PYG{p}{,}\PYG{n}{lat2}\PYG{p}{):}
+\PYG{n}{lng1}\PYG{p}{,} \PYG{n}{lat1}\PYG{p}{,} \PYG{n}{lng2}\PYG{p}{,} \PYG{n}{lat2} \PYG{o}{=} \PYG{n+nb}{map}\PYG{p}{(}\PYG{n}{radians}\PYG{p}{,} \PYG{p}{[}\PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{lng1}\PYG{p}{),} \PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{lat1}\PYG{p}{),} \PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{lng2}\PYG{p}{),} \PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{lat2}\PYG{p}{)])}
+	\PYG{n}{dlon}\PYG{o}{=}\PYG{n}{lng2}\PYG{o}{\PYGZhy{}}\PYG{n}{lng1}
+	\PYG{n}{dlat}\PYG{o}{=}\PYG{n}{lat2}\PYG{o}{\PYGZhy{}}\PYG{n}{lat1}
+	\PYG{n}{a}\PYG{o}{=}\PYG{n}{sin}\PYG{p}{(}\PYG{n}{dlat}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{**}\PYG{l+m+mi}{2} \PYG{o}{+} \PYG{n}{cos}\PYG{p}{(}\PYG{n}{lat1}\PYG{p}{)} \PYG{o}{*} \PYG{n}{cos}\PYG{p}{(}\PYG{n}{lat2}\PYG{p}{)} \PYG{o}{*} \PYG{n}{sin}\PYG{p}{(}\PYG{n}{dlon}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{**}\PYG{l+m+mi}{2}
+	\PYG{n}{distance}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{asin}\PYG{p}{(}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{a}\PYG{p}{))}\PYG{o}{*}\PYG{l+m+mi}{6371}\PYG{o}{*}\PYG{l+m+mi}{1000}
+	\PYG{n}{distance}\PYG{o}{=}\PYG{n+nb}{round}\PYG{p}{(}\PYG{n}{distance}\PYG{o}{/}\PYG{l+m+mi}{1000}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{)}
+	\PYG{k}{return} \PYG{n}{distance}
+\end{Verbatim}
