@@ -1,7 +1,6 @@
 import csv
 import os
 
-
 class Station:
     """
     The Station class contains four attributes: id, name, position, and links.
