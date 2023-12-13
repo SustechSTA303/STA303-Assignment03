@@ -157,7 +157,7 @@ def BellmanFord(
         path.insert(0, current.name)
         current = came_from.get(current)
 
-    path_length = pathLength(path,map)
+    path_length = pathLength(path, map)
 
     return path, path_length, count, end_time - start_time
 
@@ -357,11 +357,11 @@ def test_time(Station_pair: list, map: dict[str, Station]):
             "Dijkstra(1)": Dijkstra(start, end, map, cost_type="1")[2],
             "Dijkstra(Haversine)": Dijkstra(start, end, map, cost_type="Haversine")[2],
             "Dijkstra(Euclidean)": Dijkstra(start, end, map, cost_type="Euclidean")[2],
-            "BellmanFord(1)": BellmanFord(start, end, map, cost_type="1")[2],
+            # "BellmanFord(1)": BellmanFord(start, end, map, cost_type="1")[2],
             "BellmanFord(Euclidean)": BellmanFord(
                 start, end, map, cost_type="Euclidean"
             )[2],
-            "G_BFS(Haversine)": G_BFS(start, end, map, heuristic_type="Haversine")[2],
+            # "G_BFS(Haversine)": G_BFS(start, end, map, heuristic_type="Haversine")[2],
             "G_BFS(Euclidean)": G_BFS(start, end, map, heuristic_type="Euclidean")[2],
             "A_star(1, Euclidean)": A_star(
                 start,
@@ -430,6 +430,7 @@ def test_time(Station_pair: list, map: dict[str, Station]):
                 end,
                 map,
                 cost_type="Haversine",
+                heuristic_type="Euclidean",
             )[2],
             "bi_A_star(Haversine, Haversine)": bi_directional_A_star(
                 start, end, map, cost_type="Haversine", heuristic_type="Haversine"
@@ -457,10 +458,10 @@ def test_pathLength(map: dict[str, Station]):
             "Dijkstra(1)": Dijkstra(start, end, map, cost_type="1")[1],
             "Dijkstra(Haversine)": Dijkstra(start, end, map, cost_type="Haversine")[1],
             "Dijkstra(Euclidean)": Dijkstra(start, end, map, cost_type="Euclidean")[1],
-            "BellmanFord(1)": BellmanFord(start, end, map, cost_type="1")[1],
-            "BellmanFord(Haversine)": BellmanFord(
-                start, end, map, cost_type="Haversine"
-            )[1],
+            # "BellmanFord(1)": BellmanFord(start, end, map, cost_type="1")[1],
+            # "BellmanFord(Haversine)": BellmanFord(
+            #     start, end, map, cost_type="Haversine"
+            # )[1],
             "BellmanFord(Euclidean)": BellmanFord(
                 start, end, map, cost_type="Euclidean"
             )[1],
@@ -502,7 +503,6 @@ def test_pathLength(map: dict[str, Station]):
             "A_star(Haversine, Haversine)": A_star(
                 start, end, map, cost_type="Haversine", heuristic_type="Haversine"
             )[1],
-
             "bi_A_star(1, Euclidean)": bi_directional_A_star(
                 start,
                 end,

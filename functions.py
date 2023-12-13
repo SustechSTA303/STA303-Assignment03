@@ -42,10 +42,21 @@ def cost(station1: Station, station2: Station, type: str) -> float:
     #         station1.position[1] - station2.position[1]
     #     )
     elif type == "Euclidean":
-        return sqrt(
-            (station1.position[0] - station2.position[0]) ** 2
-            + (station1.position[1] - station2.position[1]) ** 2
-        )
+        # Convert latitude and longitude to kilometers
+        lat_km = geodesic(
+            (station1.position[0], station1.position[1]),
+            (station1.position[0], station2.position[1]),
+        ).kilometers
+        lon_km = geodesic(
+            (station1.position[0], station1.position[1]),
+            (station2.position[0], station1.position[1]),
+        ).kilometers
+
+        # Calculate Euclidean distance
+        euclidean_dist = sqrt(lat_km**2 + lon_km**2)
+
+        return euclidean_dist
+
 
 
 # * path length function
