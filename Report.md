@@ -281,20 +281,20 @@ def heuristic_chebyshev(station, end_station):
 Here I will visually show the results of the three algorithms, and the selected sites are from Putney Bridge to Redbridge, here time is for `plot_path` :
 
 - The Breadth-First Search Result: 24 stations
-  Elapsed Time: 0.612598180770874 seconds
+  Elapsed Time: 0.0 seconds
 
 ![](pictures/BFS.png)
 
 - A* (the Euclidean distance and the Chebyshev distances) and Bellman-Ford Result: 23 stations
-  - Bellman-Ford: Elapsed Time: 0.6125421524047852 seconds
-  - A* (the Euclidean distance): Elapsed Time: 0.6290342807769775 seconds
-  - A* (the Chebyshev distances): Elapsed Time: 0.617222785949707 seconds
+  - Bellman-Ford: Elapsed Time: 0.1598660945892334 seconds
+  - A* (the Euclidean distance): Elapsed Time: 0.0 seconds
+  - A* (the Chebyshev distances): Elapsed Time: 0.003996849060058594 seconds
 
 ![](pictures/Astar.png)
 
 - A* (the Manhattan distance) Result: 25 stations
   
-  Elapsed Time: 0.6177170276641846 seconds
+  Elapsed Time: 0.003996610641479492 seconds
 
 ![](pictures/Astar_manhattan.png) 
 
@@ -337,7 +337,7 @@ In summary, the choice of algorithm depends on the characteristics of the graph,
 * [visualization_underground](visualization_underground)
   
   * [my_shortest_path_in_London_railway_BFS.html](visualization_underground%2Fmy_shortest_path_in_London_railway_BFS.html)
-  * [my_shortest_path_in_London_railway_Bellman_Ford.html](visualization_underground%2Fmy_shortest_path_in_London_railway_Bellman_Ford.html)
+  * [my_shortest_path_in_London_railway_BF.html](visualization_underground%2Fmy_shortest_path_in_London_railway_BF.html)
   * [my_shortest_path_in_London_railway_Astar_Euclidean.html](visualization_underground%2Fmy_shortest_path_in_London_railway_Astar_Euclidean.html)
   * [my_shortest_path_in_London_railway_Astar_chebyshev.html](visualization_underground%2Fmy_shortest_path_in_London_railway_Astar_chebyshev.html)
   * [my_shortest_path_in_London_railway_Astar_manhattan.html](visualization_underground%2Fmy_shortest_path_in_London_railway_Astar_manhattan.html)
