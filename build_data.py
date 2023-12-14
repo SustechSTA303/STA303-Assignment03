@@ -13,8 +13,8 @@ class Station:
         self.name = name
         self.position = position
         self.links = set()
-
-
+        self.parent = set()
+    
 def build_data():
     """
     builds the 'map' by reading the data files
