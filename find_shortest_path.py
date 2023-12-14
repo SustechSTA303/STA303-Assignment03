@@ -299,6 +299,8 @@ def bi_directional_A_star(
             )
             intersection_station = forward_current
             end_time = time.time()
+            break
+
 
         # Expand forward
         for forward_next in forward_current.links:
