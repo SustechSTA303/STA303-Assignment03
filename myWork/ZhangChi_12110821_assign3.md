@@ -4,7 +4,7 @@
 
 **SID：** 12110821
 
-**Link of pull request: **[Zhang Chi 12110821 ](https://github.com/SustechSTA303/STA303-Assignment02/pull/32)
+**Link of pull request: **[Zhang Chi 12110821 ](https://github.com/SustechSTA303/STA303-Assignment03/pull/21)
 
 
 
