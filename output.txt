@@ -1,0 +1,87 @@
+the path length is around 5:
+the start station is Bond Street,the end station is Holborn.
+the cost time is 0.04601478576660156 ms, the cost is calculated through UNIT, the algorithm used is A*_Manhatton.The length of the path is 4.
+ the cost time is 0.06079673767089844 ms, the cost is calculated through UNIT, the algorithm used is A*_Euclidean.The length of the path is 4.
+ the cost time is 0.07295608520507812 ms, the cost is calculated through UNIT, the algorithm used is Dijkstra.The length of the path is 4.
+ the cost time is 0.16808509826660156 ms, the cost is calculated through UNIT, the algorithm used is BFS.The length of the path is 4.
+ the cost time is 0.046253204345703125 ms, the cost is calculated through DISTANCE, the algorithm used is A*_Manhatton.The length of the path is 4.
+ the cost time is 0.059604644775390625 ms, the cost is calculated through DISTANCE, the algorithm used is A*_Euclidean.The length of the path is 4.
+ the cost time is 0.09655952453613281 ms, the cost is calculated through DISTANCE, the algorithm used is Dijkstra.The length of the path is 4.
+ the cost time is 0.1430511474609375 ms, the cost is calculated through DISTANCE, the algorithm used is BFS.The length of the path is 4.
+ the start station is Poplar,the end station is Stratford.
+the cost time is 0.05030632019042969 ms, the cost is calculated through UNIT, the algorithm used is A*_Manhatton.The length of the path is 6.
+ the cost time is 0.0591278076171875 ms, the cost is calculated through UNIT, the algorithm used is A*_Euclidean.The length of the path is 6.
+ the cost time is 0.06866455078125 ms, the cost is calculated through UNIT, the algorithm used is Dijkstra.The length of the path is 6.
+ the cost time is 0.1647472381591797 ms, the cost is calculated through UNIT, the algorithm used is BFS.The length of the path is 6.
+ the cost time is 0.058650970458984375 ms, the cost is calculated through DISTANCE, the algorithm used is A*_Manhatton.The length of the path is 6.
+ the cost time is 0.06437301635742188 ms, the cost is calculated through DISTANCE, the algorithm used is A*_Euclidean.The length of the path is 6.
+ the cost time is 0.09250640869140625 ms, the cost is calculated through DISTANCE, the algorithm used is Dijkstra.The length of the path is 6.
+ the cost time is 0.14209747314453125 ms, the cost is calculated through DISTANCE, the algorithm used is BFS.The length of the path is 6.
+ the start station is Waterloo,the end station is Baker Street.
+the cost time is 0.04601478576660156 ms, the cost is calculated through UNIT, the algorithm used is A*_Manhatton.The length of the path is 5.
+ the cost time is 0.05817413330078125 ms, the cost is calculated through UNIT, the algorithm used is A*_Euclidean.The length of the path is 5.
+ the cost time is 0.10323524475097656 ms, the cost is calculated through UNIT, the algorithm used is Dijkstra.The length of the path is 5.
+ the cost time is 0.22745132446289062 ms, the cost is calculated through UNIT, the algorithm used is BFS.The length of the path is 5.
+ the cost time is 0.10895729064941406 ms, the cost is calculated through DISTANCE, the algorithm used is A*_Manhatton.The length of the path is 7.
+ the cost time is 0.11110305786132812 ms, the cost is calculated through DISTANCE, the algorithm used is A*_Euclidean.The length of the path is 7.
+ the cost time is 0.18310546875 ms, the cost is calculated through DISTANCE, the algorithm used is Dijkstra.The length of the path is 7.
+ the cost time is 0.202178955078125 ms, the cost is calculated through DISTANCE, the algorithm used is BFS.The length of the path is 5.
+ 
+ the path length is around 10:
+ the start station is White City,the end station is Bank.
+the cost time is 0.1385211944580078 ms, the cost is calculated through UNIT, the algorithm used is A*_Manhatton.The length of the path is 12.
+ the cost time is 0.13494491577148438 ms, the cost is calculated through UNIT, the algorithm used is A*_Euclidean.The length of the path is 12.
+ the cost time is 0.21529197692871094 ms, the cost is calculated through UNIT, the algorithm used is Dijkstra.The length of the path is 12.
+ the cost time is 0.45752525329589844 ms, the cost is calculated through UNIT, the algorithm used is BFS.The length of the path is 12.
+ the cost time is 0.2684593200683594 ms, the cost is calculated through DISTANCE, the algorithm used is A*_Manhatton.The length of the path is 14.
+ the cost time is 0.29087066650390625 ms, the cost is calculated through DISTANCE, the algorithm used is A*_Euclidean.The length of the path is 14.
+ the cost time is 0.37026405334472656 ms, the cost is calculated through DISTANCE, the algorithm used is Dijkstra.The length of the path is 14.
+ the cost time is 0.43010711669921875 ms, the cost is calculated through DISTANCE, the algorithm used is BFS.The length of the path is 12.
+ the start station is Stockwell,the end station is Camden Town.
+the cost time is 0.12683868408203125 ms, the cost is calculated through UNIT, the algorithm used is A*_Manhatton.The length of the path is 9.
+ the cost time is 0.13828277587890625 ms, the cost is calculated through UNIT, the algorithm used is A*_Euclidean.The length of the path is 9.
+ the cost time is 0.1900196075439453 ms, the cost is calculated through UNIT, the algorithm used is Dijkstra.The length of the path is 9.
+ the cost time is 0.4010200500488281 ms, the cost is calculated through UNIT, the algorithm used is BFS.The length of the path is 9.
+ the cost time is 0.1761913299560547 ms, the cost is calculated through DISTANCE, the algorithm used is A*_Manhatton.The length of the path is 9.
+ the cost time is 0.18668174743652344 ms, the cost is calculated through DISTANCE, the algorithm used is A*_Euclidean.The length of the path is 9.
+ the cost time is 0.2357959747314453 ms, the cost is calculated through DISTANCE, the algorithm used is Dijkstra.The length of the path is 9.
+ the cost time is 0.37217140197753906 ms, the cost is calculated through DISTANCE, the algorithm used is BFS.The length of the path is 9.
+ the start station is Acton Town,the end station is Marble Arch.
+the cost time is 0.10514259338378906 ms, the cost is calculated through UNIT, the algorithm used is A*_Manhatton.The length of the path is 10.
+ the cost time is 0.10752677917480469 ms, the cost is calculated through UNIT, the algorithm used is A*_Euclidean.The length of the path is 10.
+ the cost time is 0.1285076141357422 ms, the cost is calculated through UNIT, the algorithm used is Dijkstra.The length of the path is 10.
+ the cost time is 0.30112266540527344 ms, the cost is calculated through UNIT, the algorithm used is BFS.The length of the path is 10.
+ the cost time is 0.18143653869628906 ms, the cost is calculated through DISTANCE, the algorithm used is A*_Manhatton.The length of the path is 10.
+ the cost time is 0.18358230590820312 ms, the cost is calculated through DISTANCE, the algorithm used is A*_Euclidean.The length of the path is 10.
+ the cost time is 0.2028942108154297 ms, the cost is calculated through DISTANCE, the algorithm used is Dijkstra.The length of the path is 10.
+ the cost time is 0.2694129943847656 ms, the cost is calculated through DISTANCE, the algorithm used is BFS.The length of the path is 10.
+ 
+ the path length is around 20:
+ the start station is East Acton,the end station is Royal Victoria.
+the cost time is 0.2994537353515625 ms, the cost is calculated through UNIT, the algorithm used is A*_Manhatton.The length of the path is 20.
+ the cost time is 0.3147125244140625 ms, the cost is calculated through UNIT, the algorithm used is A*_Euclidean.The length of the path is 20.
+ the cost time is 0.46539306640625 ms, the cost is calculated through UNIT, the algorithm used is Dijkstra.The length of the path is 20.
+ the cost time is 0.9226799011230469 ms, the cost is calculated through UNIT, the algorithm used is BFS.The length of the path is 20.
+ the cost time is 0.6015300750732422 ms, the cost is calculated through DISTANCE, the algorithm used is A*_Manhatton.The length of the path is 23.
+ the cost time is 0.6418228149414062 ms, the cost is calculated through DISTANCE, the algorithm used is A*_Euclidean.The length of the path is 23.
+ the cost time is 0.7193088531494141 ms, the cost is calculated through DISTANCE, the algorithm used is Dijkstra.The length of the path is 23.
+ the cost time is 0.9088516235351562 ms, the cost is calculated through DISTANCE, the algorithm used is BFS.The length of the path is 20.
+ the start station is Seven Sisters,the end station is Acton Town.
+the cost time is 0.30112266540527344 ms, the cost is calculated through UNIT, the algorithm used is A*_Manhatton.The length of the path is 17.
+ the cost time is 0.5195140838623047 ms, the cost is calculated through UNIT, the algorithm used is A*_Euclidean.The length of the path is 17.
+ the cost time is 0.44608116149902344 ms, the cost is calculated through UNIT, the algorithm used is Dijkstra.The length of the path is 17.
+ the cost time is 0.8764266967773438 ms, the cost is calculated through UNIT, the algorithm used is BFS.The length of the path is 17.
+ the cost time is 0.5130767822265625 ms, the cost is calculated through DISTANCE, the algorithm used is A*_Manhatton.The length of the path is 19.
+ the cost time is 0.5476474761962891 ms, the cost is calculated through DISTANCE, the algorithm used is A*_Euclidean.The length of the path is 19.
+ the cost time is 0.6182193756103516 ms, the cost is calculated through DISTANCE, the algorithm used is Dijkstra.The length of the path is 19.
+ the cost time is 0.858306884765625 ms, the cost is calculated through DISTANCE, the algorithm used is BFS.The length of the path is 17.
+ the start station is Turnham Green,the end station is Redbridge.
+the cost time is 0.18930435180664062 ms, the cost is calculated through UNIT, the algorithm used is A*_Manhatton.The length of the path is 20.
+ the cost time is 0.19502639770507812 ms, the cost is calculated through UNIT, the algorithm used is A*_Euclidean.The length of the path is 20.
+ the cost time is 0.4856586456298828 ms, the cost is calculated through UNIT, the algorithm used is Dijkstra.The length of the path is 20.
+ the cost time is 0.9753704071044922 ms, the cost is calculated through UNIT, the algorithm used is BFS.The length of the path is 20.
+ the cost time is 0.7064342498779297 ms, the cost is calculated through DISTANCE, the algorithm used is A*_Manhatton.The length of the path is 22.
+ the cost time is 0.7581710815429688 ms, the cost is calculated through DISTANCE, the algorithm used is A*_Euclidean.The length of the path is 22.
+ the cost time is 0.7867813110351562 ms, the cost is calculated through DISTANCE, the algorithm used is Dijkstra.The length of the path is 22.
+ the cost time is 0.9531974792480469 ms, the cost is calculated through DISTANCE, the algorithm used is BFS.The length of the path is 20.
+ 

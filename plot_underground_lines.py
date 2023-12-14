@@ -67,7 +67,6 @@ def plot_underground_lines(output, stations, underground_lines):
     fig = dict(data=data, layout=layout)
     py.plot(fig, filename=output)  # 生成html文件并打开
 
-
 if __name__ == '__main__':
     stations, underground_lines = build_data()
     plot_underground_lines('visualization_underground/London_railway.html', stations, underground_lines)
