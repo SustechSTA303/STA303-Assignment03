@@ -8,6 +8,11 @@ class Station:
     Position is a binary combination of longitude and latitude
     and links are a list of stations adjacent to the Station object
     """
+    def __lt__(self, other):
+        # 这里我们提供了一个比较运算符的实现，它基于站点的名称进行比较
+        # 这样做是为了在优先队列中避免直接比较Station实例
+        return self.name < other.name
+    
     def __init__(self, id, name, position):
         self.id = id
         self.name = name
