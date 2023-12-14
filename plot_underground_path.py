@@ -3,7 +3,7 @@ import plotly.offline as py
 from build_data import build_data
 
 
-def plot_path(path, output, stations, underground_lines):
+def plot_path(path: list, output, stations, underground_lines, color: list, name: list):
     """
     :param path: A list of station name
     :param output: Path to output HTML
@@ -14,10 +14,11 @@ def plot_path(path, output, stations, underground_lines):
     """
 
     # 检测路径是否存在
+    for p in path:
+        for i in range(1, len(p)):
+            if stations[p[i]] not in stations[p[i - 1]].links:
+                raise Exception("path is not exist")
 
-    for i in range(1, len(path)):
-        if stations[path[i]] not in stations[path[i - 1]].links:
-            raise Exception("path is not exist")
     mapbox_access_token = (
         'pk.eyJ1IjoibHVrYXNtYXJ0aW5lbGxpIiwiYSI6ImNpem85dmhwazAy'
         'ajIyd284dGxhN2VxYnYifQ.HQCmyhEXZUTz3S98FMrVAQ'
@@ -69,21 +70,23 @@ def plot_path(path, output, stations, underground_lines):
             )
         ]
         )
-    data.append(go.Scattermapbox(
-        lat=[stations[station_name].position[0] for station_name in path],
-        lon=[stations[station_name].position[1] for station_name in path],
-        mode='markers+lines',
-        text=path,
-        line=go.scattermapbox.Line(
-            width=3,
-            color='red'
-        ),
-        marker=go.scattermapbox.Marker(
-            size=8,
-            color='red'
-        ),
-        name='my path'
-    ))
+    for i in range(0, len(name)):
+        data.append(go.Scattermapbox(
+            lat=[stations[station_name].position[0] for station_name in path[i]],
+            lon=[stations[station_name].position[1] for station_name in path[i]],
+            mode='markers+lines',
+            text=path[i],
+            line=go.scattermapbox.Line(
+                width=3,
+                color=color[i]
+            ),
+            marker=go.scattermapbox.Marker(
+                size=8,
+                color=color[i]
+            ),
+            name=name[i]
+        )
+)
 
     fig = dict(data=data, layout=layout)
     py.plot(fig, filename=output)  # 生成html文件并打开
@@ -91,5 +94,5 @@ def plot_path(path, output, stations, underground_lines):
 
 if __name__ == '__main__':
     stations, underground_lines = build_data()
-    plot_path(['Acton Town', 'Chiswick Park', 'Turnham Green', 'Stamford Brook'],
-              'visualization_underground/my_path_in_London_railway.html', stations, underground_lines)
+    plot_path([['Acton Town', 'Chiswick Park', 'Turnham Green', 'Stamford Brook']],
+              'visualization_underground/my_path_in_London_railway.html', stations, underground_lines, color=['red'], name=['my path'])
