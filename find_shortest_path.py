@@ -363,7 +363,7 @@ def test_time(Station_pair: list, map: dict[str, Station]):
             "BellmanFord(Euclidean)": BellmanFord(
                 start, end, map, cost_type="Euclidean"
             )[2],
-            # "G_BFS(Haversine)": G_BFS(start, end, map, heuristic_type="Haversine")[2],
+            "G_BFS(Haversine)": G_BFS(start, end, map, heuristic_type="Haversine")[2],
             "G_BFS(Euclidean)": G_BFS(start, end, map, heuristic_type="Euclidean")[2],
             "A_star(1, Euclidean)": A_star(
                 start,
