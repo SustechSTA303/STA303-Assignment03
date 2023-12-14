@@ -440,7 +440,7 @@ def test_time(Station_pair: list, map: dict[str, Station]):
         }
 
         # Append the dictionary to the DataFrame
-        df = df.append(result_dict, ignore_index=True)
+        df = df._append(result_dict, ignore_index=True)
     df.to_csv("myWork/data/iterate_time.csv")
 
 
@@ -544,7 +544,7 @@ def test_pathLength(map: dict[str, Station]):
         }
 
         # Append the dictionary to the DataFrame
-        df = df.append(result_dict, ignore_index=True)
+        df = df._append(result_dict, ignore_index=True)
     df.to_csv("myWork/data/path_length.csv")
 
 
@@ -564,7 +564,7 @@ if __name__ == "__main__":
 
     ##* test time of algorithm
     ## randomly choose 150 pairs of station
-    Station_pair = random_choice(stations.keys(), 250)
+    Station_pair = random_choice(stations.keys(), 200)
     test_time(Station_pair, stations)
     ##* test path_length of algorithm
     test_pathLength(stations)
