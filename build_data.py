@@ -1,6 +1,6 @@
 import csv
 import os
-
+import math
 
 class Station:
     """
@@ -13,8 +13,25 @@ class Station:
         self.name = name
         self.position = position
         self.links = set()
+    
+    def is_connected(self, other_station):
+        return other_station in self.links
+    
+def euclidean_distance(lat1, lon1, lat2, lon2):
+    # 将十进制度数转换为弧度
+    lat1, lon1, lat2, lon2 = map(math.radians, [lat1, lon1, lat2, lon2])
 
+    # 计算平面坐标系中的坐标
+    x1 = math.cos(lat1) * math.cos(lon1)
+    y1 = math.cos(lat1) * math.sin(lon1)
+    x2 = math.cos(lat2) * math.cos(lon2)
+    y2 = math.cos(lat2) * math.sin(lon2)
 
+    # 计算欧几里得距离
+    distance = math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)
+    return distance
+
+    
 def build_data():
     """
     builds the 'map' by reading the data files
@@ -26,6 +43,7 @@ def build_data():
     stations = {}
     underground_lines = {}
     rootdir = os.path.dirname(__file__)
+    
     r = csv.reader(open(os.path.join(rootdir, 'london/underground_stations.csv')))
     next(r)  # jump the first line
     for record in r:
@@ -40,6 +58,9 @@ def build_data():
     for id1, id2, lineNumber in r:
         id1 = int(id1)
         id2 = int(id2)
+        
+        distance = euclidean_distance(stations[id1].position[0], stations[id1].position[1], stations[id2].position[0], stations[id2].position[1])
+        
         stations[id1].links.add(stations[id2])
         stations[id2].links.add(stations[id1])
         lineNumber = int(lineNumber)
