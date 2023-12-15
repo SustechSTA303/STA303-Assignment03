@@ -1,6 +1,6 @@
 import csv
 import os
-
+import math
 
 class Station:
     """
@@ -13,7 +13,40 @@ class Station:
         self.name = name
         self.position = position
         self.links = set()
+        
+    def get_heuristic(self, goal_station):
+        # 为简单起见，假设启发式为零
+        return 0
+    
+    def get_heuristic_euclidean(self, goal_station):
+        # 使用欧几里得距离作为启发式函数
+        lat1, lon1 = self.position
+        lat2, lon2 = goal_station.position
+        return math.sqrt((lat2 - lat1)**2 + (lon2 - lon1)**2)
 
+    def get_heuristic_manhattan(self, goal_station):
+        # 使用曼哈顿距离作为启发式函数
+        lat1, lon1 = self.position
+        lat2, lon2 = goal_station.position
+        return abs(lat2 - lat1) + abs(lon2 - lon1)
+       
+    def get_neighbors(self):
+        # Assuming links contain neighboring stations
+        return list(self.links)
+    
+    def get_distance(self, other_station):
+        # Assuming position is a tuple (latitude, longitude)
+        lat1, lon1 = self.position
+        lat2, lon2 = other_station.position
+
+        # Haversine formula to calculate distance between two points on the Earth
+        R = 6371  # Radius of the Earth in kilometers
+        dlat = math.radians(lat2 - lat1)
+        dlon = math.radians(lon2 - lon1)
+        a = math.sin(dlat/2) * math.sin(dlat/2) + math.cos(math.radians(lat1)) * math.cos(math.radians(lat2)) * math.sin(dlon/2) * math.sin(dlon/2)
+        c = 2 * math.atan2(math.sqrt(a), math.sqrt(1-a))
+        distance = R * c
+        return distance
 
 def build_data():
     """
