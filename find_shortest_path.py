@@ -27,7 +27,6 @@ def get_path(start_station_name: str, end_station_name: str, map: dict[str, Stat
 
 
 if __name__ == '__main__':
-
     # 创建ArgumentParser对象
     parser = argparse.ArgumentParser()
     # 添加命令行参数
