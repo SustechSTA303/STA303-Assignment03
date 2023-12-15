@@ -1,20 +1,23 @@
 import csv
 import os
-
+import math
+#读取伦敦地铁线路数据
 
 class Station:
-    """
-    The Station class contains four attributes: id, name, position, and links.
-    Position is a binary combination of longitude and latitude
-    and links are a list of stations adjacent to the Station object
-    """
     def __init__(self, id, name, position):
         self.id = id
         self.name = name
         self.position = position
         self.links = set()
 
+    def get_distance(self, other_station):
+        lat1, lon1 = self.position
+        lat2, lon2 = other_station.position
+        return math.sqrt((lat1 - lat2) ** 2 + (lon1 - lon2) ** 2)
 
+    def neighbors(self):
+        return self.links
+    
 def build_data():
     """
     builds the 'map' by reading the data files
