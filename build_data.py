@@ -13,6 +13,9 @@ class Station:
         self.name = name
         self.position = position
         self.links = set()
+        
+    def __lt__(self,other):
+        return self.name < other.name
 
 
 def build_data():
@@ -23,6 +26,7 @@ def build_data():
         underground_lines(dict[str, dict]): A mapping between underground lines name and a dictionary containing relevant
                                             information about underground lines
     """
+    stations_name = []
     stations = {}
     underground_lines = {}
     rootdir = os.path.dirname(__file__)
@@ -33,6 +37,7 @@ def build_data():
         lat = float(record[1])
         lon = float(record[2])
         name = record[3]
+        stations_name.append(name)
         stations[id] = Station(id, name, (lat, lon))
 
     r = csv.reader(open(os.path.join(rootdir, 'london/underground_routes.csv')))
@@ -61,5 +66,5 @@ def build_data():
         underground_lines[lineNumber]['stripe'] = stripe
     stations = {v.name: v for k, v in stations.items()}
     underground_lines = {v['name']: v for k, v in underground_lines.items()}
-    return stations, underground_lines
+    return stations, underground_lines,stations_name
 
