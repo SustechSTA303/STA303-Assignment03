@@ -1,5 +1,6 @@
 import csv
 import os
+import math
 
 
 class Station:
@@ -8,11 +9,29 @@ class Station:
     Position is a binary combination of longitude and latitude
     and links are a list of stations adjacent to the Station object
     """
+
     def __init__(self, id, name, position):
         self.id = id
         self.name = name
         self.position = position
         self.links = set()
+        self.edges = dict()
+
+
+class Node:
+    def __init__(self, name):
+        self.parent = None
+        self.distance = float("inf")
+        self.visited = False
+        self.name = name
+
+    def backward(self):
+        station = self
+        shortest_path = []
+        while station is not None:
+            shortest_path.insert(0, station.name)
+            station = station.parent
+        return shortest_path
 
 
 def build_data():
@@ -42,6 +61,8 @@ def build_data():
         id2 = int(id2)
         stations[id1].links.add(stations[id2])
         stations[id2].links.add(stations[id1])
+        stations[id1].edges[stations[id2].name] = solve_edge(stations[id1], stations[id2])
+        stations[id2].edges[stations[id1].name] = solve_edge(stations[id1], stations[id2])
         lineNumber = int(lineNumber)
         if lineNumber not in underground_lines:
             underground_lines[lineNumber] = {'lat': [stations[id1].position[0], stations[id2].position[0], None],
@@ -53,7 +74,7 @@ def build_data():
             underground_lines[lineNumber]['stations'].add(stations[id1].name)
             underground_lines[lineNumber]['stations'].add(stations[id2].name)
     r = csv.reader(open(os.path.join(rootdir, 'london/underground_lines.csv')))
-    next(r) # jump the first line
+    next(r)  # jump the first line
     for lineNumber, name, colour, stripe in r:
         lineNumber = int(lineNumber)
         underground_lines[lineNumber]['name'] = name
@@ -63,3 +84,8 @@ def build_data():
     underground_lines = {v['name']: v for k, v in underground_lines.items()}
     return stations, underground_lines
 
+
+def solve_edge(start_station: Station, end_station: Station) -> float:
+    lat_distance = start_station.position[0] - end_station.position[0]
+    lon_distance = start_station.position[1] - end_station.position[1]
+    return math.sqrt(lat_distance ** 2 + lon_distance ** 2)
