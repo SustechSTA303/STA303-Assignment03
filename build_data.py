@@ -13,6 +13,13 @@ class Station:
         self.name = name
         self.position = position
         self.links = set()
+        self.neighbors = []  # 初始化为空列表
+        
+    def __lt__(self, other):
+        return self.id < other.id
+    
+    def add_neighbor(self, neighbor):
+        self.neighbors.append(neighbor)
 
 
 def build_data():
@@ -42,6 +49,8 @@ def build_data():
         id2 = int(id2)
         stations[id1].links.add(stations[id2])
         stations[id2].links.add(stations[id1])
+        stations[id1].add_neighbor(stations[id2])  # 添加邻居关系
+        stations[id2].add_neighbor(stations[id1])  # 添加邻居关系
         lineNumber = int(lineNumber)
         if lineNumber not in underground_lines:
             underground_lines[lineNumber] = {'lat': [stations[id1].position[0], stations[id2].position[0], None],
