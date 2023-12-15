@@ -1,0 +1,1242 @@
+
+
+Test of Richmond and Loughton begin:
+
+BFS, Stations of path 26, cost 0.913435 ms
+Dijkstra, Stations of path 26, cost 0.651366 ms
+Astar, Stations of path 26, cost 0.587404 ms, heuristic Manh, scaling 1
+Astar, Stations of path 26, cost 0.610194 ms, heuristic Euc, scaling 1
+Astar, Stations of path 26, cost 0.66564 ms, heuristic oct, scaling 1
+Astar, Stations of path 26, cost 0.539816 ms, heuristic Manh, scaling 10
+Astar, Stations of path 26, cost 0.571339 ms, heuristic Euc, scaling 10
+Astar, Stations of path 26, cost 0.627976 ms, heuristic oct, scaling 10
+Astar, Stations of path 31, cost 0.128671 ms, heuristic Manh, scaling 100
+Astar, Stations of path 27, cost 0.110449 ms, heuristic Euc, scaling 100
+Astar, Stations of path 27, cost 0.111631 ms, heuristic oct, scaling 100
+Astar, Stations of path 33, cost 0.103809 ms, heuristic Manh, scaling 1000
+Astar, Stations of path 31, cost 0.122311 ms, heuristic Euc, scaling 1000
+Astar, Stations of path 31, cost 0.115401 ms, heuristic oct, scaling 1000
+
+Test of Eastcote and Greenwich begin:
+
+BFS, Stations of path 25, cost 0.908489 ms
+Dijkstra, Stations of path 25, cost 0.626392 ms
+Astar, Stations of path 25, cost 0.578497 ms, heuristic Manh, scaling 1
+Astar, Stations of path 25, cost 0.609755 ms, heuristic Euc, scaling 1
+Astar, Stations of path 25, cost 0.663337 ms, heuristic oct, scaling 1
+Astar, Stations of path 25, cost 0.534264 ms, heuristic Manh, scaling 10
+Astar, Stations of path 25, cost 0.593094 ms, heuristic Euc, scaling 10
+Astar, Stations of path 25, cost 0.617767 ms, heuristic oct, scaling 10
+Astar, Stations of path 33, cost 0.185831 ms, heuristic Manh, scaling 100
+Astar, Stations of path 33, cost 0.261467 ms, heuristic Euc, scaling 100
+Astar, Stations of path 33, cost 0.262056 ms, heuristic oct, scaling 100
+Astar, Stations of path 36, cost 0.099353 ms, heuristic Manh, scaling 1000
+Astar, Stations of path 36, cost 0.106289 ms, heuristic Euc, scaling 1000
+Astar, Stations of path 36, cost 0.116994 ms, heuristic oct, scaling 1000
+
+Test of Canning Town and Kenton begin:
+
+BFS, Stations of path 26, cost 0.929149 ms
+Dijkstra, Stations of path 26, cost 0.636763 ms
+Astar, Stations of path 26, cost 0.582773 ms, heuristic Manh, scaling 1
+Astar, Stations of path 26, cost 0.614056 ms, heuristic Euc, scaling 1
+Astar, Stations of path 26, cost 0.658136 ms, heuristic oct, scaling 1
+Astar, Stations of path 26, cost 0.564593 ms, heuristic Manh, scaling 10
+Astar, Stations of path 26, cost 0.616375 ms, heuristic Euc, scaling 10
+Astar, Stations of path 26, cost 0.646316 ms, heuristic oct, scaling 10
+Astar, Stations of path 27, cost 0.202063 ms, heuristic Manh, scaling 100
+Astar, Stations of path 27, cost 0.275265 ms, heuristic Euc, scaling 100
+Astar, Stations of path 27, cost 0.29389 ms, heuristic oct, scaling 100
+Astar, Stations of path 27, cost 0.25826 ms, heuristic Manh, scaling 1000
+Astar, Stations of path 27, cost 0.344312 ms, heuristic Euc, scaling 1000
+Astar, Stations of path 28, cost 0.364987 ms, heuristic oct, scaling 1000
+
+Test of Wimbledon and Oakwood begin:
+
+BFS, Stations of path 27, cost 0.86171 ms
+Dijkstra, Stations of path 27, cost 0.598657 ms
+Astar, Stations of path 27, cost 0.531906 ms, heuristic Manh, scaling 1
+Astar, Stations of path 27, cost 0.565403 ms, heuristic Euc, scaling 1
+Astar, Stations of path 27, cost 0.604199 ms, heuristic oct, scaling 1
+Astar, Stations of path 27, cost 0.4831 ms, heuristic Manh, scaling 10
+Astar, Stations of path 27, cost 0.530081 ms, heuristic Euc, scaling 10
+Astar, Stations of path 27, cost 0.557013 ms, heuristic oct, scaling 10
+Astar, Stations of path 27, cost 0.195685 ms, heuristic Manh, scaling 100
+Astar, Stations of path 27, cost 0.181429 ms, heuristic Euc, scaling 100
+Astar, Stations of path 27, cost 0.197941 ms, heuristic oct, scaling 100
+Astar, Stations of path 32, cost 0.10629 ms, heuristic Manh, scaling 1000
+Astar, Stations of path 30, cost 0.092448 ms, heuristic Euc, scaling 1000
+Astar, Stations of path 30, cost 0.101328 ms, heuristic oct, scaling 1000
+
+Test of Green Park and Canary Wharf begin:
+
+BFS, Stations of path 8, cost 0.400789 ms
+Dijkstra, Stations of path 8, cost 0.317594 ms
+Astar, Stations of path 8, cost 0.259509 ms, heuristic Manh, scaling 1
+Astar, Stations of path 8, cost 0.273579 ms, heuristic Euc, scaling 1
+Astar, Stations of path 8, cost 0.28484 ms, heuristic oct, scaling 1
+Astar, Stations of path 8, cost 0.213519 ms, heuristic Manh, scaling 10
+Astar, Stations of path 8, cost 0.233751 ms, heuristic Euc, scaling 10
+Astar, Stations of path 8, cost 0.244908 ms, heuristic oct, scaling 10
+Astar, Stations of path 9, cost 0.041345 ms, heuristic Manh, scaling 100
+Astar, Stations of path 9, cost 0.046173 ms, heuristic Euc, scaling 100
+Astar, Stations of path 9, cost 0.049225 ms, heuristic oct, scaling 100
+Astar, Stations of path 9, cost 0.037358 ms, heuristic Manh, scaling 1000
+Astar, Stations of path 9, cost 0.041134 ms, heuristic Euc, scaling 1000
+Astar, Stations of path 9, cost 0.044291 ms, heuristic oct, scaling 1000
+
+Test of Mile End and Hammersmith begin:
+
+BFS, Stations of path 14, cost 0.61309 ms
+Dijkstra, Stations of path 14, cost 0.463315 ms
+Astar, Stations of path 14, cost 0.405831 ms, heuristic Manh, scaling 1
+Astar, Stations of path 14, cost 0.432418 ms, heuristic Euc, scaling 1
+Astar, Stations of path 14, cost 0.459824 ms, heuristic oct, scaling 1
+Astar, Stations of path 14, cost 0.367407 ms, heuristic Manh, scaling 10
+Astar, Stations of path 14, cost 0.403397 ms, heuristic Euc, scaling 10
+Astar, Stations of path 14, cost 0.431464 ms, heuristic oct, scaling 10
+Astar, Stations of path 14, cost 0.053927 ms, heuristic Manh, scaling 100
+Astar, Stations of path 14, cost 0.058284 ms, heuristic Euc, scaling 100
+Astar, Stations of path 14, cost 0.062405 ms, heuristic oct, scaling 100
+Astar, Stations of path 14, cost 0.052766 ms, heuristic Manh, scaling 1000
+Astar, Stations of path 14, cost 0.057375 ms, heuristic Euc, scaling 1000
+Astar, Stations of path 14, cost 0.062211 ms, heuristic oct, scaling 1000
+
+Test of Victoria and Bank begin:
+
+BFS, Stations of path 5, cost 0.122671 ms
+Dijkstra, Stations of path 5, cost 0.114865 ms
+Astar, Stations of path 5, cost 0.072804 ms, heuristic Manh, scaling 1
+Astar, Stations of path 5, cost 0.078648 ms, heuristic Euc, scaling 1
+Astar, Stations of path 5, cost 0.083037 ms, heuristic oct, scaling 1
+Astar, Stations of path 5, cost 0.068314 ms, heuristic Manh, scaling 10
+Astar, Stations of path 5, cost 0.076415 ms, heuristic Euc, scaling 10
+Astar, Stations of path 5, cost 0.078286 ms, heuristic oct, scaling 10
+Astar, Stations of path 5, cost 0.016806 ms, heuristic Manh, scaling 100
+Astar, Stations of path 5, cost 0.018369 ms, heuristic Euc, scaling 100
+Astar, Stations of path 5, cost 0.019702 ms, heuristic oct, scaling 100
+Astar, Stations of path 5, cost 0.016555 ms, heuristic Manh, scaling 1000
+Astar, Stations of path 5, cost 0.018091 ms, heuristic Euc, scaling 1000
+Astar, Stations of path 5, cost 0.019595 ms, heuristic oct, scaling 1000
+
+Test of Waterloo and Paddington begin:
+
+BFS, Stations of path 7, cost 0.296627 ms
+Dijkstra, Stations of path 7, cost 0.263128 ms
+Astar, Stations of path 7, cost 0.195533 ms, heuristic Manh, scaling 1
+Astar, Stations of path 7, cost 0.206166 ms, heuristic Euc, scaling 1
+Astar, Stations of path 7, cost 0.219704 ms, heuristic oct, scaling 1
+Astar, Stations of path 7, cost 0.174972 ms, heuristic Manh, scaling 10
+Astar, Stations of path 7, cost 0.186566 ms, heuristic Euc, scaling 10
+Astar, Stations of path 7, cost 0.198662 ms, heuristic oct, scaling 10
+Astar, Stations of path 7, cost 0.044235 ms, heuristic Manh, scaling 100
+Astar, Stations of path 7, cost 0.040175 ms, heuristic Euc, scaling 100
+Astar, Stations of path 7, cost 0.045247 ms, heuristic oct, scaling 100
+Astar, Stations of path 9, cost 0.041096 ms, heuristic Manh, scaling 1000
+Astar, Stations of path 7, cost 0.050396 ms, heuristic Euc, scaling 1000
+Astar, Stations of path 7, cost 0.043315 ms, heuristic oct, scaling 1000
+
+Test of Richmond and Loughton begin:
+
+BFS, Stations of path 26, cost 0.92635 ms
+Dijkstra, Stations of path 26, cost 0.657181 ms
+Astar, Stations of path 26, cost 0.566306 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 26, cost 0.524621 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 31, cost 0.123128 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 33, cost 0.10148 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 26, cost 0.596293 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 26, cost 0.564187 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 27, cost 0.107835 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 31, cost 0.120459 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 26, cost 0.64219 ms, heuristic oct, scaled by 1
+Astar, Stations of path 26, cost 0.614291 ms, heuristic oct, scaled by 10
+Astar, Stations of path 27, cost 0.108929 ms, heuristic oct, scaled by 100
+Astar, Stations of path 31, cost 0.112643 ms, heuristic oct, scaled by 1000
+
+Test of Richmond and Loughton begin:
+
+BFS, Stations of path 26, cost 0.92099 ms
+Dijkstra, Stations of path 26, cost 0.642393 ms
+Astar, Stations of path 26, cost 0.564581 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 26, cost 0.521784 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 31, cost 0.122272 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 33, cost 0.101574 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 26, cost 0.598523 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 26, cost 0.560665 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 27, cost 0.108035 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 31, cost 0.121006 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 26, cost 0.643595 ms, heuristic oct, scaled by 1
+Astar, Stations of path 26, cost 0.61058 ms, heuristic oct, scaled by 10
+Astar, Stations of path 27, cost 0.109901 ms, heuristic oct, scaled by 100
+Astar, Stations of path 31, cost 0.112737 ms, heuristic oct, scaled by 1000
+
+Test of Eastcote and Greenwich begin:
+
+BFS, Stations of path 25, cost 0.96348 ms
+Dijkstra, Stations of path 25, cost 0.634319 ms
+Astar, Stations of path 25, cost 0.582034 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 25, cost 0.52803 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 33, cost 0.183619 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 36, cost 0.097547 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 25, cost 0.604488 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 25, cost 0.56907 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 33, cost 0.258788 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 36, cost 0.107038 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 25, cost 0.651233 ms, heuristic oct, scaled by 1
+Astar, Stations of path 25, cost 0.603354 ms, heuristic oct, scaled by 10
+Astar, Stations of path 33, cost 0.261754 ms, heuristic oct, scaled by 100
+Astar, Stations of path 36, cost 0.112627 ms, heuristic oct, scaled by 1000
+
+Test of Canning Town and Kenton begin:
+
+BFS, Stations of path 26, cost 1.001385 ms
+Dijkstra, Stations of path 26, cost 0.652422 ms
+Astar, Stations of path 26, cost 0.598101 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 26, cost 0.568261 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 27, cost 0.200829 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 27, cost 0.256641 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 26, cost 0.612251 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 26, cost 0.602165 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 27, cost 0.272712 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 27, cost 0.345331 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 26, cost 0.657311 ms, heuristic oct, scaled by 1
+Astar, Stations of path 26, cost 0.653327 ms, heuristic oct, scaled by 10
+Astar, Stations of path 27, cost 0.297879 ms, heuristic oct, scaled by 100
+Astar, Stations of path 28, cost 0.364576 ms, heuristic oct, scaled by 1000
+
+Test of Wimbledon and Oakwood begin:
+
+BFS, Stations of path 27, cost 0.890137 ms
+Dijkstra, Stations of path 27, cost 0.600968 ms
+Astar, Stations of path 27, cost 0.538698 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 27, cost 0.478034 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 27, cost 0.192037 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 32, cost 0.105646 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 27, cost 0.556278 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 27, cost 0.521282 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 27, cost 0.177561 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 30, cost 0.091838 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 27, cost 0.588861 ms, heuristic oct, scaled by 1
+Astar, Stations of path 27, cost 0.544459 ms, heuristic oct, scaled by 10
+Astar, Stations of path 27, cost 0.193309 ms, heuristic oct, scaled by 100
+Astar, Stations of path 30, cost 0.098872 ms, heuristic oct, scaled by 1000
+
+Test of Green Park and Canary Wharf begin:
+
+BFS, Stations of path 8, cost 0.453204 ms
+Dijkstra, Stations of path 8, cost 0.301002 ms
+Astar, Stations of path 8, cost 0.25725 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 8, cost 0.209797 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 9, cost 0.041294 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 9, cost 0.037067 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 8, cost 0.269158 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 8, cost 0.230155 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 9, cost 0.04441 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 9, cost 0.0405 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 8, cost 0.281714 ms, heuristic oct, scaled by 1
+Astar, Stations of path 8, cost 0.241349 ms, heuristic oct, scaled by 10
+Astar, Stations of path 9, cost 0.047564 ms, heuristic oct, scaled by 100
+Astar, Stations of path 9, cost 0.043139 ms, heuristic oct, scaled by 1000
+
+Test of Mile End and Hammersmith begin:
+
+BFS, Stations of path 14, cost 0.681294 ms
+Dijkstra, Stations of path 14, cost 0.486989 ms
+Astar, Stations of path 14, cost 0.412778 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 14, cost 0.369468 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 14, cost 0.054076 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 14, cost 0.052326 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 14, cost 0.431009 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 14, cost 0.400441 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 14, cost 0.057867 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 14, cost 0.056897 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 14, cost 0.455158 ms, heuristic oct, scaled by 1
+Astar, Stations of path 14, cost 0.424838 ms, heuristic oct, scaled by 10
+Astar, Stations of path 14, cost 0.062576 ms, heuristic oct, scaled by 100
+Astar, Stations of path 14, cost 0.062014 ms, heuristic oct, scaled by 1000
+
+Test of Victoria and Bank begin:
+
+BFS, Stations of path 5, cost 0.182488 ms
+Dijkstra, Stations of path 5, cost 0.135145 ms
+Astar, Stations of path 5, cost 0.080332 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 5, cost 0.074578 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 5, cost 0.017534 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 5, cost 0.01689 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 5, cost 0.080006 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 5, cost 0.077154 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 5, cost 0.018886 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 5, cost 0.018549 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 5, cost 0.083744 ms, heuristic oct, scaled by 1
+Astar, Stations of path 5, cost 0.078316 ms, heuristic oct, scaled by 10
+Astar, Stations of path 5, cost 0.020075 ms, heuristic oct, scaled by 100
+Astar, Stations of path 5, cost 0.019962 ms, heuristic oct, scaled by 1000
+
+Test of Waterloo and Paddington begin:
+
+BFS, Stations of path 7, cost 0.548497 ms
+Dijkstra, Stations of path 7, cost 0.243785 ms
+Astar, Stations of path 7, cost 0.219408 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 7, cost 0.176447 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 7, cost 0.044051 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 9, cost 0.041502 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 7, cost 0.208629 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 7, cost 0.188512 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 7, cost 0.040566 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 7, cost 0.050837 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 7, cost 0.218962 ms, heuristic oct, scaled by 1
+Astar, Stations of path 7, cost 0.200007 ms, heuristic oct, scaled by 10
+Astar, Stations of path 7, cost 0.045597 ms, heuristic oct, scaled by 100
+Astar, Stations of path 7, cost 0.043379 ms, heuristic oct, scaled by 1000
+
+Test of Richmond and Loughton begin:
+
+BFS, Stations of path 26, cost 0.945211 ms
+Dijkstra, Stations of path 26, cost 0.655836 ms
+Astar, Stations of path 26, cost 0.571678 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 26, cost 0.530503 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 31, cost 0.1258 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 33, cost 0.106513 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 26, cost 0.600763 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 26, cost 0.572257 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 27, cost 0.10855 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 31, cost 0.122803 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 26, cost 0.648723 ms, heuristic oct, scaled by 1
+Astar, Stations of path 26, cost 0.618413 ms, heuristic oct, scaled by 10
+Astar, Stations of path 27, cost 0.109857 ms, heuristic oct, scaled by 100
+Astar, Stations of path 31, cost 0.118275 ms, heuristic oct, scaled by 1000
+
+Test of Eastcote and Greenwich begin:
+
+BFS, Stations of path 25, cost 0.974143 ms
+Dijkstra, Stations of path 25, cost 0.635252 ms
+Astar, Stations of path 25, cost 0.587306 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 25, cost 0.533385 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 33, cost 0.183067 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 36, cost 0.097262 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 25, cost 0.60588 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 25, cost 0.572436 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 33, cost 0.258545 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 36, cost 0.105198 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 25, cost 0.661453 ms, heuristic oct, scaled by 1
+Astar, Stations of path 25, cost 0.61871 ms, heuristic oct, scaled by 10
+Astar, Stations of path 33, cost 0.258708 ms, heuristic oct, scaled by 100
+Astar, Stations of path 36, cost 0.114887 ms, heuristic oct, scaled by 1000
+
+Test of Canning Town and Kenton begin:
+
+BFS, Stations of path 26, cost 1.016288 ms
+Dijkstra, Stations of path 26, cost 0.653095 ms
+Astar, Stations of path 26, cost 0.591687 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 26, cost 0.570929 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 27, cost 0.204262 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 27, cost 0.260493 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 26, cost 0.61945 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 26, cost 0.609546 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 27, cost 0.28053 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 27, cost 0.343751 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 26, cost 0.654075 ms, heuristic oct, scaled by 1
+Astar, Stations of path 26, cost 0.648265 ms, heuristic oct, scaled by 10
+Astar, Stations of path 27, cost 0.290302 ms, heuristic oct, scaled by 100
+Astar, Stations of path 28, cost 0.362753 ms, heuristic oct, scaled by 1000
+
+Test of Wimbledon and Oakwood begin:
+
+BFS, Stations of path 27, cost 1.1691 ms
+Dijkstra, Stations of path 27, cost 0.712353 ms
+Astar, Stations of path 27, cost 0.620739 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 27, cost 0.554514 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 27, cost 0.273406 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 32, cost 0.109306 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 27, cost 0.576892 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 27, cost 0.527797 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 27, cost 0.179109 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 30, cost 0.092613 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 27, cost 0.593955 ms, heuristic oct, scaled by 1
+Astar, Stations of path 27, cost 0.550284 ms, heuristic oct, scaled by 10
+Astar, Stations of path 27, cost 0.195036 ms, heuristic oct, scaled by 100
+Astar, Stations of path 30, cost 0.1015 ms, heuristic oct, scaled by 1000
+
+Test of Green Park and Canary Wharf begin:
+
+BFS, Stations of path 8, cost 0.4682 ms
+Dijkstra, Stations of path 8, cost 0.311734 ms
+Astar, Stations of path 8, cost 0.259741 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 8, cost 0.210592 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 9, cost 0.040919 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 9, cost 0.036897 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 8, cost 0.271228 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 8, cost 0.240857 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 9, cost 0.04456 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 9, cost 0.04104 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 8, cost 0.284981 ms, heuristic oct, scaled by 1
+Astar, Stations of path 8, cost 0.243999 ms, heuristic oct, scaled by 10
+Astar, Stations of path 9, cost 0.048085 ms, heuristic oct, scaled by 100
+Astar, Stations of path 9, cost 0.044267 ms, heuristic oct, scaled by 1000
+
+Test of Mile End and Hammersmith begin:
+
+BFS, Stations of path 14, cost 0.690197 ms
+Dijkstra, Stations of path 14, cost 0.472706 ms
+Astar, Stations of path 14, cost 0.413714 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 14, cost 0.36639 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 14, cost 0.053453 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 14, cost 0.052821 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 14, cost 0.430302 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 14, cost 0.402897 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 14, cost 0.057919 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 14, cost 0.057841 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 14, cost 0.456249 ms, heuristic oct, scaled by 1
+Astar, Stations of path 14, cost 0.4282 ms, heuristic oct, scaled by 10
+Astar, Stations of path 14, cost 0.062035 ms, heuristic oct, scaled by 100
+Astar, Stations of path 14, cost 0.062121 ms, heuristic oct, scaled by 1000
+
+Test of Victoria and Bank begin:
+
+BFS, Stations of path 5, cost 0.217848 ms
+Dijkstra, Stations of path 5, cost 0.098596 ms
+Astar, Stations of path 5, cost 0.080977 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 5, cost 0.068049 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 5, cost 0.017562 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 5, cost 0.016734 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 5, cost 0.079813 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 5, cost 0.076979 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 5, cost 0.018884 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 5, cost 0.018252 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 5, cost 0.084108 ms, heuristic oct, scaled by 1
+Astar, Stations of path 5, cost 0.078962 ms, heuristic oct, scaled by 10
+Astar, Stations of path 5, cost 0.019775 ms, heuristic oct, scaled by 100
+Astar, Stations of path 5, cost 0.019587 ms, heuristic oct, scaled by 1000
+
+Test of Waterloo and Paddington begin:
+
+BFS, Stations of path 7, cost 0.404585 ms
+Dijkstra, Stations of path 7, cost 0.241691 ms
+Astar, Stations of path 7, cost 0.204709 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 7, cost 0.173749 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 7, cost 0.04448 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 9, cost 0.04135 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 7, cost 0.205059 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 7, cost 0.189135 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 7, cost 0.040094 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 7, cost 0.050795 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 7, cost 0.217062 ms, heuristic oct, scaled by 1
+Astar, Stations of path 7, cost 0.195113 ms, heuristic oct, scaled by 10
+Astar, Stations of path 7, cost 0.044948 ms, heuristic oct, scaled by 100
+Astar, Stations of path 7, cost 0.04257 ms, heuristic oct, scaled by 1000
+
+Test of Richmond and Loughton begin:
+
+BFS, Stations of path 26, cost 1 ms
+Dijkstra, Stations of path 26, cost 1 ms
+Astar, Stations of path 26, cost 1 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 26, cost 1 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 31, cost 0 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 33, cost 0 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 26, cost 1 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 26, cost 1 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 27, cost 0 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 31, cost 0 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 26, cost 1 ms, heuristic oct, scaled by 1
+Astar, Stations of path 26, cost 1 ms, heuristic oct, scaled by 10
+Astar, Stations of path 27, cost 0 ms, heuristic oct, scaled by 100
+Astar, Stations of path 31, cost 0 ms, heuristic oct, scaled by 1000
+
+Test of Eastcote and Greenwich begin:
+
+BFS, Stations of path 25, cost 1 ms
+Dijkstra, Stations of path 25, cost 1 ms
+Astar, Stations of path 25, cost 1 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 25, cost 1 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 33, cost 0 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 36, cost 0 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 25, cost 1 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 25, cost 1 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 33, cost 0 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 36, cost 0 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 25, cost 1 ms, heuristic oct, scaled by 1
+Astar, Stations of path 25, cost 1 ms, heuristic oct, scaled by 10
+Astar, Stations of path 33, cost 0 ms, heuristic oct, scaled by 100
+Astar, Stations of path 36, cost 0 ms, heuristic oct, scaled by 1000
+
+Test of Canning Town and Kenton begin:
+
+BFS, Stations of path 26, cost 1 ms
+Dijkstra, Stations of path 26, cost 1 ms
+Astar, Stations of path 26, cost 1 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 26, cost 1 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 27, cost 0 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 27, cost 0 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 26, cost 1 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 26, cost 1 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 27, cost 0 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 27, cost 0 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 26, cost 1 ms, heuristic oct, scaled by 1
+Astar, Stations of path 26, cost 1 ms, heuristic oct, scaled by 10
+Astar, Stations of path 27, cost 0 ms, heuristic oct, scaled by 100
+Astar, Stations of path 28, cost 0 ms, heuristic oct, scaled by 1000
+
+Test of Wimbledon and Oakwood begin:
+
+BFS, Stations of path 27, cost 1 ms
+Dijkstra, Stations of path 27, cost 1 ms
+Astar, Stations of path 27, cost 1 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 27, cost 0 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 27, cost 0 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 32, cost 0 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 27, cost 1 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 27, cost 1 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 27, cost 0 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 30, cost 0 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 27, cost 1 ms, heuristic oct, scaled by 1
+Astar, Stations of path 27, cost 1 ms, heuristic oct, scaled by 10
+Astar, Stations of path 27, cost 0 ms, heuristic oct, scaled by 100
+Astar, Stations of path 30, cost 0 ms, heuristic oct, scaled by 1000
+
+Test of Green Park and Canary Wharf begin:
+
+BFS, Stations of path 8, cost 0 ms
+Dijkstra, Stations of path 8, cost 0 ms
+Astar, Stations of path 8, cost 0 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 8, cost 0 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 9, cost 0 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 9, cost 0 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 8, cost 0 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 8, cost 0 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 9, cost 0 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 9, cost 0 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 8, cost 0 ms, heuristic oct, scaled by 1
+Astar, Stations of path 8, cost 0 ms, heuristic oct, scaled by 10
+Astar, Stations of path 9, cost 0 ms, heuristic oct, scaled by 100
+Astar, Stations of path 9, cost 0 ms, heuristic oct, scaled by 1000
+
+Test of Mile End and Hammersmith begin:
+
+BFS, Stations of path 14, cost 1 ms
+Dijkstra, Stations of path 14, cost 0 ms
+Astar, Stations of path 14, cost 0 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 14, cost 0 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 14, cost 0 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 14, cost 0 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 14, cost 0 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 14, cost 0 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 14, cost 0 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 14, cost 0 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 14, cost 0 ms, heuristic oct, scaled by 1
+Astar, Stations of path 14, cost 0 ms, heuristic oct, scaled by 10
+Astar, Stations of path 14, cost 0 ms, heuristic oct, scaled by 100
+Astar, Stations of path 14, cost 0 ms, heuristic oct, scaled by 1000
+
+Test of Victoria and Bank begin:
+
+BFS, Stations of path 5, cost 0 ms
+Dijkstra, Stations of path 5, cost 0 ms
+Astar, Stations of path 5, cost 0 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 5, cost 0 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 5, cost 0 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 5, cost 0 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 5, cost 0 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 5, cost 0 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 5, cost 0 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 5, cost 0 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 5, cost 0 ms, heuristic oct, scaled by 1
+Astar, Stations of path 5, cost 0 ms, heuristic oct, scaled by 10
+Astar, Stations of path 5, cost 0 ms, heuristic oct, scaled by 100
+Astar, Stations of path 5, cost 0 ms, heuristic oct, scaled by 1000
+
+Test of Waterloo and Paddington begin:
+
+BFS, Stations of path 7, cost 0 ms
+Dijkstra, Stations of path 7, cost 0 ms
+Astar, Stations of path 7, cost 0 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 7, cost 0 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 7, cost 0 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 9, cost 0 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 7, cost 0 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 7, cost 0 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 7, cost 0 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 7, cost 0 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 7, cost 0 ms, heuristic oct, scaled by 1
+Astar, Stations of path 7, cost 0 ms, heuristic oct, scaled by 10
+Astar, Stations of path 7, cost 0 ms, heuristic oct, scaled by 100
+Astar, Stations of path 7, cost 0 ms, heuristic oct, scaled by 1000
+
+Test of Richmond and Loughton begin:
+
+BFS, Stations of path 26, cost 0.922 ms
+Dijkstra, Stations of path 26, cost 0.658 ms
+Astar, Stations of path 26, cost 0.57 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 26, cost 0.521 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 31, cost 0.127 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 33, cost 0.104 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 26, cost 0.601 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 26, cost 0.564 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 27, cost 0.111 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 31, cost 0.124 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 26, cost 0.654 ms, heuristic oct, scaled by 1
+Astar, Stations of path 26, cost 0.609 ms, heuristic oct, scaled by 10
+Astar, Stations of path 27, cost 0.11 ms, heuristic oct, scaled by 100
+Astar, Stations of path 31, cost 0.112 ms, heuristic oct, scaled by 1000
+
+Test of Eastcote and Greenwich begin:
+
+BFS, Stations of path 25, cost 0.973 ms
+Dijkstra, Stations of path 25, cost 0.639 ms
+Astar, Stations of path 25, cost 0.579 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 25, cost 0.526 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 33, cost 0.184 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 36, cost 0.097 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 25, cost 0.614 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 25, cost 0.571 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 33, cost 0.259 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 36, cost 0.106 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 25, cost 0.661 ms, heuristic oct, scaled by 1
+Astar, Stations of path 25, cost 0.607 ms, heuristic oct, scaled by 10
+Astar, Stations of path 33, cost 0.256 ms, heuristic oct, scaled by 100
+Astar, Stations of path 36, cost 0.118 ms, heuristic oct, scaled by 1000
+
+Test of Canning Town and Kenton begin:
+
+BFS, Stations of path 26, cost 1.02 ms
+Dijkstra, Stations of path 26, cost 0.655 ms
+Astar, Stations of path 26, cost 0.585 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 26, cost 0.571 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 27, cost 0.202 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 27, cost 0.255 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 26, cost 0.61 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 26, cost 0.606 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 27, cost 0.274 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 27, cost 0.342 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 26, cost 0.658 ms, heuristic oct, scaled by 1
+Astar, Stations of path 26, cost 0.64 ms, heuristic oct, scaled by 10
+Astar, Stations of path 27, cost 0.292 ms, heuristic oct, scaled by 100
+Astar, Stations of path 28, cost 0.358 ms, heuristic oct, scaled by 1000
+
+Test of Wimbledon and Oakwood begin:
+
+BFS, Stations of path 27, cost 0.918 ms
+Dijkstra, Stations of path 27, cost 0.604 ms
+Astar, Stations of path 27, cost 0.532 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 27, cost 0.481 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 27, cost 0.204 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 32, cost 0.106 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 27, cost 0.558 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 27, cost 0.52 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 27, cost 0.177 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 30, cost 0.092 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 27, cost 0.593 ms, heuristic oct, scaled by 1
+Astar, Stations of path 27, cost 0.558 ms, heuristic oct, scaled by 10
+Astar, Stations of path 27, cost 0.194 ms, heuristic oct, scaled by 100
+Astar, Stations of path 30, cost 0.1 ms, heuristic oct, scaled by 1000
+
+Test of Green Park and Canary Wharf begin:
+
+BFS, Stations of path 8, cost 0.461 ms
+Dijkstra, Stations of path 8, cost 0.315 ms
+Astar, Stations of path 8, cost 0.26 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 8, cost 0.211 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 9, cost 0.041 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 9, cost 0.037 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 8, cost 0.269 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 8, cost 0.233 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 9, cost 0.046 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 9, cost 0.041 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 8, cost 0.289 ms, heuristic oct, scaled by 1
+Astar, Stations of path 8, cost 0.247 ms, heuristic oct, scaled by 10
+Astar, Stations of path 9, cost 0.048 ms, heuristic oct, scaled by 100
+Astar, Stations of path 9, cost 0.044 ms, heuristic oct, scaled by 1000
+
+Test of Mile End and Hammersmith begin:
+
+BFS, Stations of path 14, cost 0.69 ms
+Dijkstra, Stations of path 14, cost 0.476 ms
+Astar, Stations of path 14, cost 0.415 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 14, cost 0.418 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 14, cost 0.057 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 14, cost 0.054 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 14, cost 0.436 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 14, cost 0.403 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 14, cost 0.059 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 14, cost 0.058 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 14, cost 0.46 ms, heuristic oct, scaled by 1
+Astar, Stations of path 14, cost 0.426 ms, heuristic oct, scaled by 10
+Astar, Stations of path 14, cost 0.061 ms, heuristic oct, scaled by 100
+Astar, Stations of path 14, cost 0.061 ms, heuristic oct, scaled by 1000
+
+Test of Victoria and Bank begin:
+
+BFS, Stations of path 5, cost 0.155 ms
+Dijkstra, Stations of path 5, cost 0.127 ms
+Astar, Stations of path 5, cost 0.077 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 5, cost 0.07 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 5, cost 0.018 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 5, cost 0.017 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 5, cost 0.08 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 5, cost 0.078 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 5, cost 0.027 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 5, cost 0.019 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 5, cost 0.084 ms, heuristic oct, scaled by 1
+Astar, Stations of path 5, cost 0.078 ms, heuristic oct, scaled by 10
+Astar, Stations of path 5, cost 0.02 ms, heuristic oct, scaled by 100
+Astar, Stations of path 5, cost 0.02 ms, heuristic oct, scaled by 1000
+
+Test of Waterloo and Paddington begin:
+
+BFS, Stations of path 7, cost 0.437 ms
+Dijkstra, Stations of path 7, cost 0.229 ms
+Astar, Stations of path 7, cost 0.205 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 7, cost 0.174 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 7, cost 0.045 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 9, cost 0.042 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 7, cost 0.209 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 7, cost 0.188 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 7, cost 0.041 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 7, cost 0.052 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 7, cost 0.222 ms, heuristic oct, scaled by 1
+Astar, Stations of path 7, cost 0.2 ms, heuristic oct, scaled by 10
+Astar, Stations of path 7, cost 0.046 ms, heuristic oct, scaled by 100
+Astar, Stations of path 7, cost 0.044 ms, heuristic oct, scaled by 1000
+
+Test of Richmond and Loughton begin:
+
+BFS, Stations of path 26, cost 0.954 ms
+Dijkstra, Stations of path 26, cost 0.659 ms
+Astar, Stations of path 26, cost 0.58 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 26, cost 0.529 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 31, cost 0.134 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 33, cost 0.103 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 26, cost 0.608 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 26, cost 0.568 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 27, cost 0.118 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 31, cost 0.123 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 26, cost 0.646 ms, heuristic oct, scaled by 1
+Astar, Stations of path 26, cost 0.613 ms, heuristic oct, scaled by 10
+Astar, Stations of path 27, cost 0.11 ms, heuristic oct, scaled by 100
+Astar, Stations of path 31, cost 0.113 ms, heuristic oct, scaled by 1000
+
+Test of Eastcote and Greenwich begin:
+
+BFS, Stations of path 25, cost 1.011 ms
+Dijkstra, Stations of path 25, cost 0.644 ms
+Astar, Stations of path 25, cost 0.586 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 25, cost 0.533 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 33, cost 0.186 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 36, cost 0.098 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 25, cost 0.62 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 25, cost 0.574 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 33, cost 0.261 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 36, cost 0.106 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 25, cost 0.654 ms, heuristic oct, scaled by 1
+Astar, Stations of path 25, cost 0.608 ms, heuristic oct, scaled by 10
+Astar, Stations of path 33, cost 0.261 ms, heuristic oct, scaled by 100
+Astar, Stations of path 36, cost 0.113 ms, heuristic oct, scaled by 1000
+
+Test of Canning Town and Kenton begin:
+
+BFS, Stations of path 26, cost 1.002 ms
+Dijkstra, Stations of path 26, cost 0.652 ms
+Astar, Stations of path 26, cost 0.585 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 26, cost 0.571 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 27, cost 0.203 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 27, cost 0.259 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 26, cost 0.617 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 26, cost 0.603 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 27, cost 0.275 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 27, cost 0.342 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 26, cost 0.669 ms, heuristic oct, scaled by 1
+Astar, Stations of path 26, cost 0.64 ms, heuristic oct, scaled by 10
+Astar, Stations of path 27, cost 0.292 ms, heuristic oct, scaled by 100
+Astar, Stations of path 28, cost 0.363 ms, heuristic oct, scaled by 1000
+
+Test of Wimbledon and Oakwood begin:
+
+BFS, Stations of path 27, cost 0.905 ms
+Dijkstra, Stations of path 27, cost 0.617 ms
+Astar, Stations of path 27, cost 0.538 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 27, cost 0.483 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 27, cost 0.195 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 32, cost 0.106 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 27, cost 0.563 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 27, cost 0.523 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 27, cost 0.179 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 30, cost 0.092 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 27, cost 0.605 ms, heuristic oct, scaled by 1
+Astar, Stations of path 27, cost 0.552 ms, heuristic oct, scaled by 10
+Astar, Stations of path 27, cost 0.199 ms, heuristic oct, scaled by 100
+Astar, Stations of path 30, cost 0.1 ms, heuristic oct, scaled by 1000
+
+Test of Green Park and Canary Wharf begin:
+
+BFS, Stations of path 8, cost 0.445 ms
+Dijkstra, Stations of path 8, cost 0.309 ms
+Astar, Stations of path 8, cost 0.261 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 8, cost 0.218 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 9, cost 0.043 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 9, cost 0.038 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 8, cost 0.272 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 8, cost 0.232 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 9, cost 0.046 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 9, cost 0.041 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 8, cost 0.284 ms, heuristic oct, scaled by 1
+Astar, Stations of path 8, cost 0.244 ms, heuristic oct, scaled by 10
+Astar, Stations of path 9, cost 0.049 ms, heuristic oct, scaled by 100
+Astar, Stations of path 9, cost 0.044 ms, heuristic oct, scaled by 1000
+
+Test of Mile End and Hammersmith begin:
+
+BFS, Stations of path 14, cost 0.691 ms
+Dijkstra, Stations of path 14, cost 0.473 ms
+Astar, Stations of path 14, cost 0.423 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 14, cost 0.369 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 14, cost 0.055 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 14, cost 0.053 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 14, cost 0.433 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 14, cost 0.4 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 14, cost 0.058 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 14, cost 0.057 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 14, cost 0.457 ms, heuristic oct, scaled by 1
+Astar, Stations of path 14, cost 0.428 ms, heuristic oct, scaled by 10
+Astar, Stations of path 14, cost 0.063 ms, heuristic oct, scaled by 100
+Astar, Stations of path 14, cost 0.067 ms, heuristic oct, scaled by 1000
+
+Test of Victoria and Bank begin:
+
+BFS, Stations of path 5, cost 0.165 ms
+Dijkstra, Stations of path 5, cost 0.118 ms
+Astar, Stations of path 5, cost 0.078 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 5, cost 0.07 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 5, cost 0.018 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 5, cost 0.017 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 5, cost 0.082 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 5, cost 0.076 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 5, cost 0.018 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 5, cost 0.018 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 5, cost 0.083 ms, heuristic oct, scaled by 1
+Astar, Stations of path 5, cost 0.079 ms, heuristic oct, scaled by 10
+Astar, Stations of path 5, cost 0.02 ms, heuristic oct, scaled by 100
+Astar, Stations of path 5, cost 0.02 ms, heuristic oct, scaled by 1000
+
+Test of Waterloo and Paddington begin:
+
+BFS, Stations of path 7, cost 0.363 ms
+Dijkstra, Stations of path 7, cost 0.236 ms
+Astar, Stations of path 7, cost 0.2 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 7, cost 0.175 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 7, cost 0.045 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 9, cost 0.042 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 7, cost 0.216 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 7, cost 0.186 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 7, cost 0.041 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 7, cost 0.05 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 7, cost 0.217 ms, heuristic oct, scaled by 1
+Astar, Stations of path 7, cost 0.199 ms, heuristic oct, scaled by 10
+Astar, Stations of path 7, cost 0.045 ms, heuristic oct, scaled by 100
+Astar, Stations of path 7, cost 0.044 ms, heuristic oct, scaled by 1000
+
+Test of Richmond and Loughton begin:
+
+BFS, Stations of path 26, cost 0.959 ms
+Dijkstra, Stations of path 26, cost 0.652 ms
+Astar, Stations of path 26, cost 0.579 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 26, cost 0.528 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 31, cost 0.127 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 33, cost 0.102 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 26, cost 0.607 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 26, cost 0.57 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 27, cost 0.109 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 31, cost 0.123 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 26, cost 0.646 ms, heuristic oct, scaled by 1
+Astar, Stations of path 26, cost 0.615 ms, heuristic oct, scaled by 10
+Astar, Stations of path 27, cost 0.11 ms, heuristic oct, scaled by 100
+Astar, Stations of path 31, cost 0.114 ms, heuristic oct, scaled by 1000
+
+Test of Eastcote and Greenwich begin:
+
+BFS, Stations of path 25, cost 0.982 ms
+Dijkstra, Stations of path 25, cost 0.645 ms
+Astar, Stations of path 25, cost 0.596 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 25, cost 0.539 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 33, cost 0.186 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 36, cost 0.099 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 25, cost 0.633 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 25, cost 0.58 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 33, cost 0.266 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 36, cost 0.107 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 25, cost 0.666 ms, heuristic oct, scaled by 1
+Astar, Stations of path 25, cost 0.617 ms, heuristic oct, scaled by 10
+Astar, Stations of path 33, cost 0.26 ms, heuristic oct, scaled by 100
+Astar, Stations of path 36, cost 0.114 ms, heuristic oct, scaled by 1000
+
+Test of Canning Town and Kenton begin:
+
+BFS, Stations of path 26, cost 0.997 ms
+Dijkstra, Stations of path 26, cost 0.66 ms
+Astar, Stations of path 26, cost 0.6 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 26, cost 0.575 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 27, cost 0.225 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 27, cost 0.264 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 26, cost 0.633 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 26, cost 0.617 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 27, cost 0.281 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 27, cost 0.348 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 26, cost 0.678 ms, heuristic oct, scaled by 1
+Astar, Stations of path 26, cost 0.664 ms, heuristic oct, scaled by 10
+Astar, Stations of path 27, cost 0.296 ms, heuristic oct, scaled by 100
+Astar, Stations of path 28, cost 0.368 ms, heuristic oct, scaled by 1000
+
+Test of Wimbledon and Oakwood begin:
+
+BFS, Stations of path 27, cost 0.903 ms
+Dijkstra, Stations of path 27, cost 0.615 ms
+Astar, Stations of path 27, cost 0.548 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 27, cost 0.492 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 27, cost 0.196 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 32, cost 0.107 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 27, cost 0.575 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 27, cost 0.535 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 27, cost 0.183 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 30, cost 0.094 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 27, cost 0.621 ms, heuristic oct, scaled by 1
+Astar, Stations of path 27, cost 0.558 ms, heuristic oct, scaled by 10
+Astar, Stations of path 27, cost 0.199 ms, heuristic oct, scaled by 100
+Astar, Stations of path 30, cost 0.102 ms, heuristic oct, scaled by 1000
+
+Test of Green Park and Canary Wharf begin:
+
+BFS, Stations of path 8, cost 0.431 ms
+Dijkstra, Stations of path 8, cost 0.32 ms
+Astar, Stations of path 8, cost 0.265 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 8, cost 0.216 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 9, cost 0.042 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 9, cost 0.038 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 8, cost 0.277 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 8, cost 0.237 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 9, cost 0.046 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 9, cost 0.042 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 8, cost 0.295 ms, heuristic oct, scaled by 1
+Astar, Stations of path 8, cost 0.256 ms, heuristic oct, scaled by 10
+Astar, Stations of path 9, cost 0.05 ms, heuristic oct, scaled by 100
+Astar, Stations of path 9, cost 0.045 ms, heuristic oct, scaled by 1000
+
+Test of Mile End and Hammersmith begin:
+
+BFS, Stations of path 14, cost 0.714 ms
+Dijkstra, Stations of path 14, cost 0.481 ms
+Astar, Stations of path 14, cost 0.419 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 14, cost 0.372 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 14, cost 0.055 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 14, cost 0.054 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 14, cost 0.438 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 14, cost 0.41 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 14, cost 0.059 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 14, cost 0.058 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 14, cost 0.474 ms, heuristic oct, scaled by 1
+Astar, Stations of path 14, cost 0.435 ms, heuristic oct, scaled by 10
+Astar, Stations of path 14, cost 0.064 ms, heuristic oct, scaled by 100
+Astar, Stations of path 14, cost 0.064 ms, heuristic oct, scaled by 1000
+
+Test of Victoria and Bank begin:
+
+BFS, Stations of path 5, cost 0.156 ms
+Dijkstra, Stations of path 5, cost 0.12 ms
+Astar, Stations of path 5, cost 0.078 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 5, cost 0.069 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 5, cost 0.018 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 5, cost 0.017 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 5, cost 0.081 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 5, cost 0.079 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 5, cost 0.019 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 5, cost 0.019 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 5, cost 0.085 ms, heuristic oct, scaled by 1
+Astar, Stations of path 5, cost 0.08 ms, heuristic oct, scaled by 10
+Astar, Stations of path 5, cost 0.02 ms, heuristic oct, scaled by 100
+Astar, Stations of path 5, cost 0.02 ms, heuristic oct, scaled by 1000
+
+Test of Waterloo and Paddington begin:
+
+BFS, Stations of path 7, cost 0.358 ms
+Dijkstra, Stations of path 7, cost 0.238 ms
+Astar, Stations of path 7, cost 0.201 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 7, cost 0.18 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 7, cost 0.045 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 9, cost 0.042 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 7, cost 0.214 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 7, cost 0.19 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 7, cost 0.042 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 7, cost 0.052 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 7, cost 0.222 ms, heuristic oct, scaled by 1
+Astar, Stations of path 7, cost 0.2 ms, heuristic oct, scaled by 10
+Astar, Stations of path 7, cost 0.047 ms, heuristic oct, scaled by 100
+Astar, Stations of path 7, cost 0.044 ms, heuristic oct, scaled by 1000
+
+Test of Richmond and Loughton begin:
+
+BFS, Stations of path 26, cost 0.948 ms
+Dijkstra, Stations of path 26, cost 0.659 ms
+Astar, Stations of path 26, cost 0.578 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 26, cost 0.535 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 31, cost 0.129 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 33, cost 0.104 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 26, cost 0.605 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 26, cost 0.571 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 27, cost 0.109 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 31, cost 0.125 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 26, cost 0.65 ms, heuristic oct, scaled by 1
+Astar, Stations of path 26, cost 0.623 ms, heuristic oct, scaled by 10
+Astar, Stations of path 27, cost 0.111 ms, heuristic oct, scaled by 100
+Astar, Stations of path 31, cost 0.114 ms, heuristic oct, scaled by 1000
+
+Test of Eastcote and Greenwich begin:
+
+BFS, Stations of path 25, cost 0.992 ms
+Dijkstra, Stations of path 25, cost 0.638 ms
+Astar, Stations of path 25, cost 0.594 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 25, cost 0.541 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 33, cost 0.186 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 36, cost 0.1 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 25, cost 0.617 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 25, cost 0.582 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 33, cost 0.263 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 36, cost 0.144 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 25, cost 0.674 ms, heuristic oct, scaled by 1
+Astar, Stations of path 25, cost 0.619 ms, heuristic oct, scaled by 10
+Astar, Stations of path 33, cost 0.262 ms, heuristic oct, scaled by 100
+Astar, Stations of path 36, cost 0.118 ms, heuristic oct, scaled by 1000
+
+Test of Canning Town and Kenton begin:
+
+BFS, Stations of path 26, cost 1.03 ms
+Dijkstra, Stations of path 26, cost 0.653 ms
+Astar, Stations of path 26, cost 0.586 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 26, cost 0.57 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 27, cost 0.203 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 27, cost 0.261 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 26, cost 0.622 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 26, cost 0.608 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 27, cost 0.276 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 27, cost 0.349 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 26, cost 0.655 ms, heuristic oct, scaled by 1
+Astar, Stations of path 26, cost 0.656 ms, heuristic oct, scaled by 10
+Astar, Stations of path 27, cost 0.311 ms, heuristic oct, scaled by 100
+Astar, Stations of path 28, cost 0.37 ms, heuristic oct, scaled by 1000
+
+Test of Wimbledon and Oakwood begin:
+
+BFS, Stations of path 27, cost 0.918 ms
+Dijkstra, Stations of path 27, cost 0.607 ms
+Astar, Stations of path 27, cost 0.542 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 27, cost 0.49 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 27, cost 0.197 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 32, cost 0.108 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 27, cost 0.569 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 27, cost 0.534 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 27, cost 0.181 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 30, cost 0.094 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 27, cost 0.6 ms, heuristic oct, scaled by 1
+Astar, Stations of path 27, cost 0.555 ms, heuristic oct, scaled by 10
+Astar, Stations of path 27, cost 0.197 ms, heuristic oct, scaled by 100
+Astar, Stations of path 30, cost 0.102 ms, heuristic oct, scaled by 1000
+
+Test of Green Park and Canary Wharf begin:
+
+BFS, Stations of path 8, cost 0.46 ms
+Dijkstra, Stations of path 8, cost 0.317 ms
+Astar, Stations of path 8, cost 0.265 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 8, cost 0.215 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 9, cost 0.042 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 9, cost 0.038 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 8, cost 0.275 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 8, cost 0.235 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 9, cost 0.045 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 9, cost 0.041 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 8, cost 0.285 ms, heuristic oct, scaled by 1
+Astar, Stations of path 8, cost 0.245 ms, heuristic oct, scaled by 10
+Astar, Stations of path 9, cost 0.049 ms, heuristic oct, scaled by 100
+Astar, Stations of path 9, cost 0.044 ms, heuristic oct, scaled by 1000
+
+Test of Mile End and Hammersmith begin:
+
+BFS, Stations of path 14, cost 0.704 ms
+Dijkstra, Stations of path 14, cost 0.483 ms
+Astar, Stations of path 14, cost 0.419 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 14, cost 0.368 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 14, cost 0.056 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 14, cost 0.054 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 14, cost 0.434 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 14, cost 0.406 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 14, cost 0.058 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 14, cost 0.059 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 14, cost 0.461 ms, heuristic oct, scaled by 1
+Astar, Stations of path 14, cost 0.436 ms, heuristic oct, scaled by 10
+Astar, Stations of path 14, cost 0.065 ms, heuristic oct, scaled by 100
+Astar, Stations of path 14, cost 0.063 ms, heuristic oct, scaled by 1000
+
+Test of Victoria and Bank begin:
+
+BFS, Stations of path 5, cost 0.152 ms
+Dijkstra, Stations of path 5, cost 0.128 ms
+Astar, Stations of path 5, cost 0.078 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 5, cost 0.07 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 5, cost 0.017 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 5, cost 0.017 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 5, cost 0.081 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 5, cost 0.079 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 5, cost 0.019 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 5, cost 0.019 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 5, cost 0.085 ms, heuristic oct, scaled by 1
+Astar, Stations of path 5, cost 0.084 ms, heuristic oct, scaled by 10
+Astar, Stations of path 5, cost 0.02 ms, heuristic oct, scaled by 100
+Astar, Stations of path 5, cost 0.02 ms, heuristic oct, scaled by 1000
+
+Test of Waterloo and Paddington begin:
+
+BFS, Stations of path 7, cost 0.429 ms
+Dijkstra, Stations of path 7, cost 0.226 ms
+Astar, Stations of path 7, cost 0.206 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 7, cost 0.178 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 7, cost 0.045 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 9, cost 0.042 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 7, cost 0.21 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 7, cost 0.191 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 7, cost 0.041 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 7, cost 0.052 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 7, cost 0.223 ms, heuristic oct, scaled by 1
+Astar, Stations of path 7, cost 0.202 ms, heuristic oct, scaled by 10
+Astar, Stations of path 7, cost 0.047 ms, heuristic oct, scaled by 100
+Astar, Stations of path 7, cost 0.045 ms, heuristic oct, scaled by 1000
+
+Test of Richmond and Loughton begin:
+
+BFS, Stations of path 26, cost 0.941 ms
+Dijkstra, Stations of path 26, cost 0.657 ms
+Astar, Stations of path 26, cost 0.585 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 26, cost 0.522 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 31, cost 0.124 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 33, cost 0.101 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 26, cost 0.592 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 26, cost 0.562 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 27, cost 0.107 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 31, cost 0.12 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 26, cost 0.641 ms, heuristic oct, scaled by 1
+Astar, Stations of path 26, cost 0.605 ms, heuristic oct, scaled by 10
+Astar, Stations of path 27, cost 0.108 ms, heuristic oct, scaled by 100
+Astar, Stations of path 31, cost 0.111 ms, heuristic oct, scaled by 1000
+
+Test of Eastcote and Greenwich begin:
+
+BFS, Stations of path 25, cost 0.996 ms
+Dijkstra, Stations of path 25, cost 0.631 ms
+Astar, Stations of path 25, cost 0.574 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 25, cost 0.526 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 33, cost 0.182 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 36, cost 0.096 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 25, cost 0.605 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 25, cost 0.568 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 33, cost 0.257 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 36, cost 0.107 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 25, cost 0.645 ms, heuristic oct, scaled by 1
+Astar, Stations of path 25, cost 0.604 ms, heuristic oct, scaled by 10
+Astar, Stations of path 33, cost 0.253 ms, heuristic oct, scaled by 100
+Astar, Stations of path 36, cost 0.113 ms, heuristic oct, scaled by 1000
+
+Test of Canning Town and Kenton begin:
+
+BFS, Stations of path 26, cost 1.014 ms
+Dijkstra, Stations of path 26, cost 0.646 ms
+Astar, Stations of path 26, cost 0.589 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 26, cost 0.559 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 27, cost 0.199 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 27, cost 0.253 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 26, cost 0.611 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 26, cost 0.596 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 27, cost 0.268 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 27, cost 0.341 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 26, cost 0.644 ms, heuristic oct, scaled by 1
+Astar, Stations of path 26, cost 0.632 ms, heuristic oct, scaled by 10
+Astar, Stations of path 27, cost 0.283 ms, heuristic oct, scaled by 100
+Astar, Stations of path 28, cost 0.354 ms, heuristic oct, scaled by 1000
+
+Test of Wimbledon and Oakwood begin:
+
+BFS, Stations of path 27, cost 0.888 ms
+Dijkstra, Stations of path 27, cost 0.603 ms
+Astar, Stations of path 27, cost 0.531 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 27, cost 0.477 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 27, cost 0.193 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 32, cost 0.107 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 27, cost 0.557 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 27, cost 0.519 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 27, cost 0.177 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 30, cost 0.092 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 27, cost 0.588 ms, heuristic oct, scaled by 1
+Astar, Stations of path 27, cost 0.54 ms, heuristic oct, scaled by 10
+Astar, Stations of path 27, cost 0.193 ms, heuristic oct, scaled by 100
+Astar, Stations of path 30, cost 0.099 ms, heuristic oct, scaled by 1000
+
+Test of Green Park and Canary Wharf begin:
+
+BFS, Stations of path 8, cost 0.448 ms
+Dijkstra, Stations of path 8, cost 0.31 ms
+Astar, Stations of path 8, cost 0.259 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 8, cost 0.21 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 9, cost 0.042 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 9, cost 0.037 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 8, cost 0.27 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 8, cost 0.234 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 9, cost 0.045 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 9, cost 0.041 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 8, cost 0.283 ms, heuristic oct, scaled by 1
+Astar, Stations of path 8, cost 0.241 ms, heuristic oct, scaled by 10
+Astar, Stations of path 9, cost 0.049 ms, heuristic oct, scaled by 100
+Astar, Stations of path 9, cost 0.043 ms, heuristic oct, scaled by 1000
+
+Test of Mile End and Hammersmith begin:
+
+BFS, Stations of path 14, cost 0.691 ms
+Dijkstra, Stations of path 14, cost 0.474 ms
+Astar, Stations of path 14, cost 0.411 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 14, cost 0.362 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 14, cost 0.053 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 14, cost 0.052 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 14, cost 0.427 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 14, cost 0.399 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 14, cost 0.058 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 14, cost 0.057 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 14, cost 0.458 ms, heuristic oct, scaled by 1
+Astar, Stations of path 14, cost 0.424 ms, heuristic oct, scaled by 10
+Astar, Stations of path 14, cost 0.062 ms, heuristic oct, scaled by 100
+Astar, Stations of path 14, cost 0.061 ms, heuristic oct, scaled by 1000
+
+Test of Victoria and Bank begin:
+
+BFS, Stations of path 5, cost 0.151 ms
+Dijkstra, Stations of path 5, cost 0.126 ms
+Astar, Stations of path 5, cost 0.079 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 5, cost 0.07 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 5, cost 0.018 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 5, cost 0.017 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 5, cost 0.082 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 5, cost 0.076 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 5, cost 0.019 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 5, cost 0.018 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 5, cost 0.084 ms, heuristic oct, scaled by 1
+Astar, Stations of path 5, cost 0.077 ms, heuristic oct, scaled by 10
+Astar, Stations of path 5, cost 0.02 ms, heuristic oct, scaled by 100
+Astar, Stations of path 5, cost 0.019 ms, heuristic oct, scaled by 1000
+
+Test of Waterloo and Paddington begin:
+
+BFS, Stations of path 7, cost 0.423 ms
+Dijkstra, Stations of path 7, cost 0.225 ms
+Astar, Stations of path 7, cost 0.208 ms, heuristic Manh, scaled by 1
+Astar, Stations of path 7, cost 0.172 ms, heuristic Manh, scaled by 10
+Astar, Stations of path 7, cost 0.044 ms, heuristic Manh, scaled by 100
+Astar, Stations of path 9, cost 0.042 ms, heuristic Manh, scaled by 1000
+Astar, Stations of path 7, cost 0.207 ms, heuristic Euc, scaled by 1
+Astar, Stations of path 7, cost 0.184 ms, heuristic Euc, scaled by 10
+Astar, Stations of path 7, cost 0.04 ms, heuristic Euc, scaled by 100
+Astar, Stations of path 7, cost 0.05 ms, heuristic Euc, scaled by 1000
+Astar, Stations of path 7, cost 0.217 ms, heuristic oct, scaled by 1
+Astar, Stations of path 7, cost 0.196 ms, heuristic oct, scaled by 10
+Astar, Stations of path 7, cost 0.049 ms, heuristic oct, scaled by 100
+Astar, Stations of path 7, cost 0.044 ms, heuristic oct, scaled by 1000
