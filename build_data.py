@@ -14,7 +14,6 @@ class Station:
         self.position = position
         self.links = set()
 
-
 def build_data():
     """
     builds the 'map' by reading the data files
@@ -23,6 +22,7 @@ def build_data():
         underground_lines(dict[str, dict]): A mapping between underground lines name and a dictionary containing relevant
                                             information about underground lines
     """
+  
     stations = {}
     underground_lines = {}
     rootdir = os.path.dirname(__file__)
@@ -61,5 +61,9 @@ def build_data():
         underground_lines[lineNumber]['stripe'] = stripe
     stations = {v.name: v for k, v in stations.items()}
     underground_lines = {v['name']: v for k, v in underground_lines.items()}
+    
+    
+    
+
     return stations, underground_lines
 
