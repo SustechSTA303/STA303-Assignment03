@@ -1,33 +1,83 @@
+import time
 from typing import List
+import heapq
 from plot_underground_path import plot_path
 from build_data import Station, build_data
 import argparse
 
 
-# Implement the following function
+class Station:
+    """
+    站点类包含四个属性：id、name、position、links和came_from。
+    Position是经度和纬度的二进制组合
+    Links是与站点对象相邻的站点列表
+    """
+    def __init__(self, id, name, position):
+        self.id = id
+        self.name = name
+        self.position = position
+        self.links = set()
+        self.came_from = None
+
+
+def heuristic_cost_estimate(current, goal):
+    """
+    A heuristic function to estimate the cost from the current station to the goal station.
+    You can customize this function based on your requirements.
+    """
+    # Example: Euclidean distance between two stations' positions
+    return ((current.position[0] - goal.position[0]) ** 2 +
+            (current.position[1] - goal.position[1]) ** 2) ** 0.5
+
+def heuristic_cost_estimate_manhattan(current, goal):
+    """
+    A heuristic function using Manhattan distance to estimate the cost from the current station to the goal station.
+    """
+    return abs(current.position[0] - goal.position[0]) + abs(current.position[1] - goal.position[1])
+
+def heuristic_cost_estimate_chebyshev(current, goal):
+    """
+    A heuristic function using Chebyshev distance to estimate the cost from the current station to the goal station.
+    """
+    return max(abs(current.position[0] - goal.position[0]), abs(current.position[1] - goal.position[1]))
+
+
 def get_path(start_station_name: str, end_station_name: str, map: dict[str, Station]) -> List[str]:
-    """
-    runs astar on the map, find the shortest path between a and b
-    Args:
-        start_station_name(str): The name of the starting station
-        end_station_name(str): str The name of the ending station
-        map(dict[str, Station]): Mapping between station names and station objects of the name,
-                                 Please refer to the relevant comments in the build_data.py
-                                 for the description of the Station class
-    Returns:
-        List[Station]: A path composed of a series of station_name
-    """
-    # You can obtain the Station objects of the starting and ending station through the following code
+    start_time = time.time()
+
     start_station = map[start_station_name]
     end_station = map[end_station_name]
-    # Given a Station object, you can obtain the name and latitude and longitude of that Station by the following code
-    print(f'The longitude and latitude of the {start_station.name} is {start_station.position}')
-    print(f'The longitude and latitude of the {end_station.name} is {end_station.position}')
-    pass
+
+    open_set = [(0, start_station)]
+    g_score = {start_station: 0}
+    f_score = {start_station: heuristic_cost_estimate(start_station, end_station)}
+
+    while open_set:
+        current_cost, current_station = heapq.heappop(open_set)
+
+        if current_station == end_station:
+            path = [current_station.name]
+            while current_station != start_station:
+                current_station = current_station.came_from
+                path.insert(0, current_station.name)
+            end_time = time.time()
+            elapsed_time = end_time - start_time
+            print(f"A* with Euclidean distance algorithm execution time: {elapsed_time} seconds")
+            return path
+
+        for neighbor in current_station.links:
+            tentative_g_score = g_score[current_station] + 1
+
+            if neighbor not in g_score or tentative_g_score < g_score[neighbor]:
+                g_score[neighbor] = tentative_g_score
+                f_score[neighbor] = tentative_g_score + heuristic_cost_estimate(neighbor, end_station)
+                heapq.heappush(open_set, (f_score[neighbor], neighbor))
+                neighbor.came_from = current_station
+
+    return []
 
 
 if __name__ == '__main__':
-
     # 创建ArgumentParser对象
     parser = argparse.ArgumentParser()
     # 添加命令行参数
@@ -37,9 +87,9 @@ if __name__ == '__main__':
     start_station_name = args.start_station_name
     end_station_name = args.end_station_name
 
-    # The relevant descriptions of stations and underground_lines can be found in the build_data.py
+    # 有关站点和地铁线的相关描述可以在build_data.py中找到
     stations, underground_lines = build_data()
     path = get_path(start_station_name, end_station_name, stations)
-    # visualization the path
-    # Open the visualization_underground/my_path_in_London_railway.html to view the path, and your path is marked in red
+    # 可视化路径
+    # 打开visualization_underground/my_path_in_London_railway.html查看路径，你的路径将以红色标记
     plot_path(path, 'visualization_underground/my_shortest_path_in_London_railway.html', stations, underground_lines)
