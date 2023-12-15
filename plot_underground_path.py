@@ -89,6 +89,76 @@ def plot_path(path, output, stations, underground_lines):
     py.plot(fig, filename=output)  # 生成html文件并打开
 
 
+def plot_multiple_paths(paths, output_filename, stations, heuristic_names, underground_lines):
+    mapbox_access_token = (
+        'pk.eyJ1IjoibHVrYXNtYXJ0aW5lbGxpIiwiYSI6ImNpem85dmhwazAy'
+        'ajIyd284dGxhN2VxYnYifQ.HQCmyhEXZUTz3S98FMrVAQ'
+    )
+
+    layout = go.Layout(
+        autosize=True,
+        mapbox=dict(
+            accesstoken=mapbox_access_token,
+            bearing=0,
+            center=dict(lat=51.5074, lon=-0.1278),  # London's latitude and longitude
+            pitch=0,
+            zoom=10
+        ),
+    )
+
+    data = []
+
+    colors = ['red', 'blue', 'green', 'purple', 'yellow', 'gray']  # Define colors for each path
+    for underground_line in underground_lines.values():
+        data.extend([
+
+            # 地铁路线
+            go.Scattermapbox(
+                lat=underground_line['lat'],
+                lon=underground_line['lon'],
+                mode='lines',
+                # 设置路线的参数
+                line=go.scattermapbox.Line(
+                    width=2,
+                    color='black'
+                ),
+                name=underground_line['name'],  # 线路名称，显示在图例（legend）上
+                legendgroup=underground_line['name'],
+                showlegend=False
+            ),
+            go.Scattermapbox(
+                lat=[stations[station_name].position[0] for station_name in underground_line['stations']],  # 路线点经度
+                lon=[stations[station_name].position[1] for station_name in underground_line['stations']],  # 路线点纬度
+                mode='markers',
+                text=[stations[station_name].name for station_name in underground_line['stations']],
+                # 设置标记点的参数
+                marker=go.scattermapbox.Marker(
+                    size=6,
+                    color='black'
+                ),
+                name=underground_line['name'],
+                legendgroup=underground_line['name'],  # 设置与路线同组，当隐藏该路线时隐藏标记点
+                showlegend=False
+            )
+        ]
+        )
+
+    for i, path in enumerate(paths):
+        path_data = go.Scattermapbox(
+            lat=[stations[station_name].position[0] for station_name in path],
+            lon=[stations[station_name].position[1] for station_name in path],
+            mode='markers+lines',
+            text=path,
+            line=go.scattermapbox.Line(width=3, color=colors[i]),
+            marker=go.scattermapbox.Marker(size=8, color=colors[i]),
+            name=heuristic_names[i]
+        )
+        data.append(path_data)
+
+    fig = dict(data=data, layout=layout)
+    py.plot(fig, filename=output_filename)
+
+
 if __name__ == '__main__':
     stations, underground_lines = build_data()
     plot_path(['Acton Town', 'Chiswick Park', 'Turnham Green', 'Stamford Brook'],
