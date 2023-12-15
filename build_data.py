@@ -62,3 +62,31 @@ def build_data():
     underground_lines = {v['name']: v for k, v in underground_lines.items()}
     return stations, underground_lines
 
+
+def build_adjacency_matrix(stations, infinity=float('inf')):
+    """
+    Build an adjacency matrix for the given stations.
+    Args:
+        stations (dict): Mapping between station names and station objects.
+        infinity: Value representing infinity in the matrix.
+    Returns:
+        list of list: Adjacency matrix.
+    """
+    names = list(stations.keys())
+    num_stations = len(names)
+    adjacency_matrix = [[infinity] * num_stations for _ in range(num_stations)]
+
+    for i in range(num_stations):
+        adjacency_matrix[i][i] = 0
+
+    for i, station in enumerate(stations.values()):
+        for neighbor_name in station.links:
+            j = names.index(neighbor_name.name)
+            adjacency_matrix[i][j] = 1  # Assuming equal cost for all edges
+
+    return names, adjacency_matrix
+
+
+if __name__ == "__main__":
+    build_data()
+
