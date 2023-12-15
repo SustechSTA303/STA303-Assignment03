@@ -1,20 +1,34 @@
+from math import log
 from build_data import Station, build_data
 
 
-# The absolute difference in stops
-def heuristic1(node: str, goal: str) -> float:
-    return abs(len(stations[node].links) - len(stations[goal].links))
+stations, underground_lines = build_data()
+
 
 
 # Euclidean distance
-def heuristic2(node: str, goal: str) -> float:
+def euclidean_distance(node: str, goal: str) -> float:
     pos1 = stations[node].position
     pos2 = stations[goal].position
     return ((pos1[0] - pos2[0]) ** 2 + (pos1[1] - pos2[1]) ** 2) ** 0.5
     
     
 # Manhattan distance
-def heuristic3(node: str, goal: str) -> float:
+def manhattan_distance(node: str, goal: str) -> float:
     pos1 = stations[node].position
     pos2 = stations[goal].position
     return abs(pos1[0] - pos2[0]) + abs(pos1[1] - pos2[1])
+
+# Chebyshev_distance
+def chebyshev_distance(node: str, goal: str) -> float:
+    pos1 = stations[node].position
+    pos2 = stations[goal].position
+    return max(abs(pos1[0] - pos2[0]), abs(pos1[1] - pos2[1]))
+
+# Minkowski_distance
+def minkowski_distance(node: str, goal: str, p: float) -> float:
+    pos1 = stations[node].position
+    pos2 = stations[goal].position
+    return ((abs(pos1[0] - pos2[0])**p + abs(pos1[1] - pos2[1])**p)**(1/p))
+
+

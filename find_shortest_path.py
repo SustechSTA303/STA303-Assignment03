@@ -2,8 +2,9 @@ from typing import List
 from plot_underground_path import plot_path
 from build_data import Station, build_data
 import argparse
-from heuristic_functions import heuristic2
-import heapq,,,,
+from heuristic_functions import manhattan_distance, minkowski_distance, chebyshev_distance, euclidean_distance
+import heapq
+import math
 
 
 # Implement the following function
@@ -41,10 +42,14 @@ def get_path(start_station_name: str, end_station_name: str, stations_map: dict[
         for neighbor_name in current_station.links:
             neighbor = stations_map[neighbor_name]
             distance = 1  # You might need to replace this with the actual distance calculation based on coordinates
+            
+            x1, y1 = current_station.position
+            x2, y2 = neighbor.position
+            distance = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
 
             if neighbor not in visited:
                 # Calculate the total cost for the neighbor
-                total_cost = current_cost + distance + heuristic2(neighbor.name, end_station.name)
+                total_cost = current_cost + distance + chebyshev_distance(neighbor.name, end_station.name)
 
                 # Push the neighbor onto the open set with the total cost and updated path
                 heapq.heappush(open_set, (total_cost, neighbor, current_path + [current_station.name]))
