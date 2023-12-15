@@ -22,7 +22,7 @@ def draw_details(time,length,start,end):
     bar_width = 0.45
     index = np.arange(len(data["Time_cost"]))
     bar1 = ax.bar(index, data["Time_cost"], bar_width, label='Time_cost')
-    #bar2 = ax.bar(index + bar_width, data["Path_length"], bar_width, label='Path')
+
     
     cnt = 0
     for bar in bar1 :
@@ -34,8 +34,6 @@ def draw_details(time,length,start,end):
     ax.set_ylabel('Time_costs')
     ax.set_title('Time costs of each algorithm and respective path length')
     ax.set_xticks(index + bar_width / 2,type_, rotation=45, ha='right', fontsize=10)
-    #ax.set_xticklabels([f"{c}" for c in type_])
-    #ax.legend(loc='upper center', ncols = 2)
     plt.tight_layout() 
 
     plt.savefig('output/chart' + f'_{start}&{end}' + '.png')
