@@ -20,8 +20,7 @@ def build_data():
     builds the 'map' by reading the data files
     Returns:
         station(dict[str, Station]): A mapping between station names and station objects of the name
-        underground_lines(dict[str, dict]): A mapping between underground lines name and a dictionary containing relevant
-                                            information about underground lines
+        underground_lines(dict[str, dict]): A mapping between underground lines name and a dictionary containing relevant information about underground lines
     """
     stations = {}
     underground_lines = {}
@@ -59,7 +58,8 @@ def build_data():
         underground_lines[lineNumber]['name'] = name
         underground_lines[lineNumber]['colour'] = colour.upper()
         underground_lines[lineNumber]['stripe'] = stripe
-    stations = {v.name: v for k, v in stations.items()}
+    stations = {v.name: v for k, v in stations.items()}  
+                                    # "v.name: v" means a <key, value> pair with key = v.name and value = v
     underground_lines = {v['name']: v for k, v in underground_lines.items()}
     return stations, underground_lines
 
