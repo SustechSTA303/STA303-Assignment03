@@ -3,7 +3,7 @@ import plotly.offline as py
 from build_data import build_data
 
 
-def plot_path(path, output, stations, underground_lines):
+def plot_path(paths, output, stations, underground_lines, searchs):
     """
     :param path: A list of station name
     :param output: Path to output HTML
@@ -14,10 +14,11 @@ def plot_path(path, output, stations, underground_lines):
     """
 
     # 检测路径是否存在
+    for i in range(1, len(paths)):
+        for j in range(1,len(paths[i])):
+            if stations[paths[i][j]] not in stations[paths[i][j - 1]].links:
+                raise Exception("path is not exist")
 
-    for i in range(1, len(path)):
-        if stations[path[i]] not in stations[path[i - 1]].links:
-            raise Exception("path is not exist")
     mapbox_access_token = (
         'pk.eyJ1IjoibHVrYXNtYXJ0aW5lbGxpIiwiYSI6ImNpem85dmhwazAy'
         'ajIyd284dGxhN2VxYnYifQ.HQCmyhEXZUTz3S98FMrVAQ'
@@ -69,21 +70,27 @@ def plot_path(path, output, stations, underground_lines):
             )
         ]
         )
-    data.append(go.Scattermapbox(
-        lat=[stations[station_name].position[0] for station_name in path],
-        lon=[stations[station_name].position[1] for station_name in path],
-        mode='markers+lines',
-        text=path,
-        line=go.scattermapbox.Line(
-            width=3,
-            color='red'
-        ),
-        marker=go.scattermapbox.Marker(
-            size=8,
-            color='red'
-        ),
-        name='my path'
-    ))
+    
+    colors = ('blue', 'green', 'yellow', 'purple', 'orange', 'red', 'violet',
+              'navy', 'crimson', 'cyan', 'magenta', 'maroon', 'peru')
+#     searchs = ['Dijkstra','Best-First-Search','A* Euclidean distance','A* Octile distance','A* Manhattan distance',
+#            'A* Chebyshev distance']
+    for path, color, search in zip(paths, colors,searchs):
+        data.append(go.Scattermapbox(
+            lat=[stations[station_name].position[0] for station_name in path],
+            lon=[stations[station_name].position[1] for station_name in path],
+            mode='markers+lines',
+            text=path,
+            line=go.scattermapbox.Line(
+                width=3,
+                color=color
+            ),
+            marker=go.scattermapbox.Marker(
+                size=8,
+                color=color
+            ),
+            name= search
+        ))
 
     fig = dict(data=data, layout=layout)
     py.plot(fig, filename=output)  # 生成html文件并打开
@@ -92,4 +99,4 @@ def plot_path(path, output, stations, underground_lines):
 if __name__ == '__main__':
     stations, underground_lines = build_data()
     plot_path(['Acton Town', 'Chiswick Park', 'Turnham Green', 'Stamford Brook'],
-              'visualization_underground/my_path_in_London_railway.html', stations, underground_lines)
+              'visualization_underground/my_path_in_London_railway.html', stations, underground_lines,'my path')

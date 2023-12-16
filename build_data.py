@@ -1,5 +1,6 @@
 import csv
 import os
+import math
 
 
 class Station:
@@ -13,7 +14,12 @@ class Station:
         self.name = name
         self.position = position
         self.links = set()
-
+        self.parent = None
+        self.cost = 0
+        self.h = 0
+        self.f = 0
+        self.visited = False
+        
 
 def build_data():
     """
