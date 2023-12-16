@@ -66,6 +66,8 @@ def plot_underground_lines(output, stations, underground_lines):
 
     fig = dict(data=data, layout=layout)
     py.plot(fig, filename=output)  # 生成html文件并打开
+    
+    
 
 
 if __name__ == '__main__':
