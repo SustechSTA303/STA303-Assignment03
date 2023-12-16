@@ -14,7 +14,6 @@ class Station:
         self.position = position
         self.links = set()
 
-
 def build_data():
     """
     builds the 'map' by reading the data files
