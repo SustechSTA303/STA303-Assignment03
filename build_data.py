@@ -13,6 +13,24 @@ class Station:
         self.name = name
         self.position = position
         self.links = set()
+        
+    def __lt__(self, other):
+        # 比较两个站点的名称
+        return self.name < other.name
+        
+
+#     def get_heuristic_manhattan(self, goal_station):
+#         # 使用曼哈顿距离作为启发式函数
+#         lat1, lon1 = self.position
+#         lat2, lon2 = goal_station.position
+#         return abs(lat2 - lat1) + abs(lon2 - lon1)
+    
+
+#     def heuristic(station_a: Station, station_b: Station) -> float:
+#         # Define a heuristic function here (e.g., Euclidean distance between positions)
+#         # For example:
+#         return ((station_a.position[0] - station_b.position[0]) ** 2 +
+#                 (station_a.position[1] - station_b.position[1]) ** 2) ** 0.5
 
 
 def build_data():
