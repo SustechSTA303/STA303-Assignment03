@@ -24,7 +24,6 @@ def build_data():
                                             information about underground lines
     """
     stations = {}
-    underground_lines = {}
     rootdir = os.path.dirname(__file__)
     r = csv.reader(open(os.path.join(rootdir, 'london/underground_stations.csv')))
     next(r)  # jump the first line
@@ -37,6 +36,7 @@ def build_data():
 
     r = csv.reader(open(os.path.join(rootdir, 'london/underground_routes.csv')))
     next(r)  # jump the first line
+    underground_lines = {}
     for id1, id2, lineNumber in r:
         id1 = int(id1)
         id2 = int(id2)
