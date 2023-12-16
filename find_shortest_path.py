@@ -2,44 +2,167 @@ from typing import List
 from plot_underground_path import plot_path
 from build_data import Station, build_data
 import argparse
+from queue import PriorityQueue
+from collections.abc import Iterable
+import math
+import time
+import heapq
 
 
-# Implement the following function
-def get_path(start_station_name: str, end_station_name: str, map: dict[str, Station]) -> List[str]:
-    """
-    runs astar on the map, find the shortest path between a and b
-    Args:
-        start_station_name(str): The name of the starting station
-        end_station_name(str): str The name of the ending station
-        map(dict[str, Station]): Mapping between station names and station objects of the name,
-                                 Please refer to the relevant comments in the build_data.py
-                                 for the description of the Station class
-    Returns:
-        List[Station]: A path composed of a series of station_name
-    """
-    # You can obtain the Station objects of the starting and ending station through the following code
+def haversine(lat1, lon1, lat2, lon2):
+    R = 6371  # radius of Earth in kilometers
+    phi1 = math.radians(lat1)
+    phi2 = math.radians(lat2)
+    delta_phi = math.radians(lat2 - lat1)
+    delta_lambda = math.radians(lon2 - lon1)
+    a = math.sin(delta_phi / 2)**2 + math.cos(phi1) * math.cos(phi2) * math.sin(delta_lambda / 2)**2
+    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+    return R * c
+
+def d(neighbor, station):
+    lat1, lon1 = station.position
+    lat2, lon2 = neighbor.position
+    return haversine(lat1, lon1, lat2, lon2)
+
+def ucs(graph, home, destination):
+    if home not in graph:
+        raise TypeError(str(home) + ' not found in graph!')
+    if destination not in graph:
+        raise TypeError(str(destination) + ' not found in graph!')
+
+    queue = PriorityQueue()
+    queue.put((0, [home]))
+    visited = set()
+
+    while not queue.empty():
+        cost, path = queue.get()
+        current = path[-1]
+
+        if current == destination:
+            return (cost, path)
+        
+        if current not in visited:
+            visited.add(current)
+            for neighbor, neighbor_cost in graph[current].items():
+                if neighbor not in visited:
+                    total_cost = cost + neighbor_cost
+                    queue.put((total_cost, path + [neighbor]))
+    
+    return None
+
+def get_path_ucs(start_station_name: str, end_station_name: str, map: dict[str, Station]) -> List[str]:
+    # Convert the map to a format that the ucs function can understand
+    graph = {station_name: {neighbor.name: d(neighbor, station) for neighbor in station.links} for station_name, station in map.items()}
+
+    # Run the ucs function
+    start_time = time.time()
+    result = ucs(graph, start_station_name, end_station_name)
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+    
+    if result is None:
+        print("No path found from", start_station_name, "to", end_station_name)
+        return None
+
+    cost, path = result
+    print("Path found with total cost", cost, "km")
+    print("Elapsed time of Uniform Cost Search: ", elapsed_time, "seconds")
+    return path, elapsed_time
+
+def heuristic1(a, b):
+    (x1, y1) = a.position
+    (x2, y2) = b.position
+    return abs(x1 - x2) + abs(y1 - y2)
+
+def get_path_A_star1(start_station_name: str, end_station_name: str, map: dict[str, Station]) -> List[str]:
+    start_time = time.time()
     start_station = map[start_station_name]
     end_station = map[end_station_name]
-    # Given a Station object, you can obtain the name and latitude and longitude of that Station by the following code
-    print(f'The longitude and latitude of the {start_station.name} is {start_station.position}')
-    print(f'The longitude and latitude of the {end_station.name} is {end_station.position}')
-    pass
+
+    queue = []
+    heapq.heappush(queue, (0, start_station))
+
+    came_from = {}
+    cost_so_far = {}
+    came_from[start_station] = None
+    cost_so_far[start_station] = 0
+
+    while queue:
+        _, current = heapq.heappop(queue)
+
+        if current == end_station:
+            break
+
+        for neighbor in current.links:
+            new_cost = cost_so_far[current] + d(current, neighbor)
+            if neighbor not in cost_so_far or new_cost < cost_so_far[neighbor]:
+                cost_so_far[neighbor] = new_cost
+                priority = new_cost + heuristic1(end_station, neighbor)
+                heapq.heappush(queue, (priority, neighbor))
+                came_from[neighbor] = current
+
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+    print("Elapsed time of A*: ", elapsed_time, "seconds")
+    
+    if end_station not in came_from:
+        return None
+
+    current = end_station
+    path = []
+    while current is not None:
+        path.append(current.name)
+        current = came_from[current]
+    path.reverse()
+
+    return path, elapsed_time
+
+def heuristic2(a, b):
+    lat1, lon1 = a.position
+    lat2, lon2 = b.position
+    return haversine(lat1, lon1, lat2, lon2)
+
+def get_path_A_star2(start_station_name: str, end_station_name: str, map: dict[str, Station]) -> List[str]:
+    start_time = time.time()
+    start_station = map[start_station_name]
+    end_station = map[end_station_name]
+
+    queue = []
+    heapq.heappush(queue, (0, start_station))
+
+    came_from = {}
+    cost_so_far = {}
+    came_from[start_station] = None
+    cost_so_far[start_station] = 0
+
+    while queue:
+        _, current = heapq.heappop(queue)
+
+        if current == end_station:
+            break
+
+        for neighbor in current.links:
+            new_cost = cost_so_far[current] + d(current, neighbor)
+            if neighbor not in cost_so_far or new_cost < cost_so_far[neighbor]:
+                cost_so_far[neighbor] = new_cost
+                priority = new_cost + heuristic2(end_station, neighbor)
+                heapq.heappush(queue, (priority, neighbor))
+                came_from[neighbor] = current
+
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+    print("Elapsed time of A*: ", elapsed_time, "seconds")
+    
+    if end_station not in came_from:
+        return None
+
+    current = end_station
+    path = []
+    while current is not None:
+        path.append(current.name)
+        current = came_from[current]
+    path.reverse()
+
+    return path, elapsed_time
 
 
-if __name__ == '__main__':
-
-    # 创建ArgumentParser对象
-    parser = argparse.ArgumentParser()
-    # 添加命令行参数
-    parser.add_argument('start_station_name', type=str, help='start_station_name')
-    parser.add_argument('end_station_name', type=str, help='end_station_name')
-    args = parser.parse_args()
-    start_station_name = args.start_station_name
-    end_station_name = args.end_station_name
-
-    # The relevant descriptions of stations and underground_lines can be found in the build_data.py
-    stations, underground_lines = build_data()
-    path = get_path(start_station_name, end_station_name, stations)
-    # visualization the path
-    # Open the visualization_underground/my_path_in_London_railway.html to view the path, and your path is marked in red
-    plot_path(path, 'visualization_underground/my_shortest_path_in_London_railway.html', stations, underground_lines)
