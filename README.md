@@ -1,8 +1,8 @@
 ## Assignment3: Find the shortest path in underground lines 
 ### File Description
 - [london](london) 
-  - [underground_lines.csv](london%2Funderground_lines.csv)(London Underground lines Data)
-  - [underground_routes.csv](london%2Funderground_routes.csv)(Detailed data of London Underground lines)
+  - [underground_lines.csv](london%2Funderground_lines.csv)(London Underground lines Data, different lines in different colors)
+  - [underground_routes.csv](london%2Funderground_routes.csv)(Detailed data of London Underground lines, the link between stations and the line where the links belong to)
   - [underground_stations.csv](london%2Funderground_stations.csv)(London Underground stations Data)
 - [visualization_underground](visualization_underground)
   - [London_railway.html](visualization_underground%2FLondon_railway.html)(London Underground Route Map)
